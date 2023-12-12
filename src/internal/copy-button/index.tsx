@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import Button from "@cloudscape-design/components/button";
 import Popover from "@cloudscape-design/components/popover";
 import StatusIndicator from "@cloudscape-design/components/status-indicator";
+import React, { useState } from "react";
 
 export interface CopyButtonProps {
   /**
@@ -25,15 +27,8 @@ export interface CopyButtonProps {
   errorText: string;
 }
 
-export default function CopyButton({
-  content,
-  buttonAriaLabel,
-  successText,
-  errorText,
-}: CopyButtonProps) {
-  const [copyResult, setResult] = useState<"pending" | "success" | "error">(
-    "pending"
-  );
+export default function CopyButton({ content, buttonAriaLabel, successText, errorText }: CopyButtonProps) {
+  const [copyResult, setResult] = useState<"pending" | "success" | "error">("pending");
   return (
     <Popover
       size="small"
@@ -48,9 +43,7 @@ export default function CopyButton({
           case "error":
             return <StatusIndicator type="error">{errorText}</StatusIndicator>;
           case "success":
-            return (
-              <StatusIndicator type="success">{successText}</StatusIndicator>
-            );
+            return <StatusIndicator type="success">{successText}</StatusIndicator>;
         }
       })()}
     >
@@ -62,7 +55,7 @@ export default function CopyButton({
           setResult("pending");
           navigator.clipboard.writeText(content).then(
             () => setResult("success"),
-            () => setResult("error")
+            () => setResult("error"),
           );
         }}
       />

@@ -1,5 +1,7 @@
-import { tokenize } from "ace-code/src/ext/simple_tokenizer";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import type { Ace } from "ace-code";
+import { tokenize } from "ace-code/src/ext/simple_tokenizer";
 
 import "./theme.css";
 
@@ -18,7 +20,7 @@ export function createHighlight(rules: Ace.HighlightRules) {
                 </span>
               ) : (
                 token.value
-              )
+              ),
             )}
             {"\n"}
           </>

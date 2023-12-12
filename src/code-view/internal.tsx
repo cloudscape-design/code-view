@@ -1,7 +1,9 @@
-import clsx from "clsx";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import Box from "@cloudscape-design/components/box";
-import * as classes from "./styles.css";
+import clsx from "clsx";
 import { CodeViewProps } from "./interfaces";
+import * as classes from "./styles.css";
 
 function getLineNumbers(content: string) {
   return content.split("\n").map((_, n) => n + 1);
@@ -18,7 +20,7 @@ export function InternalCodeView({ content, copyButton, lineNumbers, highlight }
         classes.root,
         ACE_CLASSES,
         lineNumbers && classes.rootWithNumbers,
-        copyButton && classes.rootWithCopyButton
+        copyButton && classes.rootWithCopyButton,
       )}
     >
       {lineNumbers && (

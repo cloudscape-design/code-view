@@ -1,5 +1,7 @@
-import { createGlobalTheme, createThemeContract, style } from "@vanilla-extract/css";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import * as tokens from "@cloudscape-design/design-tokens";
+import { createGlobalTheme, createThemeContract, style } from "@vanilla-extract/css";
 
 const vars = createThemeContract({
   colorBackgroundCode: null,

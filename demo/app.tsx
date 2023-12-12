@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import Box from "@cloudscape-design/components/box";
 import Header from "@cloudscape-design/components/header";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import Toggle from "@cloudscape-design/components/toggle";
-import { Navigation } from "./navigation";
+import { Mode, applyMode } from "@cloudscape-design/global-styles";
+import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { applyMode, Mode } from "@cloudscape-design/global-styles";
 import "@cloudscape-design/global-styles/index.css";
 
 import { Demos } from "./demos";
 import Docs from "./docs";
+import { Navigation } from "./navigation";
 import "./styles.module.scss";
 
 function App() {
   const [dark, setDark] = useState(false);
 
-  useEffect(
-    () => applyMode(dark ? Mode.Dark : Mode.Light, document.documentElement),
-    [dark]
-  );
+  useEffect(() => applyMode(dark ? Mode.Dark : Mode.Light, document.documentElement), [dark]);
 
   return (
     <Box margin="m">
@@ -28,10 +27,7 @@ function App() {
           variant="h1"
           actions={
             <SpaceBetween size="xs" direction="horizontal">
-              <Toggle
-                checked={dark}
-                onChange={(event) => setDark(event.detail.checked)}
-              >
+              <Toggle checked={dark} onChange={(event) => setDark(event.detail.checked)}>
                 Dark mode
               </Toggle>
             </SpaceBetween>

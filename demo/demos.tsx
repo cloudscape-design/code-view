@@ -1,22 +1,18 @@
-import React, { Suspense, useState } from "react";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
+import type { NonCancelableCustomEvent } from "@cloudscape-design/components";
+import Header from "@cloudscape-design/components/header";
 import StatusIndicator from "@cloudscape-design/components/status-indicator";
 import Tabs, { TabsProps } from "@cloudscape-design/components/tabs";
-import Header from "@cloudscape-design/components/header";
+import React, { Suspense, useState } from "react";
 import CodeView from "../dist/code-view";
-import type { NonCancelableCustomEvent } from "@cloudscape-design/components";
 
 import codeJs from "./fixtures/code.js?raw";
 
-function LazyLoad({
-  loader,
-}: {
-  loader: () => Promise<{ default: React.ComponentType }>;
-}) {
+function LazyLoad({ loader }: { loader: () => Promise<{ default: React.ComponentType }> }) {
   const Component = React.lazy(loader);
   return (
-    <Suspense
-      fallback={<StatusIndicator type="loading">Loading view</StatusIndicator>}
-    >
+    <Suspense fallback={<StatusIndicator type="loading">Loading view</StatusIndicator>}>
       <Component />
     </Suspense>
   );
@@ -45,9 +41,7 @@ const examples: Array<TabsProps.Tab> = [
     label: "Line numbers",
     content: (
       <>
-        <Header description="The component may render line numbers, if needed">
-          Line numbers
-        </Header>
+        <Header description="The component may render line numbers, if needed">Line numbers</Header>
         <CodeView lineNumbers={true} content={codeJs} />
       </>
     ),
@@ -55,9 +49,7 @@ const examples: Array<TabsProps.Tab> = [
   {
     id: "horizontal-scroll",
     label: "Horizontal scroll",
-    content: (
-      <LazyLoad loader={() => import("./components/horizontal-scroll")} />
-    ),
+    content: <LazyLoad loader={() => import("./components/horizontal-scroll")} />,
   },
   {
     id: "vertical-scroll",

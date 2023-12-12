@@ -1,3 +1,5 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import typescript from "@rollup/plugin-typescript";
 import { vanillaExtractPlugin } from "@vanilla-extract/rollup-plugin";
 

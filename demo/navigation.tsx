@@ -1,6 +1,6 @@
-import AnchorNavigation, {
-  AnchorNavigationProps,
-} from "@cloudscape-design/components/anchor-navigation";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
+import AnchorNavigation, { AnchorNavigationProps } from "@cloudscape-design/components/anchor-navigation";
 import Header from "@cloudscape-design/components/header";
 import classes from "./styles.module.scss";
 

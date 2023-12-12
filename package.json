@@ -8,7 +8,7 @@
   "scripts": {
     "prebuild": "rm -rf dist && mkdir dist",
     "prepublishOnly": "npm run build",
-    "lint": "eslint --ignore-path .gitignore --ext ts,tsx,js .",
+    "lint": "eslint --ignore-path .gitignore --ext ts,tsx,js --fix .",
     "build": "npm-run-all build:*",
     "build:environment": "node scripts/environment",
     "build:index": "cp src/index.* dist",

@@ -1,8 +1,10 @@
-import React from "react";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import ExpandableSection from "@cloudscape-design/components/expandable-section";
+import SpaceBetween from "@cloudscape-design/components/space-between";
+import React from "react";
 import CodeView from "../../dist/code-view";
 import jsHighlight from "../../dist/highlight/javascript";
-import SpaceBetween from "@cloudscape-design/components/space-between";
 
 interface CodeSnippetProps {
   Component: React.ComponentType;

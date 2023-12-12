@@ -1,11 +1,13 @@
-import React from "react";
-import Header from "@cloudscape-design/components/header";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import Box from "@cloudscape-design/components/box";
+import Header from "@cloudscape-design/components/header";
+import React from "react";
 
-import classes from "./styles.module.scss";
+import { Api } from "./api";
 import { Features } from "./features";
 import { Installation } from "./installation";
-import { Api } from "./api";
+import classes from "./styles.module.scss";
 
 export default function Docs() {
   return (

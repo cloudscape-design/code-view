@@ -1,7 +1,9 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import React from "react";
 import CodeView from "../../dist/code-view";
-import CopyButton from "../../dist/internal/copy-button";
 import jsHighlight from "../../dist/highlight/javascript";
+import CopyButton from "../../dist/internal/copy-button";
 
 const code = `function hello() {
   console.log("Hello, world!");

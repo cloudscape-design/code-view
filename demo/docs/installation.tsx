@@ -1,6 +1,8 @@
-import React from "react";
-import Header from "@cloudscape-design/components/header";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
 import Box from "@cloudscape-design/components/box";
+import Header from "@cloudscape-design/components/header";
+import React from "react";
 import CodeView from "../../dist/code-view";
 import jsonHighlight from "../../dist/highlight/json";
 
