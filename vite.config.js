@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react({ fastRefresh: false })],
   resolve: {
     alias: {
-      "@amzn/awsui-community-code-view": __dirname + "/dist",
+      "@cloudscape-design/code-view": __dirname + "/dist",
     },
   },
   build: {

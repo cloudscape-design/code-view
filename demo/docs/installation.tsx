@@ -29,7 +29,7 @@ export function Installation() {
       <CodeView
         highlight={jsonHighlight}
         content={`"devDependencies": {
-  "@amzn/awsui-community-code-view": "*",
+  "@cloudscape-design/code-view": "*",
 }`}
       />
     </div>

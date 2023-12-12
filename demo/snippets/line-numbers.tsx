@@ -1,5 +1,5 @@
-import CodeView from "@amzn/awsui-community-code-view/code-view";
-import jsHighlight from "@amzn/awsui-community-code-view/highlight/javascript";
+import CodeView from "@cloudscape-design/code-view/code-view";
+import jsHighlight from "@cloudscape-design/code-view/highlight/javascript";
 import React from "react";
 
 export default function () {

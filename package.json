@@ -1,5 +1,5 @@
 {
-  "name": "@amzn/awsui-community-code-view",
+  "name": "@cloudscape-design/code-view",
   "type": "module",
   "version": "1.0.0",
   "license": "UNLICENSED",
@@ -9,6 +9,7 @@
     "prebuild": "rm -rf dist && mkdir dist",
     "prepublishOnly": "npm run build",
     "build": "npm-run-all build:*",
+    "build:environment": "node scripts/environment",
     "build:index": "cp src/index.* dist",
     "build:highlight-ace": "sass src/highlight/theme.scss dist/highlight/theme.css",
     "build:highlight": "tsc -p src/highlight/tsconfig.json",

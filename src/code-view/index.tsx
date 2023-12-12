@@ -1,52 +1,15 @@
-import clsx from "clsx";
-import Box from "@cloudscape-design/components/box";
-import * as classes from "./styles.css";
-import { CodeViewProps } from "./interfaces";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
+import useBaseComponent from "../internal/base-component/use-base-component";
+import { applyDisplayName } from "../internal/utils/apply-display-name";
+import type { CodeViewProps } from "./interfaces";
+import { InternalCodeView } from "./internal";
 
-export { CodeViewProps };
+export type { CodeViewProps };
 
-function getLineNumbers(content: string) {
-  return content.split("\n").map((_, n) => n + 1);
+export default function CodeView(props: CodeViewProps) {
+  const baseComponentProps = useBaseComponent("CodeView");
+  return <InternalCodeView {...props} {...baseComponentProps} />;
 }
 
-const ACE_CLASSES = ["ace-cloud_editor", "ace-cloud_editor_dark"];
-
-export default function CodeView({
-  content,
-  copyButton,
-  lineNumbers,
-  highlight,
-}: CodeViewProps) {
-  const code = highlight ? highlight(content) : <span>{content}</span>;
-
-  return (
-    <div
-      className={clsx(
-        classes.root,
-        ACE_CLASSES,
-        lineNumbers && classes.rootWithNumbers,
-        copyButton && classes.rootWithCopyButton
-      )}
-    >
-      {lineNumbers && (
-        <div className={classes.lineNumbers} aria-hidden={true}>
-          {getLineNumbers(content).map((number) => (
-            <div key={number}>{number}</div>
-          ))}
-        </div>
-      )}
-      <pre
-        className={clsx(
-          classes.code,
-          lineNumbers && classes.codeWithNumbers,
-          copyButton && classes.codeWithCopy
-        )}
-      >
-        <Box variant="code" fontSize="body-m">
-          {code}
-        </Box>
-      </pre>
-      {copyButton && <div className={classes.copyButton}>{copyButton}</div>}
-    </div>
-  );
-}
+applyDisplayName(CodeView, "CodeView");

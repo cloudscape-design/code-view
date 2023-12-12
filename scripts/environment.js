@@ -6,7 +6,7 @@ const pkg = JSON.parse(fs.readFileSync("package.json", "utf-8"));
 const gitCommitVersion = (process.env.GITHUB_SHA || "HEAD").slice(0, 8);
 const packageVersion = `${pkg.version} (${gitCommitVersion})`;
 
-const basePath = "lib/components/internal/environment";
+const basePath = "dist/internal/environment";
 const values = {
   PACKAGE_SOURCE: "code-view",
   PACKAGE_VERSION: packageVersion,

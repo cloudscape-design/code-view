@@ -13,10 +13,7 @@ export function Api() {
       <SpaceBetween size="m">
         <div id="code-view">
           <Header variant="h3">&lt;CodeView/&gt;</Header>
-          <CodeView
-            content={'import CodeView from "@amzn/awsui-community-code-view";'}
-            highlight={jsHighlight}
-          />
+          <CodeView content={'import CodeView from "@cloudscape-design/code-view";'} highlight={jsHighlight} />
           <CodeView
             content={`interface CodeViewProps {
   /**
@@ -55,9 +52,7 @@ export function Api() {
             component, as well as standalone in any other context
           </Box>
           <CodeView
-            content={
-              'import CopyButton from "@amzn/awsui-community-code-view/copy-button";'
-            }
+            content={'import CopyButton from "@cloudscape-design/code-view/copy-button";'}
             highlight={jsHighlight}
           />
           <CodeView
@@ -89,16 +84,13 @@ export function Api() {
         <div id="syntax-highlight">
           <Header variant="h3">Syntax highlight</Header>
           <Box variant="p">
-            Syntax highlight is distributed as a separate import to reduce
-            bundle size for consumers who do not need this feature
+            Syntax highlight is distributed as a separate import to reduce bundle size for consumers who do not need
+            this feature
           </Box>
 
-          <Box variant="p">
-            Using a predefined highlight (Javascript, JSON, XML, and YAML are
-            available)
-          </Box>
+          <Box variant="p">Using a predefined highlight (Javascript, JSON, XML, and YAML are available)</Box>
           <CodeView
-            content={`import jsHighlight from "@amzn/awsui-community-code-view/highlight/javascript";
+            content={`import jsHighlight from "@cloudscape-design/code-view/highlight/javascript";
 
 <CodeView content="your content" highlight={jsHighlight} />`}
             highlight={jsHighlight}
@@ -106,17 +98,14 @@ export function Api() {
 
           <Box variant="p">Using your custom (we use CSS as an example)</Box>
           <CodeView
-            content={`import { createHighlight } from "@amzn/awsui-community-code-view/highlight";
+            content={`import { createHighlight } from "@cloudscape-design/code-view/highlight";
 import "prismjs/components/prism-css";
 
 <CodeView content="your css" highlight={createHighlight} />
 `}
             highlight={jsHighlight}
           />
-          <CodeView
-            content={`type CreateHighlightFn = (language: string) => HighlightFn`}
-            highlight={jsHighlight}
-          />
+          <CodeView content={`type CreateHighlightFn = (language: string) => HighlightFn`} highlight={jsHighlight} />
         </div>
       </SpaceBetween>
     </div>
