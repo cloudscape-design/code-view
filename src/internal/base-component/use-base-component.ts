@@ -2,9 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 import { initAwsUiVersions, useComponentMetadata } from "@cloudscape-design/component-toolkit/internal";
 import { MutableRefObject } from "react";
-import { PACKAGE_SOURCE, PACKAGE_VERSION } from "../environment";
+import { PACKAGE_SOURCE, PACKAGE_VERSION } from "../../../dist/internal/environment";
 import { useTelemetry } from "./use-telemetry";
-
 initAwsUiVersions(PACKAGE_SOURCE, PACKAGE_VERSION);
 
 export interface InternalBaseComponentProps {
