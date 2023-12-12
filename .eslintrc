@@ -132,7 +132,8 @@
             "rules": {
                 // useBrowser is not a React hook
                 "react-hooks/rules-of-hooks": "off",
-                "react-hooks/exhaustive-deps": "off"
+                "react-hooks/exhaustive-deps": "off",
+                "no-restricted-imports": "off"
             },
             "env": {
                 "jest": true
