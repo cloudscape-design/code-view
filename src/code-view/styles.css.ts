@@ -1,8 +1,4 @@
-import {
-  createGlobalTheme,
-  createThemeContract,
-  style,
-} from "@vanilla-extract/css";
+import { createGlobalTheme, createThemeContract, style } from "@vanilla-extract/css";
 import * as tokens from "@cloudscape-design/design-tokens";
 
 const vars = createThemeContract({
@@ -13,7 +9,7 @@ createGlobalTheme(":root", vars, {
   colorBackgroundCode: "#f4f4f4",
   colorBackgroundButton: "rgba(244, 244, 244, 0.8)",
 });
-createGlobalTheme(".awsui-polaris-dark-mode", vars, {
+createGlobalTheme(".awsui-dark-mode", vars, {
   colorBackgroundCode: "#000716",
   colorBackgroundButton: "rgba(0, 7, 22, 0.8)",
 });
