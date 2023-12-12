@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@amzn/awsui-components-react-v3/polaris/header";
+import Header from "@cloudscape-design/components/header";
 import CodeView from "../../dist/code-view";
 import logTxt from "../fixtures/log.txt?raw";
 import classes from "./styles.module.scss";

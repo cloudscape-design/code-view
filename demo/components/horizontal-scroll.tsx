@@ -2,7 +2,7 @@ import React from "react";
 import logTxt from "../fixtures/log.txt?raw";
 import CodeView from "../../dist/code-view";
 import CopyButton from "../../dist/internal/copy-button";
-import Header from "@amzn/awsui-components-react-v3/polaris/header";
+import Header from "@cloudscape-design/components/header";
 import classes from "./styles.module.scss";
 
 export default function HorizontalScroll() {

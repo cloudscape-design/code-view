@@ -1,11 +1,11 @@
-html:not(.awsui-polaris-dark-mode) body:not(.awsui-polaris-dark-mode) {
+html:not(.awsui-dark-mode) body:not(.awsui-dark-mode) {
   @import "../../node_modules/ace-code/styles/theme/cloud_editor";
   .ace-cloud_editor {
     background: none;
   }
 }
 
-.awsui-polaris-dark-mode {
+.awsui-dark-mode {
   @import "../../node_modules/ace-code/styles/theme/cloud_editor_dark";
   .ace-cloud_editor_dark {
     background: none;

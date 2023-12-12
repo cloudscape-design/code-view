@@ -1,12 +1,14 @@
 import React from "react";
-import Header from "@amzn/awsui-components-react-v3/polaris/header";
+import Header from "@cloudscape-design/components/header";
 import { CodeView, CopyButton } from "../../dist";
 import commandsSh from "../fixtures/commands.sh?raw";
 
 export default function CopyableCode() {
   return (
     <>
-      <Header description="Code snippet with a copy to clipboard button">Copyable demo</Header>
+      <Header description="Code snippet with a copy to clipboard button">
+        Copyable demo
+      </Header>
       <CodeView
         content={commandsSh}
         copyButton={

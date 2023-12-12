@@ -1,8 +1,9 @@
 import clsx from "clsx";
-import React from "react";
-import Box from "@amzn/awsui-components-react-v3/polaris/box";
+import Box from "@cloudscape-design/components/box";
 import * as classes from "./styles.css";
 import { CodeViewProps } from "./interfaces";
+
+export { CodeViewProps };
 
 function getLineNumbers(content: string) {
   return content.split("\n").map((_, n) => n + 1);

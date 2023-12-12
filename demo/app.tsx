@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
-import Box from "@amzn/awsui-components-react-v3/polaris/box";
-import Header from "@amzn/awsui-components-react-v3/polaris/header";
-import SpaceBetween from "@amzn/awsui-components-react-v3/polaris/space-between";
-import Toggle from "@amzn/awsui-components-react-v3/polaris/toggle";
+import Box from "@cloudscape-design/components/box";
+import Header from "@cloudscape-design/components/header";
+import SpaceBetween from "@cloudscape-design/components/space-between";
+import Toggle from "@cloudscape-design/components/toggle";
 import { Navigation } from "./navigation";
 import { createRoot } from "react-dom/client";
-import { applyMode, isVisualRefreshActive, Mode } from "@amzn/awsui-global-styles";
-import "@amzn/awsui-global-styles/polaris.css";
+import { applyMode, Mode } from "@cloudscape-design/global-styles";
+import "@cloudscape-design/global-styles/index.css";
 
 import { Demos } from "./demos";
 import Docs from "./docs";
 import "./styles.module.scss";
 
-if (new URLSearchParams(location.search).get("visual-refresh") === "true") {
-  document.documentElement.classList.add("awsui-visual-refresh");
-}
-
 function App() {
   const [dark, setDark] = useState(false);
 
-  useEffect(() => applyMode(dark ? Mode.Dark : Mode.Light, document.documentElement), [dark]);
+  useEffect(
+    () => applyMode(dark ? Mode.Dark : Mode.Light, document.documentElement),
+    [dark]
+  );
 
   return (
     <Box margin="m">
@@ -30,20 +29,9 @@ function App() {
           actions={
             <SpaceBetween size="xs" direction="horizontal">
               <Toggle
-                checked={isVisualRefreshActive()}
-                onChange={(event) => {
-                  const params = new URLSearchParams(location.search);
-                  if (event.detail.checked) {
-                    params.set("visual-refresh", "true");
-                  } else {
-                    params.delete("visual-refresh");
-                  }
-                  location.search = params.toString();
-                }}
+                checked={dark}
+                onChange={(event) => setDark(event.detail.checked)}
               >
-                Visual refresh
-              </Toggle>
-              <Toggle checked={dark} onChange={(event) => setDark(event.detail.checked)}>
                 Dark mode
               </Toggle>
             </SpaceBetween>

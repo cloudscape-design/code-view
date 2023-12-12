@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "@amzn/awsui-components-react-v3/polaris/header";
-import Box from "@amzn/awsui-components-react-v3/polaris/box";
+import Header from "@cloudscape-design/components/header";
+import Box from "@cloudscape-design/components/box";
 import CodeView from "../../dist/code-view";
 import jsonHighlight from "../../dist/highlight/json";
 

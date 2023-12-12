@@ -1,5 +1,9 @@
-import { createGlobalTheme, createThemeContract, style } from "@vanilla-extract/css";
-import * as awsui from "@amzn/awsui-design-tokens";
+import {
+  createGlobalTheme,
+  createThemeContract,
+  style,
+} from "@vanilla-extract/css";
+import * as tokens from "@cloudscape-design/design-tokens";
 
 const vars = createThemeContract({
   colorBackgroundCode: null,
@@ -48,10 +52,10 @@ export const lineNumbers = style({
   alignItems: "flex-end",
   borderRightWidth: 1,
   borderRightStyle: "solid",
-  borderRightColor: awsui.colorBorderDividerDefault,
+  borderRightColor: tokens.colorBorderDividerDefault,
 });
 
 export const copyButton = style({
   flex: "0 0 auto",
-  paddingLeft: awsui.spaceContainerHorizontal,
+  paddingLeft: tokens.spaceContainerHorizontal,
 });

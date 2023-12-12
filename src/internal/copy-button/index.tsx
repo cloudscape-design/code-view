@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Button from "@amzn/awsui-components-react-v3/polaris/button";
-import Popover from "@amzn/awsui-components-react-v3/polaris/popover";
-import StatusIndicator from "@amzn/awsui-components-react-v3/polaris/status-indicator";
+import Button from "@cloudscape-design/components/button";
+import Popover from "@cloudscape-design/components/popover";
+import StatusIndicator from "@cloudscape-design/components/status-indicator";
 
 export interface CopyButtonProps {
   /**
@@ -25,8 +25,15 @@ export interface CopyButtonProps {
   errorText: string;
 }
 
-export default function CopyButton({ content, buttonAriaLabel, successText, errorText }: CopyButtonProps) {
-  const [copyResult, setResult] = useState<"pending" | "success" | "error">("pending");
+export default function CopyButton({
+  content,
+  buttonAriaLabel,
+  successText,
+  errorText,
+}: CopyButtonProps) {
+  const [copyResult, setResult] = useState<"pending" | "success" | "error">(
+    "pending"
+  );
   return (
     <Popover
       size="small"
@@ -41,7 +48,9 @@ export default function CopyButton({ content, buttonAriaLabel, successText, erro
           case "error":
             return <StatusIndicator type="error">{errorText}</StatusIndicator>;
           case "success":
-            return <StatusIndicator type="success">{successText}</StatusIndicator>;
+            return (
+              <StatusIndicator type="success">{successText}</StatusIndicator>
+            );
         }
       })()}
     >

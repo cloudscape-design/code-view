@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@amzn/awsui-components-react-v3/polaris/header";
+import Header from "@cloudscape-design/components/header";
 import CodeView from "../../dist/code-view";
 import CopyButton from "../../dist/internal/copy-button";
 import yamlHighlight from "../../dist/highlight/yaml";
@@ -9,7 +9,9 @@ import classes from "./styles.module.scss";
 export default function Full() {
   return (
     <>
-      <Header description="Syntax highlight, copy button, line numbers">All features together</Header>
+      <Header description="Syntax highlight, copy button, line numbers">
+        All features together
+      </Header>
       <div className={classes.scrollable}>
         <CodeView
           content={configYml}

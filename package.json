@@ -33,7 +33,7 @@
   },
   "imports": {},
   "peerDependencies": {
-    "@amzn/awsui-components-react-v3": "^3.0.0",
+    "@cloudscape-design/components": "^3.0.0",
     "react": ">= 16.8.0"
   },
   "dependencies": {
@@ -43,9 +43,9 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@amzn/awsui-components-react-v3": "^3.0.0",
-    "@amzn/awsui-design-tokens": "^3.0.0",
-    "@amzn/awsui-global-styles": "^1.0.0",
+    "@cloudscape-design/components": "^3",
+    "@cloudscape-design/design-tokens": "^3",
+    "@cloudscape-design/global-styles": "^1.0.1",
     "@rollup/plugin-typescript": "^11.1.0",
     "@testing-library/react": "^14.0.0",
     "@types/prismjs": "^1.26.0",

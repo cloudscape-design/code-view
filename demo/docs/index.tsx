@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "@amzn/awsui-components-react-v3/polaris/header";
-import Box from "@amzn/awsui-components-react-v3/polaris/box";
+import Header from "@cloudscape-design/components/header";
+import Box from "@cloudscape-design/components/box";
 
 import classes from "./styles.module.scss";
 import { Features } from "./features";

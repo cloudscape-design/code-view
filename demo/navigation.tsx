@@ -1,5 +1,7 @@
-import AnchorNavigation, { AnchorNavigationProps } from "@amzn/awsui-components-react-v3/polaris/anchor-navigation";
-import Header from "@amzn/awsui-components-react-v3/polaris/header";
+import AnchorNavigation, {
+  AnchorNavigationProps,
+} from "@cloudscape-design/components/anchor-navigation";
+import Header from "@cloudscape-design/components/header";
 import classes from "./styles.module.scss";
 
 const anchors: AnchorNavigationProps["anchors"] = [
