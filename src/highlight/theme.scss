@@ -1,0 +1,13 @@
+html:not(.awsui-polaris-dark-mode) body:not(.awsui-polaris-dark-mode) {
+  @import "../../node_modules/ace-code/styles/theme/cloud_editor";
+  .ace-cloud_editor {
+    background: none;
+  }
+}
+
+.awsui-polaris-dark-mode {
+  @import "../../node_modules/ace-code/styles/theme/cloud_editor_dark";
+  .ace-cloud_editor_dark {
+    background: none;
+  }
+}

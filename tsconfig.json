@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es2020",
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "types": [],
+    "lib": ["es2020", "dom"],
+    "importHelpers": true,
+    "declaration": true,
+    "strict": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/**.ts", "src/**/**.tsx"]
+}
