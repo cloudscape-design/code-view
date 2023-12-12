@@ -5,14 +5,26 @@ import React from "react";
 import { afterEach, describe, expect, test } from "vitest";
 import CodeView from "../dist/code-view";
 import createWrapper from "../src/test-utils/dom";
-describe("WidgetContainer", () => {
+
+describe("CodeView", () => {
   afterEach(() => {
     cleanup();
   });
-  test("renders slots", () => {
-    render(<CodeView content={"test"}></CodeView>);
-    const codeView = createWrapper().findCodeView()!;
-    console.log(codeView);
-    expect(codeView!.getElement()).toBeDefined();
+  test("correctly renders component content", () => {
+    render(<CodeView content={"Hello World"}></CodeView>);
+    const wrapper = createWrapper().findCodeView()!;
+    expect(wrapper!.findContent().getElement().textContent).toBe("Hello World");
+  });
+
+  test("correctly renders copy button slot", () => {
+    render(<CodeView content={"Hello World"} copyButton={<button>Copy</button>}></CodeView>);
+    const wrapper = createWrapper().findCodeView()!;
+    expect(wrapper!.findCopyButtonSlot().getElement().innerHTML).toBe("<button>Copy</button>");
+  });
+
+  test("correctly renders line numbers", () => {
+    render(<CodeView content={`Hello\nWorld\n!`} lineNumbers={true}></CodeView>);
+    const wrapper = createWrapper().findCodeView()!;
+    expect(wrapper!.findLineNumbers().getElement().textContent).toBe("123");
   });
 });

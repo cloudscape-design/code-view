@@ -10,7 +10,7 @@ export default class CodeViewWrapper extends ComponentWrapper {
     return this.findByClassName(CodeViewWrapper.rootSelector)!;
   }
 
-  findCodeContent(): ElementWrapper {
+  findContent(): ElementWrapper {
     return this.findByClassName(styles.code)!;
   }
 
