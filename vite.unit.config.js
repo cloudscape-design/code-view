@@ -9,8 +9,14 @@ export default defineConfig({
   ...base,
   root: "./",
   test: {
-    include: ["./test/*.test.{ts,tsx}"],
+    include: ["./src/**/__tests__/**/*.test.{ts,tsx}"],
     environment: "jsdom",
+    coverage: {
+      enabled: process.env.CI === "true",
+      provider: "v8",
+      include: ["src/**"],
+      exclude: ["./src/highlight/*", "**/__tests__/**"],
+    },
   },
   plugins: [vanillaExtractPlugin()],
 });

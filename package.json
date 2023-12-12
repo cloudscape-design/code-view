@@ -80,6 +80,8 @@
     "@vanilla-extract/rollup-plugin": "^1.2.1",
     "@vanilla-extract/vite-plugin": "^3.9.3",
     "@vitejs/plugin-react": "^4.0.0",
+    "@vitest/coverage-istanbul": "^0.28.3",
+    "@vitest/coverage-v8": "0.34.2",
     "chokidar-cli": "^3.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-header": "^3.1.1",
