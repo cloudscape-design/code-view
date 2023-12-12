@@ -27,4 +27,12 @@ describe("CodeView", () => {
     const wrapper = createWrapper().findCodeView()!;
     expect(wrapper!.findLineNumbers().getElement().textContent).toBe("123");
   });
+
+  test("correctly tokenizes content if highlight is set", () => {
+    render(
+      <CodeView content={"<div>Hello</div>"} highlight={(code) => <div className="tokenized">{code}</div>}></CodeView>,
+    );
+    const wrapper = createWrapper().findCodeView()!;
+    expect(wrapper!.findContent().getElement().innerHTML).toContain('class="tokenized"');
+  });
 });
