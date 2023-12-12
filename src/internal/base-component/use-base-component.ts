@@ -1,7 +1,4 @@
-import {
-  initAwsUiVersions,
-  useComponentMetadata,
-} from "@cloudscape-design/component-toolkit/internal";
+import { initAwsUiVersions, useComponentMetadata } from "@cloudscape-design/component-toolkit/internal";
 import { MutableRefObject } from "react";
 import { PACKAGE_SOURCE, PACKAGE_VERSION } from "../environment";
 import { useTelemetry } from "./use-telemetry";
