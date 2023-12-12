@@ -49,10 +49,10 @@
     "./highlight/sh": "./dist/highlight/sh.js",
     "./highlight/sql": "./dist/highlight/sql.js",
     "./highlight/swift": "./dist/highlight/swift.js",
-    "./highlight/terraform": "./dist/highlight/terraform.js"
+    "./highlight/terraform": "./dist/highlight/terraform.js",
     "./highlight/typescript": "./dist/highlight/typescript.js",
     "./highlight/xml": "./dist/highlight/xml.js",
-    "./highlight/yaml": "./dist/highlight/yaml.js",
+    "./highlight/yaml": "./dist/highlight/yaml.js"
   },
   "imports": {},
   "peerDependencies": {
