@@ -14,11 +14,11 @@ export default class CodeViewWrapper extends ComponentWrapper {
     return this.findByClassName(styles.code)!;
   }
 
-  findCopyButtonSlot(): ElementWrapper {
+  findCopyButtonSlot(): ElementWrapper | null {
     return this.findByClassName(styles.copyButton)!;
   }
 
-  findLineNumbers(): ElementWrapper {
+  findLineNumbers(): ElementWrapper | null {
     return this.findByClassName(styles.lineNumbers)!;
   }
 }
