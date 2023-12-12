@@ -12,12 +12,6 @@ export default defineConfig({
   test: {
     include: ["./test/*.test.{ts,tsx}"],
     environment: "jsdom",
-    coverage: {
-      enabled: process.env.CI === "true",
-      provider: "istanbul",
-      include: ["src/**"],
-      exclude: ["demo/**"],
-    },
   },
   plugins: [vanillaExtractPlugin()],
 });
