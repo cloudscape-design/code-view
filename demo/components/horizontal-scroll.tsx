@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import Header from "@cloudscape-design/components/header";
-import React from "react";
+
 import CodeView from "../../dist/code-view";
 import CopyButton from "../../dist/internal/copy-button";
 import logTxt from "../fixtures/log.txt?raw";

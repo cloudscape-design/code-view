@@ -3,7 +3,7 @@
 import Box from "@cloudscape-design/components/box";
 import Header from "@cloudscape-design/components/header";
 import SpaceBetween from "@cloudscape-design/components/space-between";
-import React from "react";
+
 import CodeView from "../../dist/code-view";
 import jsHighlight from "../../dist/highlight/javascript";
 import { tsHighlight } from "./typescript-highlight";

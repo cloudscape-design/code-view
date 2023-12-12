@@ -15,7 +15,7 @@ const config = {
     sourcemap: true,
     dir: "dist",
   },
-  external: (id) => !(/\.vanilla\.css/.test(id) || /^([.\/])/.test(id)),
+  external: (id) => !(/\.vanilla\.css/.test(id) || /^([./])/.test(id)),
   plugins: [typescript(), vanillaExtractPlugin()],
 };
 export default config;

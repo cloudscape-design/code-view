@@ -5,7 +5,7 @@ import Header from "@cloudscape-design/components/header";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import Toggle from "@cloudscape-design/components/toggle";
 import { Mode, applyMode } from "@cloudscape-design/global-styles";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "@cloudscape-design/global-styles/index.css";
 

@@ -3,7 +3,7 @@
 import Button from "@cloudscape-design/components/button";
 import Popover from "@cloudscape-design/components/popover";
 import StatusIndicator from "@cloudscape-design/components/status-indicator";
-import React, { useState } from "react";
+import { useState } from "react";
 
 export interface CopyButtonProps {
   /**

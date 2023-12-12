@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 import Box from "@cloudscape-design/components/box";
 import Header from "@cloudscape-design/components/header";
-import React from "react";
 
 import { Api } from "./api";
 import { Features } from "./features";

@@ -120,13 +120,13 @@
         }
     },
     "env": {
+        "node": true,
         "browser": true,
         "es6": true
     },
     "overrides": [
         {
             "files": [
-                "**/__integ__/**",
                 "./test/**"
             ],
             "rules": {
@@ -137,6 +137,23 @@
             "env": {
                 "jest": true
             }
+        },
+        {
+            "files": [
+                "demo/snippets/*",
+                "src/internal/base-component/*"
+            ],
+            "rules": {
+                "@typescript-eslint/no-explicit-any": "off"
+            }
+        },
+        {
+            "files": [
+                "demo/snippets/*",
+            ],
+            "rules": {
+                "@typescript-eslint/no-unused-vars": "off"
+            }
         }
-    ]
+    ],
 }

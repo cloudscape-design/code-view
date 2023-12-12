@@ -1,14 +1,13 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import type { NonCancelableCustomEvent } from "@cloudscape-design/components";
 import Header from "@cloudscape-design/components/header";
 import StatusIndicator from "@cloudscape-design/components/status-indicator";
 import Tabs, { TabsProps } from "@cloudscape-design/components/tabs";
-import React, { Suspense, useState } from "react";
+// eslint-disable-next-line no-restricted-imports
+import React, { Suspense } from "react";
 import CodeView from "../dist/code-view";
 
 import codeJs from "./fixtures/code.js?raw";
-
 function LazyLoad({ loader }: { loader: () => Promise<{ default: React.ComponentType }> }) {
   const Component = React.lazy(loader);
   return (

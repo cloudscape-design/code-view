@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import ExpandableSection from "@cloudscape-design/components/expandable-section";
 import SpaceBetween from "@cloudscape-design/components/space-between";
-import React from "react";
+
 import CodeView from "../../dist/code-view";
 import jsHighlight from "../../dist/highlight/javascript";
 
