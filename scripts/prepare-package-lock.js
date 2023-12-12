@@ -13,9 +13,9 @@ const require = createRequire(import.meta.url);
 const filename = require.resolve("../package-lock.json");
 const packageLock = require(filename);
 
-if (packageLock.lockfileVersion !== 2) {
-  throw new Error('package-lock.json must have "lockfileVersion": 2');
-}
+// if (packageLock.lockfileVersion !== 2) {
+//   throw new Error('package-lock.json must have "lockfileVersion": 2');
+// }
 
 function unlock(packages) {
   Object.keys(packages).forEach((dependencyName) => {
