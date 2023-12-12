@@ -101,7 +101,6 @@ export function Api() {
           <Box variant="p">Using your custom (we use CSS as an example)</Box>
           <CodeView
             content={`import { createHighlight } from "@cloudscape-design/code-view/highlight";
-import "prismjs/components/prism-css";
 
 <CodeView content="your css" highlight={createHighlight} />
 `}

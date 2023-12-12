@@ -12,7 +12,7 @@ import dataJson from "../fixtures/data.json?raw";
 export default function Highlight() {
   return (
     <>
-      <Header description="You can include any prism.js syntax highlight">Syntax highlight</Header>
+      <Header description="You can include any ace-cloud-editor syntax highlight">Syntax highlight</Header>
       <Header variant="h3">Javascript</Header>
       <CodeView content={codeJs} highlight={jsHighlight} />
       <Header variant="h3">JSON</Header>
