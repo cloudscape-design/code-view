@@ -1,33 +1,16 @@
-# AWS-UI-Community-CodeView - `@amzn/aws-ui-community-code-view`
+React components for Cloudscape Design System
+This package contains the source code of the code-view component in the Cloudscape Design System. For more information about this component, see the documentation.
 
-The NPM package name should always start with `@amzn/` to cleanly separate from
-public packages, avoid accidental publish to public repository, and allow
-publishing to CodeArtifact.
+Cloudscape is an open source design system for building intuitive, engaging, and inclusive user experiences at scale. It consists of an extensive set of guidelines to create web applications, along with the design resources and front-end components to streamline implementation.
 
-The package is built with
-[NpmPrettyMuch](https://w.amazon.com/bin/view/NpmPrettyMuch/GettingStarted/v1)
-and allows using internal (first-party) dependencies as well as external
-npmjs.com packages.
+Cloudscape was built for and is used by Amazon Web Services (AWS) products and services. We created it in 2016 to improve the user experience across AWS web applications, and also to help teams implement those applications faster. Since then, we have continued enhancing the system based on customer feedback and research.
 
-Add registry dependencies with `brazil-build install` exactly the same as [`npm
-install`](https://docs.npmjs.com/cli-commands/install.html). You can check
-latest state of external dependencies on https://npmpm.corp.amazon.com/
-Important: always use `brazil-build` wrapper for npm, using `npm` directly will
-use the public registry instead of the internal registry.
+Getting help
+You can create bug reports or feature requests, or start a discussion to ask a question. To minimize duplicates, we recommend that you search for existing bug reports, feature requests, or discussions before initiating a new thread.
 
-Add brazil packages that build npm packages to the `dependencies` or
-`test-dependencies` sections in the Config file,  then add a `*` dependency or
-devDependencies to package.json. You should match `test-dependencies` with
-`devDependencies`, and normal `dependencies` with `dependencies`.
+Contributing
+The contribution guidelines contains information on how to contribute, as well as our support model and versioning strategy.
 
-NpmPrettyMuch 1.0 has special behavior for running tests during build. The
-option `"runTest": "never"` disabled this and instead tests are wired up in
-`prepublishOnly`. NpmPrettyMuch will invoke `prepublishOnly` and everything can
-configured in there the [same as with external
-npm](https://docs.npmjs.com/misc/scripts). Files to published are configured
-using [`files` in
-`package.json`](https://docs.npmjs.com/configuring-npm/package-json.html#files).
-The option `ciBuild` uses [`npm
-ci`](https://docs.npmjs.com/cli-commands/ci.html) instead of `npm install` and
-results in faster install times and guarantees all of your dependencies are
-locked appropriately.
+License
+This project is licensed under the Apache 2.0 License.
+
