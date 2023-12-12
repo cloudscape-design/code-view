@@ -14,6 +14,7 @@
     "build:copy": "cp README.md dist/",
     "build:index": "cp src/index.* dist",
     "build:highlight": "sass src/highlight/theme.scss dist/highlight/theme.css && tsc -p src/highlight/tsconfig.json",
+    "build:test": "node scripts/test-utils",
     "build:rollup": "rollup --config rollup.config.js",
     "build:tsc": "tsc --project ./demo/tsconfig.json",
     "build:vite": "vite build",
