@@ -10,7 +10,7 @@ export function createHighlight(rules: Ace.HighlightRules) {
     const tokens = tokenize(code, rules);
 
     return (
-      <span className="">
+      <span>
         {tokens.map((lineTokens) => (
           <>
             {lineTokens.map((token, tokenIndex) =>

@@ -1,7 +1,8 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import Header from "@cloudscape-design/components/header";
-import { CodeView, CopyButton } from "../../dist";
+import { CodeView } from "../../dist";
+import CopyButton from "../../dist/internal/copy-button";
 import commandsSh from "../fixtures/commands.sh?raw";
 
 export default function CopyableCode() {

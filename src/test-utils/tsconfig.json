@@ -10,7 +10,7 @@
         ],
         "declaration": true,
         "allowSyntheticDefaultImports": true,
-        "outDir": "../../lib/components/test-utils",
+        "outDir": "../../dist/test-utils",
         "experimentalDecorators": true,
         "tsBuildInfoFile": "../../.cache/test-utils.tsbuildinfo"
     },

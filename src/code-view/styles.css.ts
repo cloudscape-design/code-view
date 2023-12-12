@@ -5,15 +5,12 @@ import { createGlobalTheme, createThemeContract, style } from "@vanilla-extract/
 
 const vars = createThemeContract({
   colorBackgroundCode: null,
-  colorBackgroundButton: null,
 });
 createGlobalTheme(":root", vars, {
   colorBackgroundCode: "#f4f4f4",
-  colorBackgroundButton: "rgba(244, 244, 244, 0.8)",
 });
 createGlobalTheme(".awsui-dark-mode", vars, {
   colorBackgroundCode: "#000716",
-  colorBackgroundButton: "rgba(0, 7, 22, 0.8)",
 });
 
 export const root = style({
