@@ -1,5 +1,6 @@
 # Contributing Guidelines
 
+<<<<<<< HEAD
 Thank you for your interest in contributing to our project. Whether it's a bug report, new feature, correction, or additional
 documentation, we greatly value feedback and contributions from our community.
 
@@ -42,6 +43,14 @@ GitHub provides additional document on [forking a repository](https://help.githu
 
 ## Finding contributions to work on
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
+=======
+For more information on our support model, versioning, browsers and frameworks support, visit our [main components repository contributing guidelines](https://github.com/cloudscape-design/components/blob/main/CONTRIBUTING.md).
+
+
+## How to contribute code
+
+Currently we only accept code contributions for bug fixes. A code owner will review the pull request and merge it. Once we merge a pull request, we run additional testing internally before publishing artifacts to npm.
+>>>>>>> 1e4f771 (feat: Add Code View component)
 
 
 ## Code of Conduct

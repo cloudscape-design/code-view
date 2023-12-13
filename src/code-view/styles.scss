@@ -1,0 +1,49 @@
+@use "../../node_modules/@cloudscape-design/design-tokens/index.scss" as cs;
+
+.root {
+  position: relative;
+  &-with-numbers {
+    display: flex;
+    align-items: stretch;
+  }
+  &-with-copy-button  {
+    display: flex;
+  }
+}
+
+.code {
+  background-color: cs.$color-background-dropdown-item-hover;
+  .awsui-dark-mode & {
+    background-color: cs.$color-foreground-control-default;
+  }
+  padding: 8px;
+  margin: 0;
+  overflow: auto;
+  &-with-line-numbers {
+    flex: 1;
+  }
+  &-with-copy-button {
+    flex: 1;
+  }
+}
+
+.line-numbers {
+  // background-color: cs.$color-background-dropdown-item-hover;
+  background-color: #f4f4f4;
+  .awsui-dark-mode & {
+    background-color: #000716;
+    // background-color: cs.$color-foreground-control-default;
+  }
+  padding: cs.$space-static-xs;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: cs.$color-border-divider-default;
+}
+
+.copy-button {
+  flex: 0 0 auto;
+  padding-left: cs.$space-container-horizontal;
+}
