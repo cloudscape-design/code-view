@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cloudscape-design/board-components.git"
+    "url": "https://github.com/cloudscape-design/code-view.git"
   },
   "homepage": "https://cloudscape.design",
   "scripts": {
