@@ -1,0 +1,16 @@
+@use "@cloudscape-design/design-tokens/index.scss" as tokens;
+
+html {
+  background-color: #fff;
+  &:global(.awsui-dark-mode) {
+    background-color: tokens.$color-background-layout-main;
+  }
+}
+
+.navigationWrapper {
+  position: sticky;
+  top: 0;
+  width: 200px;
+  float: right;
+  margin-left: tokens.$space-scaled-l;
+}
