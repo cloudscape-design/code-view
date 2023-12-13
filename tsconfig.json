@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "es2020",
+    "target": "es2019",
     "module": "esnext",
     "jsx": "react-jsx",
     "types": [],
     "lib": [
-      "es2020",
+      "es2019",
       "dom"
     ],
     "importHelpers": true,
