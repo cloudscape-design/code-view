@@ -18,18 +18,18 @@ describe("CodeView", () => {
   test("correctly renders copy button slot", () => {
     render(<CodeView content={"Hello World"} copyButton={<button>Copy</button>}></CodeView>);
     const wrapper = createWrapper().findCodeView()!;
-    expect(wrapper!.findCopyButtonSlot().getElement().innerHTML).toBe("<button>Copy</button>");
+    expect(wrapper!.findCopyButtonSlot()!.getElement().innerHTML).toBe("<button>Copy</button>");
   });
 
   test("correctly renders line numbers", () => {
     render(<CodeView content={`Hello\nWorld\n!`} lineNumbers={true}></CodeView>);
     const wrapper = createWrapper().findCodeView()!;
-    expect(wrapper!.findLineNumbers().getElement().textContent).toBe("123");
+    expect(wrapper!.findLineNumbers()!.getElement().textContent).toBe("123");
   });
 
   test("correctly tokenizes content if highlight is set", () => {
     render(
-      <CodeView content={"<div>Hello</div>"} highlight={(code) => <div className="tokenized">{code}</div>}></CodeView>,
+      <CodeView content={"<div>Hello</div>"} highlight={(code) => <div className="tokenized">{code}</div>}></CodeView>
     );
     const wrapper = createWrapper().findCodeView()!;
     expect(wrapper!.findContent().getElement().innerHTML).toContain('class="tokenized"');
