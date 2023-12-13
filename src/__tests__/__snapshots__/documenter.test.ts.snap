@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`definition for code-view matches the snapshot > code-view 1`] = `
+{
+  "events": [],
+  "functions": [],
+  "name": "CodeView",
+  "properties": [
+    {
+      "description": "The code content to be displayed.",
+      "name": "content",
+      "optional": false,
+      "type": "string",
+    },
+    {
+      "description": "A function to perform custom syntax highlighting.",
+      "name": "highlight",
+      "optional": true,
+      "type": "(code: string) => React.ReactNode",
+    },
+    {
+      "description": "Controls the display of line numbers.
+Defaults to \`false\`.
+",
+      "name": "lineNumbers",
+      "optional": true,
+      "type": "boolean",
+    },
+  ],
+  "regions": [
+    {
+      "description": "An optional slot to display a copy button.",
+      "isDefault": false,
+      "name": "copyButton",
+    },
+  ],
+  "releaseStatus": "stable",
+}
+`;
