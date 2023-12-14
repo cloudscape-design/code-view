@@ -12,14 +12,18 @@
 }
 
 .code {
-  background-color: cs.$color-background-dropdown-item-hover;
-  .awsui-dark-mode & {
-    background-color: cs.$color-foreground-control-default;
+  background-color: #f4f4f4;
+  :global(.awsui-dark-mode) & {
+    background-color: #282c34;
   }
-  padding: 8px;
+  display: flex;
+  border-radius: cs.$border-radius-tiles;
+  padding: cs.$space-static-xs;
   margin: 0;
   overflow: auto;
   &-with-line-numbers {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     flex: 1;
   }
   &-with-copy-button {
@@ -28,11 +32,11 @@
 }
 
 .line-numbers {
-  // background-color: cs.$color-background-dropdown-item-hover;
+  border-radius: cs.$border-radius-tiles 0 0 cs.$border-radius-tiles;
+
   background-color: #f4f4f4;
-  .awsui-dark-mode & {
-    background-color: #000716;
-    // background-color: cs.$color-foreground-control-default;
+  :global(.awsui-dark-mode) & {
+    background-color: #282c34;
   }
   padding: cs.$space-static-xs;
   display: flex;

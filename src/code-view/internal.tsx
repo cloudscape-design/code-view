@@ -21,7 +21,6 @@ export function InternalCodeView({ content, copyButton, lineNumbers, highlight, 
       {...baseProps}
       className={clsx(
         styles.root,
-        ACE_CLASSES,
         lineNumbers && styles["root-with-numbers"],
         copyButton && styles["root-with-copy-button"]
       )}
@@ -36,6 +35,7 @@ export function InternalCodeView({ content, copyButton, lineNumbers, highlight, 
       <pre
         className={clsx(
           styles.code,
+          ACE_CLASSES,
           lineNumbers && styles["code-with-line-numbers"],
           copyButton && styles["code-with-copy-button"]
         )}

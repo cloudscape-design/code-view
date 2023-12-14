@@ -12,7 +12,12 @@ export default function CodeViewPage() {
       <h1>Code View</h1>
       <main>
         <Box>
-          <CodeView copyButton={<button>Click me</button>} content={"Hello World"} lineNumbers={true} />
+          <CodeView
+            copyButton={<button>Click me</button>}
+            content={`Hello
+          World
+          !`}
+          />
         </Box>
       </main>
     </ScreenshotArea>
