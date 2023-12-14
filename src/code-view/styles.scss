@@ -27,7 +27,8 @@
     flex: 1;
   }
   &-with-copy-button {
-    flex: 1;
+    min-height: 32px;
+    padding-right: 80px;
   }
 }
 
@@ -48,6 +49,8 @@
 }
 
 .copy-button {
-  flex: 0 0 auto;
+  position: absolute;
+  top: cs.$space-static-xs;
+  right: cs.$space-static-xs;
   padding-left: cs.$space-container-horizontal;
 }
