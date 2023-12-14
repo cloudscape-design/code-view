@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-## My Project
-
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
-
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-## License
-
-This project is licensed under the Apache-2.0 License.
-
-=======
 ## React components for Cloudscape Design System
 
 This package contains the source code of the Code View component in the [Cloudscape Design System](https://cloudscape.design/).
@@ -37,4 +18,3 @@ The [contribution guidelines](/CONTRIBUTING.md) contains information on how to c
 ## License
 
 This project is licensed under the [Apache 2.0 License](/LICENSE).
->>>>>>> 1e4f771 (feat: Add Code View component)
