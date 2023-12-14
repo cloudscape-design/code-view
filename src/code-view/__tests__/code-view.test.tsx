@@ -3,7 +3,7 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import CodeView from "../../../lib/components/code-view";
-import styles from "../../../lib/components/code-view/styles.selectors.js";
+import styles from "../../../lib/components/code-view/styles.css.js";
 import createWrapper from "../../../lib/components/test-utils/dom";
 
 describe("CodeView", () => {
@@ -25,9 +25,7 @@ describe("CodeView", () => {
   test("correctly renders line numbers", () => {
     render(<CodeView content={`Hello\nWorld\n!`} lineNumbers={true}></CodeView>);
     const wrapper = createWrapper().findCodeView()!;
-    // TODO: FIX-ME
-    const classNames = styles as unknown as { "line-numbers": string };
-    expect(wrapper!.findByClassName(classNames["line-numbers"])!.getElement().textContent).toBe("123");
+    expect(wrapper!.findByClassName(styles["line-numbers"])!.getElement()).toHaveTextContent("123");
   });
 
   test("correctly tokenizes content if highlight is set", () => {
