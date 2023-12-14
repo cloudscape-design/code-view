@@ -20,7 +20,7 @@ function validatePublicFiles(definitionFiles) {
 }
 
 function componentDocs() {
-  const definitions = documentComponents(path.resolve("tsconfig.json"), "src/*/index.tsx");
+  const definitions = documentComponents(path.resolve("scripts/tsconfig.docs.json"), "src/*/index.tsx");
   const outDir = path.join(targetDir, "components");
   const fileNames = definitions
     .filter((definition) => {
@@ -42,7 +42,6 @@ function componentDocs() {
   }`;
   writeSourceFile(path.join(outDir, "index.js"), indexContent);
 }
-
 function testUtilDocs() {
   const tsconfig = path.resolve("src/test-utils/tsconfig.json");
   ["dom", "selectors"].forEach((testUtilType) => {
