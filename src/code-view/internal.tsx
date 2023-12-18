@@ -28,7 +28,9 @@ export function InternalCodeView({ content, copyButton, lineNumbers, highlight, 
       {lineNumbers && (
         <div className={styles["line-numbers"]} aria-hidden={true}>
           {getLineNumbers(content).map((number) => (
-            <div key={number}>{number}</div>
+            <Box fontSize="body-m" key={number}>
+              {number}
+            </Box>
           ))}
         </div>
       )}
