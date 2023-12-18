@@ -9,7 +9,7 @@ Cloudscape was built for and is used by Amazon Web Services (AWS) products and s
 
 ## Getting help
 
-You can [create bug reports or feature requests](https://github.com/cloudscape-design/board-components/issues/new/choose), or [start a discussion](https://github.com/cloudscape-design/components/discussions) to ask a question. To minimize duplicates, we recommend that you search for existing bug reports, feature requests, or discussions before initiating a new thread.
+You can [create bug reports or feature requests](https://github.com/cloudscape-design/code-view/issues/new/choose), or [start a discussion](https://github.com/cloudscape-design/components/discussions) to ask a question. To minimize duplicates, we recommend that you search for existing bug reports, feature requests, or discussions before initiating a new thread.
 
 ## Contributing
 
