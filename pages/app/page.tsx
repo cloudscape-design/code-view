@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import { SpaceBetween, Toggle } from "@cloudscape-design/components";
-// import { Mode, applyMode } from "@cloudscape-design/global-styles";
+import { Mode, applyMode } from "@cloudscape-design/global-styles";
 import { Suspense } from "react";
 import { useEffect, useState } from "react";
 import { pagesMap } from "../pages";
@@ -16,11 +16,7 @@ export default function Page({ pageId }: PageProps) {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    import("@cloudscape-design/global-styles")
-      .then(({ Mode, applyMode }) => {
-        applyMode(dark ? Mode.Dark : Mode.Light, document.documentElement);
-      })
-      .catch((error) => console.error("Failed to load module", error));
+    applyMode(dark ? Mode.Dark : Mode.Light, document.documentElement);
   }, [dark]);
 
   return (
