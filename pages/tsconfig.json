@@ -3,8 +3,13 @@
   "compilerOptions": {
     "noEmit": true,
     "rootDir": "../",
-    "types": ["vite/client"],
-    "tsBuildInfoFile": "../.cache/pages.tsbuildinfo"
+    "types": [
+      "vite/client"
+    ],
+    "tsBuildInfoFile": "../.cache/pages.tsbuildinfo",
+    "moduleResolution": "node"
   },
-  "include": ["./**/*"]
+  "include": [
+    "./**/*"
+  ]
 }
