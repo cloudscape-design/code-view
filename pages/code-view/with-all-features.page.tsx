@@ -13,7 +13,7 @@ export default function CodeViewPage() {
       <main>
         <CodeView
           copyButton={<Button>Copy</Button>}
-          content={`const hello = "np";\nconsole.log('Hello')\nfunction hello() {}`}
+          content={`const hello = "np";\nconsole.log('Hello')\nfunction hello() {}\nthrow new Error()`}
           lineNumbers={true}
           highlight={javascriptHighlight}
         />
