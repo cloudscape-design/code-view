@@ -24,5 +24,5 @@ body:
             Conduct](https://github.com/cloudscape-design/components/blob/main/CODE_OF_CONDUCT.md)
           required: true
         - label:
-            I checked the [current
-            issues](https://github.com/cloudscape-design/components/issues) for duplicate requests
+            I checked the current issues on [this](https://github.com/cloudscape-design/code-view/issues) and
+            [main](https://github.com/cloudscape-design/components/issues) repositories forfor duplicate requests
