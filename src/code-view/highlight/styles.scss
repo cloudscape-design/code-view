@@ -1,5 +1,5 @@
-html:not(:global(.awsui-dark-mode)) body:not(:global(.awsui-dark-mode)),
-html:not(:global(.awsui-polaris-dark-mode)) body:not(:global(.awsui-polaris-dark-mode)) {
+html:not(:global(.awsui-dark-mode)):not(:global(.awsui-polaris-dark-mode))
+  body:not(:global(.awsui-dark-mode)):not(:global(.awsui-polaris-dark-mode)) {
   @import "../../../node_modules/ace-code/styles/theme/cloud_editor";
   .ace-cloud_editor {
     background: none;
