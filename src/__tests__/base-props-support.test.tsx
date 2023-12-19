@@ -4,11 +4,11 @@ import { render } from "@testing-library/react";
 import { ReactElement } from "react";
 import { describe, expect, test } from "vitest";
 import { defaultProps } from "./default-props";
-import { getAllComponents, requireComponent } from "./utils";
+import { requireComponent } from "./utils";
 
-describe.each<string>(getAllComponents())(`base props support for %s`, async (componentName: string) => {
-  const Component = await requireComponent(componentName);
-  const props = defaultProps[componentName as keyof typeof defaultProps];
+describe(`base props support for code-view`, async () => {
+  const Component = await requireComponent("code-view");
+  const props = defaultProps["code-view" as keyof typeof defaultProps];
 
   function renderComponent(ui: ReactElement) {
     return render(ui);
