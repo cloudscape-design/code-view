@@ -1,5 +1,8 @@
 @use "../../node_modules/@cloudscape-design/design-tokens/index.scss" as cs;
 
+$color-background-code-view-light: #f4f4f4;
+$color-background-code-view-dark: #282c34;
+
 .root {
   position: relative;
   &-with-numbers {
@@ -12,9 +15,10 @@
 }
 
 .code {
-  background-color: #f4f4f4;
-  :global(.awsui-dark-mode) & {
-    background-color: #282c34;
+  background-color: $color-background-code-view-light;
+  :global(.awsui-dark-mode) &,
+  :global(.awsui-polaris-dark-mode) & {
+    background-color: $color-background-code-view-dark;
   }
   display: flex;
   border-radius: cs.$border-radius-tiles;
@@ -36,9 +40,10 @@
 .line-numbers {
   border-radius: cs.$border-radius-tiles 0 0 cs.$border-radius-tiles;
 
-  background-color: #f4f4f4;
-  :global(.awsui-dark-mode) & {
-    background-color: #282c34;
+  background-color: $color-background-code-view-light;
+  :global(.awsui-dark-mode) &,
+  :global(.awsui-polaris-dark-mode) & {
+    background-color: $color-background-code-view-dark;
   }
   padding: cs.$space-static-xs;
   display: flex;
