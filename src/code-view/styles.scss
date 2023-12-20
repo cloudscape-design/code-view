@@ -31,8 +31,8 @@ $color-background-code-view-dark: #282c34;
     flex: 1;
   }
   &-with-copy-button {
-    min-height: 32px;
-    padding-right: 80px;
+    min-height: cs.$space-scaled-xxl;
+    padding-right: calc(2 * cs.$space-static-xxxl);
     align-items: center;
   }
 }
