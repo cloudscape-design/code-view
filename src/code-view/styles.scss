@@ -48,9 +48,7 @@ $color-background-code-view-dark: #282c34;
     background-color: $color-background-code-view-dark;
   }
   border-start-start-radius: cs.$border-radius-tiles;
-  border-start-end-radius: 0;
-  border-end-start-radius: 0;
-  border-end-end-radius: cs.$border-radius-tiles;
+  border-end-start-radius: cs.$border-radius-tiles;
   background-color: $color-background-code-view-light;
   padding-block: cs.$space-static-xs;
   padding-inline: cs.$space-static-xs;
