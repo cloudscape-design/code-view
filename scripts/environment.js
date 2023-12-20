@@ -20,7 +20,7 @@ writeFile(`${basePath}.json`, JSON.stringify(values, null, 2));
 writeFile(
   `${basePath}.js`,
   Object.entries(values)
-    .map(([key, value]) => `export var ${key} = ${JSON.stringify(value)};`)
+    .map(([key, value]) => `export const ${key} = ${JSON.stringify(value)};`)
     .join("\n")
 );
 writeFile(
