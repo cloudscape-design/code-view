@@ -9,12 +9,7 @@ export default function CodeViewPage() {
     <ScreenshotArea>
       <h1>Code View</h1>
       <main>
-        <CodeView
-          content={`Hello
-          World
-          !`}
-          lineNumbers={true}
-        />
+        <CodeView lineNumbers={true} content={`# Hello World\n\nThis is Cloudscape.`} />
       </main>
     </ScreenshotArea>
   );
