@@ -9,7 +9,7 @@ $color-background-code-view-dark: #282c34;
     display: flex;
     align-items: stretch;
   }
-  &-with-copy-button {
+  &-with-actions {
     display: flex;
   }
 }
@@ -24,7 +24,7 @@ $color-background-code-view-dark: #282c34;
     border-end-start-radius: 0;
     flex: 1;
   }
-  &-with-copy-button {
+  &-with-actions {
     min-block-size: cs.$space-scaled-xxl;
     padding-inline-end: calc(2 * cs.$space-static-xxxl);
     align-items: center;
@@ -63,7 +63,7 @@ $color-background-code-view-dark: #282c34;
   justify-content: center;
 }
 
-.copy-button {
+.actions {
   position: absolute;
   inset-block-start: cs.$space-static-xs;
   inset-inline-end: cs.$space-static-xs;

@@ -10,7 +10,7 @@ function getLineNumbers(content: string) {
   return content.split("\n").map((_, n) => n + 1);
 }
 
-export function InternalCodeView({ content, copyButton, lineNumbers, highlight, ...props }: CodeViewProps) {
+export function InternalCodeView({ content, actions, lineNumbers, highlight, ...props }: CodeViewProps) {
   const code = highlight ? highlight(content) : <span>{content}</span>;
   const baseProps = getBaseProps(props);
 
@@ -21,7 +21,7 @@ export function InternalCodeView({ content, copyButton, lineNumbers, highlight, 
         className={clsx(
           styles.root,
           lineNumbers && styles["root-with-numbers"],
-          copyButton && styles["root-with-copy-button"]
+          actions && styles["root-with-actions"]
         )}
       >
         {lineNumbers && (
@@ -35,14 +35,14 @@ export function InternalCodeView({ content, copyButton, lineNumbers, highlight, 
           className={clsx(
             styles.code,
             lineNumbers && styles["code-with-line-numbers"],
-            copyButton && styles["code-with-copy-button"]
+            actions && styles["code-with-actions"]
           )}
         >
           <Box variant="code" fontSize="body-m">
             {code}
           </Box>
         </pre>
-        {copyButton && <div className={styles["copy-button"]}>{copyButton}</div>}
+        {actions && <div className={styles.actions}>{actions}</div>}
       </div>
     </Box>
   );

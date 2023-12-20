@@ -13,7 +13,7 @@ export default class CodeViewWrapper extends ComponentWrapper {
     return this.findByClassName(styles.code)!;
   }
 
-  findCopyButtonSlot(): ElementWrapper | null {
-    return this.findByClassName(styles["copy-button"])!;
+  findActionsSlot(): ElementWrapper | null {
+    return this.findByClassName(styles.actions)!;
   }
 }

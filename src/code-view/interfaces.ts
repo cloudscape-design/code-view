@@ -15,10 +15,10 @@ export interface CodeViewProps {
   lineNumbers?: boolean;
 
   /**
-   * An optional slot to display a copy button.
+   * An optional slot to display a button to enable users to perform actions, such as copy or download the code snippet.
    *
    */
-  copyButton?: React.ReactNode;
+  actions?: React.ReactNode;
 
   /**
    * A function to perform custom syntax highlighting.
