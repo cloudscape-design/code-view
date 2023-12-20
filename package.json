@@ -9,7 +9,7 @@
   "scripts": {
     "prebuild": "rm -rf lib dist .cache",
     "build": "npm-run-all build:pkg --parallel build:src:* --parallel build:pages:*",
-    "lint": "eslint --ignore-path .gitignore --ext ts,tsx,js .",
+    "lint": "eslint --ignore-path .gitignore --ext ts,tsx,js . && stylelint --ignore-path .gitignore '{src,pages}/**/*.{css,scss}'",
     "prepare": "husky install",
     "test:unit": "vitest run --config vite.unit.config.js",
     "test:visual": "run-p -r preview test:visual:vitest",
@@ -104,6 +104,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
+    "stylelint": "^15.11.0",
+    "stylelint-use-logical": "^2.1.0",
+    "stylelint-scss": "^5.0.1",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-config-recommended-scss": "^12.0.0",
     "typescript": "^4.9.4",
     "vite": "^4.0.5",
     "vitest": "^0.34.6"
@@ -115,6 +121,9 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
+    ],
+    "*.{scss,css}": [
+      "stylelint --fix"
     ],
     "package-lock.json": [
       "./scripts/prepare-package-lock.js"

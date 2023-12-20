@@ -9,55 +9,63 @@ $color-background-code-view-dark: #282c34;
     display: flex;
     align-items: stretch;
   }
-  &-with-copy-button  {
+  &-with-copy-button {
     display: flex;
   }
 }
 
 .code {
-  background-color: $color-background-code-view-light;
   :global(.awsui-dark-mode) &,
   :global(.awsui-polaris-dark-mode) & {
     background-color: $color-background-code-view-dark;
   }
-  display: flex;
-  border-radius: cs.$border-radius-tiles;
-  padding: cs.$space-static-xs;
-  margin: 0;
-  overflow: auto;
   &-with-line-numbers {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
     flex: 1;
   }
   &-with-copy-button {
-    min-height: cs.$space-scaled-xxl;
-    padding-right: calc(2 * cs.$space-static-xxxl);
+    min-block-size: cs.$space-scaled-xxl;
+    padding-inline-end: calc(2 * cs.$space-static-xxxl);
     align-items: center;
   }
+  background-color: $color-background-code-view-light;
+  display: flex;
+  border-start-start-radius: cs.$border-radius-tiles;
+  border-start-end-radius: cs.$border-radius-tiles;
+  border-end-start-radius: cs.$border-radius-tiles;
+  border-end-end-radius: cs.$border-radius-tiles;
+  padding-block: cs.$space-static-xs;
+  padding-inline: cs.$space-static-xs;
+  margin-block: 0;
+  margin-inline: 0;
+  overflow: auto;
 }
 
 .line-numbers {
-  border-radius: cs.$border-radius-tiles 0 0 cs.$border-radius-tiles;
-
-  background-color: $color-background-code-view-light;
   :global(.awsui-dark-mode) &,
   :global(.awsui-polaris-dark-mode) & {
     background-color: $color-background-code-view-dark;
   }
-  padding: cs.$space-static-xs;
+  border-start-start-radius: cs.$border-radius-tiles;
+  border-start-end-radius: 0;
+  border-end-start-radius: 0;
+  border-end-end-radius: cs.$border-radius-tiles;
+  background-color: $color-background-code-view-light;
+  padding-block: cs.$space-static-xs;
+  padding-inline: cs.$space-static-xs;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-right-color: cs.$color-border-divider-default;
+  border-inline-end-width: 1px;
+  border-inline-end-style: solid;
+  border-inline-end-color: cs.$color-border-divider-default;
   justify-content: center;
 }
 
 .copy-button {
   position: absolute;
-  top: cs.$space-static-xs;
-  right: cs.$space-static-xs;
-  padding-left: cs.$space-container-horizontal;
+  inset-block-start: cs.$space-static-xs;
+  inset-inline-end: cs.$space-static-xs;
+  padding-inline-start: cs.$space-container-horizontal;
 }

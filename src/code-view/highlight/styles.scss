@@ -1,3 +1,4 @@
+/* stylelint-disable no-invalid-position-at-import-rule */
 html:not(:global(.awsui-dark-mode)):not(:global(.awsui-polaris-dark-mode))
   body:not(:global(.awsui-dark-mode)):not(:global(.awsui-polaris-dark-mode)) {
   @import "../../../node_modules/ace-code/styles/theme/cloud_editor";
