@@ -6,17 +6,10 @@ import clsx from "clsx";
 import styles from "./styles.css.js";
 import { tokenize } from "./tokenize";
 
-export declare type TokenizeResult = Array<
-  Array<{
-    className?: string;
-    value: string;
-  }>
->;
-
+const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" };
 export function createHighlight(rules: Ace.HighlightRules) {
-  const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" };
   return (code: string) => {
-    const tokens = tokenize(code, rules) as TokenizeResult;
+    const tokens = tokenize(code, rules);
 
     return (
       <span className={clsx(styles[ACE_CLASSES.light], styles[ACE_CLASSES.dark])}>
