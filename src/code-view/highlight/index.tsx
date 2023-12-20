@@ -1,15 +1,22 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import type { Ace } from "ace-code";
-import { tokenize } from "ace-code/src/ext/simple_tokenizer";
 import "./styles.css";
 import clsx from "clsx";
 import styles from "./styles.css.js";
+import { tokenize } from "./tokenize";
+
+export declare type TokenizeResult = Array<
+  Array<{
+    className?: string;
+    value: string;
+  }>
+>;
 
 export function createHighlight(rules: Ace.HighlightRules) {
   const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" };
   return (code: string) => {
-    const tokens = tokenize(code, rules);
+    const tokens = tokenize(code, rules) as TokenizeResult;
 
     return (
       <span className={clsx(styles[ACE_CLASSES.light], styles[ACE_CLASSES.dark])}>
