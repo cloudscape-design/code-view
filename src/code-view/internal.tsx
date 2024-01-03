@@ -28,10 +28,9 @@ export function InternalCodeView({
   const baseProps = getBaseProps(props);
   const preRef = useRef<HTMLPreElement>(null);
   const darkMode = useCurrentMode(preRef) === "dark";
-
   return (
     <span ref={__internalRootRef}>
-      <Box fontSize="body-m">
+      <Box color="inherit" fontSize="body-m">
         <div
           {...baseProps}
           className={clsx(
@@ -56,7 +55,7 @@ export function InternalCodeView({
               actions && styles["code-with-actions"]
             )}
           >
-            <Box variant="code" fontSize="body-m">
+            <Box color="inherit" variant="code" fontSize="body-m">
               {code}
             </Box>
           </pre>

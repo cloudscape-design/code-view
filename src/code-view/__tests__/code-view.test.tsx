@@ -12,19 +12,19 @@ describe("CodeView", () => {
   });
   test("correctly renders component content", () => {
     render(<CodeView content={"Hello World"}></CodeView>);
-    const wrapper = createWrapper().findCodeView()!;
+    const wrapper = createWrapper()!.findCodeView();
     expect(wrapper!.findContent().getElement().textContent).toBe("Hello World");
   });
 
   test("correctly renders copy button slot", () => {
     render(<CodeView content={"Hello World"} actions={<button>Copy</button>}></CodeView>);
-    const wrapper = createWrapper().findCodeView()!;
+    const wrapper = createWrapper()!.findCodeView();
     expect(wrapper!.findActionsSlot()!.getElement().innerHTML).toBe("<button>Copy</button>");
   });
 
   test("correctly renders line numbers", () => {
     render(<CodeView content={`Hello\nWorld\n!`} lineNumbers={true}></CodeView>);
-    const wrapper = createWrapper().findCodeView()!;
+    const wrapper = createWrapper()!.findCodeView();
     expect(wrapper!.findByClassName(styles["line-numbers"])!.getElement()).toHaveTextContent("123");
   });
 

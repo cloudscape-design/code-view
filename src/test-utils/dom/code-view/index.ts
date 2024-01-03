@@ -5,9 +5,6 @@ import styles from "../../../code-view/styles.selectors.js";
 
 export default class CodeViewWrapper extends ComponentWrapper {
   static rootSelector: string = styles.root;
-  findCodeView(): ComponentWrapper {
-    return this.findByClassName(CodeViewWrapper.rootSelector)!;
-  }
 
   findContent(): ElementWrapper {
     return this.findByClassName(styles.code)!;
