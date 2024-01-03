@@ -23,7 +23,6 @@
     "start:watch:ts": "tsc --watch",
     "start:watch:css": "chokidar \"./src/**/*.scss\" -c \"npm run build:src:css\"",
     "build:pkg": "node scripts/package-json.js",
-    "build:src:ace": "vite build --config vite.ace.config.js",
     "build:src:js": "tsc -p tsconfig.json",
     "build:src:css": "node scripts/compile-styles.js",
     "build:src:test-utils": "node scripts/test-utils.js",
