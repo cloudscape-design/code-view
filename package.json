@@ -45,6 +45,7 @@
     "./highlight/java": "./code-view/highlight/java.js",
     "./highlight/javascript": "./code-view/highlight/javascript.js",
     "./highlight/json": "./code-view/highlight/json.js",
+    "./highlight/jsx": "./code-view/highlight/jsx.js",
     "./highlight/kotlin": "./code-view/highlight/kotlin.js",
     "./highlight/markdown": "./code-view/highlight/markdown.js",
     "./highlight/php": "./code-view/highlight/php.js",
