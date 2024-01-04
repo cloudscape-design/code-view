@@ -10,7 +10,7 @@ export default class CodeViewWrapper extends ComponentWrapper {
     return this.findByClassName(styles.code)!;
   }
 
-  findActionsSlot(): ElementWrapper | null {
+  findActions(): ElementWrapper | null {
     return this.findByClassName(styles.actions)!;
   }
 }

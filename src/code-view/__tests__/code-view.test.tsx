@@ -19,7 +19,7 @@ describe("CodeView", () => {
   test("correctly renders copy button slot", () => {
     render(<CodeView content={"Hello World"} actions={<button>Copy</button>}></CodeView>);
     const wrapper = createWrapper()!.findCodeView();
-    expect(wrapper!.findActionsSlot()!.getElement().innerHTML).toBe("<button>Copy</button>");
+    expect(wrapper!.findActions()!.getElement().innerHTML).toBe("<button>Copy</button>");
   });
 
   test("correctly renders line numbers", () => {
