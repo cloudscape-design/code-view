@@ -42,7 +42,7 @@ export function InternalCodeView({
       aria-labelledby={ariaLabelledby}
       ref={__internalRootRef}
     >
-      <Box color="inherit" fontSize="body-m">
+      <Box color="text-status-inactive" fontSize="body-m">
         <div className={clsx(lineNumbers && styles["root-with-numbers"], actions && styles["root-with-actions"])}>
           {lineNumbers && (
             <div className={styles["line-numbers"]} aria-hidden={true}>
