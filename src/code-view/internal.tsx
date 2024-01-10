@@ -21,6 +21,8 @@ export function InternalCodeView({
   actions,
   lineNumbers,
   highlight,
+  ariaLabel,
+  ariaLabelledby,
   __internalRootRef = null,
   ...props
 }: InternalCodeView) {
@@ -28,17 +30,20 @@ export function InternalCodeView({
   const baseProps = getBaseProps(props);
   const preRef = useRef<HTMLPreElement>(null);
   const darkMode = useCurrentMode(preRef) === "dark";
+
+  const regionProps = ariaLabel || ariaLabelledby ? { role: "region" } : {};
+
   return (
-    <span ref={__internalRootRef}>
+    <div
+      className={styles.root}
+      {...regionProps}
+      {...baseProps}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledby}
+      ref={__internalRootRef}
+    >
       <Box color="inherit" fontSize="body-m">
-        <div
-          {...baseProps}
-          className={clsx(
-            styles.root,
-            lineNumbers && styles["root-with-numbers"],
-            actions && styles["root-with-actions"]
-          )}
-        >
+        <div className={clsx(lineNumbers && styles["root-with-numbers"], actions && styles["root-with-actions"])}>
           {lineNumbers && (
             <div className={styles["line-numbers"]} aria-hidden={true}>
               {getLineNumbers(content).map((number) => (
@@ -62,6 +67,6 @@ export function InternalCodeView({
           {actions && <div className={styles.actions}>{actions}</div>}
         </div>
       </Box>
-    </span>
+    </div>
   );
 }

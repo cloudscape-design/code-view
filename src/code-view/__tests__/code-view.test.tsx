@@ -28,6 +28,26 @@ describe("CodeView", () => {
     expect(wrapper!.findByClassName(styles["line-numbers"])!.getElement()).toHaveTextContent("123");
   });
 
+  test("correctly renders aria-label", () => {
+    render(<CodeView content={`Hello\nWorld\n!`} ariaLabel="Code snippet"></CodeView>);
+    const wrapper = createWrapper()!.findCodeView();
+    expect(wrapper!.getElement()).toHaveAttribute("aria-label", "Code snippet");
+    expect(wrapper!.getElement()).toHaveAttribute("role", "region");
+  });
+
+  test("correctly renders aria-labelledby", () => {
+    render(<CodeView content={`Hello\nWorld\n!`} ariaLabelledby="some-id"></CodeView>);
+    const wrapper = createWrapper()!.findCodeView();
+    expect(wrapper!.getElement()).toHaveAttribute("aria-labelledby", "some-id");
+    expect(wrapper!.getElement()).toHaveAttribute("role", "region");
+  });
+
+  test("renders no role if no aria labels are present", () => {
+    render(<CodeView content={`Hello\nWorld\n!`}></CodeView>);
+    const wrapper = createWrapper()!.findCodeView();
+    expect(wrapper!.getElement()).not.toHaveAttribute("role");
+  });
+
   test("correctly tokenizes content if highlight is set", () => {
     render(
       <CodeView
