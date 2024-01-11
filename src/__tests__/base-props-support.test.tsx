@@ -19,9 +19,9 @@ describe(`base props support for code-view`, async () => {
     expect(container.firstElementChild).toHaveAttribute("data-testid", "example");
   });
 
-  test("should not allow id", () => {
+  test("should allow id", () => {
     const { container } = renderComponent(<Component {...props} id="example" />);
-    expect(container.querySelector("#example")).toBeNull();
+    expect(container.querySelector("#example")).not.toBeNull();
   });
 
   test("should not allow className", () => {

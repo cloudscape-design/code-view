@@ -42,7 +42,7 @@ export interface BaseComponentProps {
 export function getBaseProps(props: BaseComponentProps) {
   const baseProps: Record<string, any> = {};
   Object.keys(props).forEach((prop) => {
-    if (prop === "className" || prop.match(/^data-/)) {
+    if (prop === "id" || prop.match(/^data-/)) {
       baseProps[prop] = (props as Record<string, any>)[prop];
     }
   });
