@@ -42,8 +42,8 @@ export function InternalCodeView({
       aria-labelledby={ariaLabelledby}
       ref={__internalRootRef}
     >
-      <Box color="text-status-inactive" fontSize="body-m">
-        <div className={clsx(lineNumbers && styles["root-with-numbers"], actions && styles["root-with-actions"])}>
+      <div className={clsx(lineNumbers && styles["root-with-numbers"], actions && styles["root-with-actions"])}>
+        <Box color="text-status-inactive" fontSize="body-m">
           {lineNumbers && (
             <div className={styles["line-numbers"]} aria-hidden={true}>
               {getLineNumbers(content).map((number) => (
@@ -51,22 +51,22 @@ export function InternalCodeView({
               ))}
             </div>
           )}
-          <pre
-            ref={preRef}
-            className={clsx(
-              darkMode ? ACE_CLASSES.dark : ACE_CLASSES.light,
-              styles.code,
-              lineNumbers && styles["code-with-line-numbers"],
-              actions && styles["code-with-actions"]
-            )}
-          >
-            <Box color="inherit" variant="code" fontSize="body-m">
-              {code}
-            </Box>
-          </pre>
-          {actions && <div className={styles.actions}>{actions}</div>}
-        </div>
-      </Box>
+        </Box>
+        <pre
+          ref={preRef}
+          className={clsx(
+            darkMode ? ACE_CLASSES.dark : ACE_CLASSES.light,
+            styles.code,
+            lineNumbers && styles["code-with-line-numbers"],
+            actions && styles["code-with-actions"]
+          )}
+        >
+          <Box color="inherit" variant="code" fontSize="body-m">
+            {code}
+          </Box>
+        </pre>
+        {actions && <div className={styles.actions}>{actions}</div>}
+      </div>
     </div>
   );
 }
