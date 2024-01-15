@@ -14,7 +14,7 @@ function getLineNumbers(content: string) {
   return content.split("\n").map((_, n) => n + 1);
 }
 
-type InternalCodeView = CodeViewProps & InternalBaseComponentProps;
+type InternalCodeViewProps = CodeViewProps & InternalBaseComponentProps;
 
 export function InternalCodeView({
   content,
@@ -25,7 +25,7 @@ export function InternalCodeView({
   ariaLabelledby,
   __internalRootRef = null,
   ...props
-}: InternalCodeView) {
+}: InternalCodeViewProps) {
   const code = highlight ? highlight(content) : <span>{content}</span>;
   const baseProps = getBaseProps(props);
   const preRef = useRef<HTMLPreElement>(null);

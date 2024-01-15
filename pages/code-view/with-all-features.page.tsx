@@ -13,7 +13,7 @@ export default function CodeViewPage() {
       <main>
         <CodeView
           ariaLabel="Code snippet with all features enabled"
-          actions={<Button>Copy</Button>}
+          actions={<Button ariaLabel="Copy code">Copy</Button>}
           content={`const hello = "np";\nconsole.log('Hello')\nfunction hello() {}\nthrow new Error()`}
           lineNumbers={true}
           highlight={javascriptHighlight}
