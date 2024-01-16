@@ -36,7 +36,6 @@
     ".": "./index.js",
     "./code-view": "./code-view/index.js",
     "./highlight": "./code-view/highlight/index.js",
-    "./highlight/abap": "./code-view/highlight/abap.js",
     "./highlight/cpp": "./code-view/highlight/cpp.js",
     "./highlight/csharp": "./code-view/highlight/csharp.js",
     "./highlight/css": "./code-view/highlight/css.js",
