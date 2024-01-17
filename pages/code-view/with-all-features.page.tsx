@@ -10,15 +10,13 @@ export default function CodeViewPage() {
   return (
     <ScreenshotArea>
       <h1>Code View</h1>
-      <main>
-        <CodeView
-          ariaLabel="Code snippet with all features enabled"
-          actions={<Button ariaLabel="Copy code">Copy</Button>}
-          content={`const hello = "np";\nconsole.log('Hello')\nfunction hello() {}\nthrow new Error()`}
-          lineNumbers={true}
-          highlight={javascriptHighlight}
-        />
-      </main>
+      <CodeView
+        ariaLabel="Code snippet with all features enabled"
+        actions={<Button ariaLabel="Copy code">Copy</Button>}
+        content={`const hello = "np";\nconsole.log('Hello')\nfunction hello() {}\nthrow new Error()`}
+        lineNumbers={true}
+        highlight={javascriptHighlight}
+      />
     </ScreenshotArea>
   );
 }

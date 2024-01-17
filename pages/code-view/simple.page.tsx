@@ -7,9 +7,7 @@ export default function CodeViewPage() {
   return (
     <ScreenshotArea>
       <h1>Code View</h1>
-      <main>
-        <CodeView content={"Hello World"} />
-      </main>
+      <CodeView content={"Hello World"} />
     </ScreenshotArea>
   );
 }

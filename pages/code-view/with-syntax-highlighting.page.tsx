@@ -21,37 +21,35 @@ export default function CodeViewPage() {
   return (
     <ScreenshotArea>
       <h1>Code View</h1>
-      <main>
-        <SpaceBetween direction="vertical" size="l">
-          JavaScript
-          <CodeView content={`const hello = "world";\nconsole.log(hello);`} highlight={javascriptHighlight} />
-          TypeScript
-          <CodeView content={`let hello: string = "world";\nconsole.log(hello);`} highlight={typescriptHighlight} />
-          XML
-          <CodeView content={`<greeting>Hello, world!</greeting>`} highlight={xmlHighlight} />
-          Markdown (MDX)
-          <CodeView content={`# Hello World\n\nThis is a markdown example.`} highlight={markdownHighlight} />
-          Bash (Shell Script)
-          <CodeView content={`echo "Hello, world!"`} highlight={shHighlight} />
-          CSS
-          <CodeView content={`body { background-color: lightblue; }`} highlight={cssHighlight} />
-          HTML
-          <CodeView content={`<h1>Hello, World!</h1>`} highlight={htmlHighlight} />
-          Java
-          <CodeView
-            content={`public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}`}
-            highlight={javaHighlight}
-          />
-          JSON
-          <CodeView content={`{"greeting": "Hello, world!"}`} highlight={jsonHighlight} />
-          PHP
-          <CodeView content={`<?php\necho 'Hello, world!';\n?>`} highlight={phpHighlight} />
-          Python
-          <CodeView content={`print("Hello, World!")`} highlight={pythonHighlight} />
-          YAML
-          <CodeView content={`greeting: Hello, world!`} highlight={yamlHighlight} />
-        </SpaceBetween>
-      </main>
+      <SpaceBetween direction="vertical" size="l">
+        JavaScript
+        <CodeView content={`const hello = "world";\nconsole.log(hello);`} highlight={javascriptHighlight} />
+        TypeScript
+        <CodeView content={`let hello: string = "world";\nconsole.log(hello);`} highlight={typescriptHighlight} />
+        XML
+        <CodeView content={`<greeting>Hello, world!</greeting>`} highlight={xmlHighlight} />
+        Markdown (MDX)
+        <CodeView content={`# Hello World\n\nThis is a markdown example.`} highlight={markdownHighlight} />
+        Bash (Shell Script)
+        <CodeView content={`echo "Hello, world!"`} highlight={shHighlight} />
+        CSS
+        <CodeView content={`body { background-color: lightblue; }`} highlight={cssHighlight} />
+        HTML
+        <CodeView content={`<h1>Hello, World!</h1>`} highlight={htmlHighlight} />
+        Java
+        <CodeView
+          content={`public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}`}
+          highlight={javaHighlight}
+        />
+        JSON
+        <CodeView content={`{"greeting": "Hello, world!"}`} highlight={jsonHighlight} />
+        PHP
+        <CodeView content={`<?php\necho 'Hello, world!';\n?>`} highlight={phpHighlight} />
+        Python
+        <CodeView content={`print("Hello, World!")`} highlight={pythonHighlight} />
+        YAML
+        <CodeView content={`greeting: Hello, world!`} highlight={yamlHighlight} />
+      </SpaceBetween>
     </ScreenshotArea>
   );
 }

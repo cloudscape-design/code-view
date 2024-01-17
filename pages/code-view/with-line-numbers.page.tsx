@@ -9,12 +9,10 @@ export default function CodeViewPage() {
   return (
     <ScreenshotArea>
       <h1>Code View</h1>
-      <main>
-        <SpaceBetween direction="vertical" size="l">
-          <CodeView lineNumbers={true} content={`# Hello World`} />
-          <CodeView lineNumbers={true} content={`# Hello World\n\nThis is Cloudscape.`} />
-        </SpaceBetween>
-      </main>
+      <SpaceBetween direction="vertical" size="l">
+        <CodeView lineNumbers={true} content={`# Hello World`} />
+        <CodeView lineNumbers={true} content={`# Hello World\n\nThis is Cloudscape.`} />
+      </SpaceBetween>
     </ScreenshotArea>
   );
 }
