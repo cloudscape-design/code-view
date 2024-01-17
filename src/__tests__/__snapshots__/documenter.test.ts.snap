@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`definition for code-view matches the snapshot > code-view 1`] = `
+{
+  "events": [],
+  "functions": [],
+  "name": "CodeView",
+  "properties": [
+    {
+      "description": "Adds an \`aria-label\` to the component. Use this label when there is not enough context around the code snippet to describe its purpose or content.",
+      "name": "ariaLabel",
+      "optional": true,
+      "type": "string",
+    },
+    {
+      "description": "Adds \`aria-labelledby\` to the component. Use this property to reference the ID of an existing element that provides a descriptive label for the code snippet.",
+      "name": "ariaLabelledby",
+      "optional": true,
+      "type": "string",
+    },
+    {
+      "description": "The code content to be displayed.",
+      "name": "content",
+      "optional": false,
+      "type": "string",
+    },
+    {
+      "description": "A function to perform custom syntax highlighting.",
+      "name": "highlight",
+      "optional": true,
+      "type": "(code: string) => React.ReactNode",
+    },
+    {
+      "description": "Controls the display of line numbers.
+Defaults to \`false\`.
+",
+      "name": "lineNumbers",
+      "optional": true,
+      "type": "boolean",
+    },
+  ],
+  "regions": [
+    {
+      "description": "An optional slot to display a button to enable users to perform actions, such as copy or download the code snippet.",
+      "isDefault": false,
+      "name": "actions",
+    },
+  ],
+  "releaseStatus": "stable",
+}
+`;
