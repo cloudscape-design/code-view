@@ -29,6 +29,7 @@
     "build:src:copy": "cp README.md lib/components/",
     "build:src:docs": "node scripts/docs.js",
     "build:src:environment": "node scripts/environment",
+    "build:themeable": "node scripts/themeable-source",
     "build:pages:vite": "vite build",
     "build:pages:tsc": "tsc -p pages/tsconfig.json"
   },
