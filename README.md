@@ -1,4 +1,4 @@
-## React components for Cloudscape Design System
+## Code view component for Cloudscape Design System
 
 This package contains the source code of the Code View component in the [Cloudscape Design System](https://cloudscape.design/).
 For more information about the code view component, see [the documentation](https://cloudscape.design/components/code-view/).
