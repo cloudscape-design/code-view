@@ -7,7 +7,6 @@ import { globbySync } from "globby";
 const cwd = process.cwd();
 
 const targetDir = path.join(cwd, "./lib/components-themeable/internal");
-console.log(targetDir);
 const stylesSourceDir = path.join(cwd, "./src/");
 const stylesTargetDir = path.join(targetDir, "/scss");
 
