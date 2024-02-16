@@ -10,10 +10,6 @@ import styles from "./styles.css.js";
 
 const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" };
 
-function getLineNumbers(content: string) {
-  return content.split("\n").map((_, n) => n + 1);
-}
-
 type InternalCodeViewProps = CodeViewProps & InternalBaseComponentProps;
 
 export function InternalCodeView({
@@ -26,7 +22,6 @@ export function InternalCodeView({
   __internalRootRef = null,
   ...props
 }: InternalCodeViewProps) {
-  const code = highlight ? highlight(content) : <span>{content}</span>;
   const baseProps = getBaseProps(props);
   const preRef = useRef<HTMLPreElement>(null);
   const darkMode = useCurrentMode(preRef) === "dark";
@@ -35,38 +30,37 @@ export function InternalCodeView({
 
   return (
     <div
-      className={styles.root}
+      className={clsx(darkMode ? ACE_CLASSES.dark : ACE_CLASSES.light, styles.root)}
       {...regionProps}
       {...baseProps}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledby}
       ref={__internalRootRef}
     >
-      <div className={clsx(lineNumbers && styles["root-with-numbers"], actions && styles["root-with-actions"])}>
-        <Box color="text-status-inactive" fontSize="body-m">
-          {lineNumbers && (
-            <div className={styles["line-numbers"]} aria-hidden={true}>
-              {getLineNumbers(content).map((number) => (
-                <span key={number}>{number}</span>
-              ))}
-            </div>
-          )}
-        </Box>
-        <pre
-          ref={preRef}
-          className={clsx(
-            darkMode ? ACE_CLASSES.dark : ACE_CLASSES.light,
-            styles.code,
-            lineNumbers && styles["code-with-line-numbers"],
-            actions && styles["code-with-actions"]
-          )}
-        >
-          <Box color="inherit" variant="code" fontSize="body-m">
-            {code}
-          </Box>
-        </pre>
-        {actions && <div className={styles.actions}>{actions}</div>}
-      </div>
+      <table className={clsx(styles["code-table"])}>
+        <tbody>
+          {content.split("\n").map((line, index) => {
+            const highlightedLine = highlight ? highlight(line) : <span>{line}</span>;
+            return (
+              <tr key={index}>
+                {lineNumbers && (
+                  <td className={styles["line-number"]} aria-hidden={true}>
+                    <Box color="text-status-inactive" fontSize="body-m">
+                      {index + 1}
+                    </Box>
+                  </td>
+                )}
+                <td className={styles["code-line"]}>
+                  <Box color="inherit" variant="code" fontSize="body-m">
+                    {highlightedLine}
+                  </Box>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      {actions && <div className={styles.actions}>{actions}</div>}
     </div>
   );
 }
