@@ -1,10 +1,11 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, getByText, render } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import CodeView from "../../../lib/components/code-view";
 import styles from "../../../lib/components/code-view/styles.css.js";
 import createWrapper from "../../../lib/components/test-utils/dom";
+import typescriptHighlightRules from "../highlight/typescript";
 
 describe("CodeView", () => {
   afterEach(() => {
@@ -57,5 +58,17 @@ describe("CodeView", () => {
     );
     const wrapper = createWrapper().findCodeView()!;
     expect(wrapper!.findContent().getElement().innerHTML).toContain('class="tokenized"');
+  });
+
+  test("correctly tokenizes content if highlight is set to language rules", () => {
+    render(<CodeView content={'const hello: string = "world";'} highlight={typescriptHighlightRules}></CodeView>);
+    const wrapper = createWrapper().findCodeView()!;
+    const element = wrapper!.findContent().getElement();
+
+    // Check that the content is tokenized following typescript rules.
+    expect(getByText(element, "const")).toHaveClass("ace_type");
+    expect(getByText(element, "hello")).toHaveClass("ace_identifier");
+    expect(getByText(element, "string")).toHaveClass("ace_type");
+    expect(getByText(element, '"world"')).toHaveClass("ace_string");
   });
 });
