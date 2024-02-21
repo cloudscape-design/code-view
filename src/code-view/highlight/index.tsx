@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import type { Ace } from "ace-code";
 import { tokenize } from "ace-code/src/ext/simple_tokenizer";
+import { Fragment } from "react";
 import "ace-code/styles/theme/cloud_editor.css";
 import "ace-code/styles/theme/cloud_editor_dark.css";
 
@@ -10,8 +11,8 @@ export function createHighlight(rules: Ace.HighlightRules) {
     const tokens = tokenize(code, rules);
     return (
       <span>
-        {tokens.map((lineTokens) => (
-          <>
+        {tokens.map((lineTokens, lineIndex) => (
+          <Fragment key={lineIndex}>
             {lineTokens.map((token, tokenIndex) => {
               return token.className ? (
                 <span className={token?.className} key={tokenIndex}>
@@ -22,7 +23,7 @@ export function createHighlight(rules: Ace.HighlightRules) {
               );
             })}
             {"\n"}
-          </>
+          </Fragment>
         ))}
       </span>
     );
