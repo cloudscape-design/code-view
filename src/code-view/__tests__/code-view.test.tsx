@@ -3,9 +3,9 @@
 import { cleanup, getByText, render } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 import CodeView from "../../../lib/components/code-view";
+import typescriptHighlightRules from "../../../lib/components/code-view/highlight/typescript";
 import styles from "../../../lib/components/code-view/styles.css.js";
 import createWrapper from "../../../lib/components/test-utils/dom";
-import typescriptHighlightRules from "../highlight/typescript";
 
 describe("CodeView", () => {
   afterEach(() => {
