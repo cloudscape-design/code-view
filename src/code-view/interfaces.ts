@@ -25,6 +25,13 @@ export interface CodeViewProps {
   lineNumbers?: boolean;
 
   /**
+   * Controls the number the line numbers start counting from.
+   *
+   * Defaults to `1`.
+   */
+  lineNumbersStart?: number;
+
+  /**
    * An optional slot to display a button to enable users to perform actions, such as copy or download the code snippet.
    *
    */
