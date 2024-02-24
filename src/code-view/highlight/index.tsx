@@ -6,7 +6,9 @@ import { Fragment } from "react";
 import "ace-code/styles/theme/cloud_editor.css";
 import "ace-code/styles/theme/cloud_editor_dark.css";
 
-export function createHighlight(rules: Ace.HighlightRules) {
+type CreateHighlightType = (code: string) => React.ReactElement;
+
+export function createHighlight(rules: Ace.HighlightRules): CreateHighlightType {
   return (code: string) => {
     const tokens = tokenize(code, rules);
     return (

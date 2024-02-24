@@ -28,13 +28,21 @@ exports[`definition for code-view matches the snapshot > code-view 1`] = `
       "description": "A function to perform custom syntax highlighting.",
       "name": "highlight",
       "optional": true,
-      "type": "(code: string) => React.ReactNode",
+      "type": "(code: string) => ReactElement",
     },
     {
       "description": "Controls the display of line numbers.
 Defaults to \`false\`.
 ",
       "name": "lineNumbers",
+      "optional": true,
+      "type": "boolean",
+    },
+    {
+      "description": "Controls lines wrap when overflowing on the right side.
+Defaults to \`false\`.
+",
+      "name": "lineWrapping",
       "optional": true,
       "type": "boolean",
     },

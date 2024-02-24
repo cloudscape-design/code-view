@@ -25,6 +25,13 @@ export interface CodeViewProps {
   lineNumbers?: boolean;
 
   /**
+   * Controls lines wrap when overflowing on the right side.
+   *
+   * Defaults to `false`.
+   */
+  lineWrapping?: boolean;
+
+  /**
    * An optional slot to display a button to enable users to perform actions, such as copy or download the code snippet.
    *
    */
@@ -34,5 +41,5 @@ export interface CodeViewProps {
    * A function to perform custom syntax highlighting.
    *
    */
-  highlight?: (code: string) => React.ReactNode;
+  highlight?: (code: string) => React.ReactElement;
 }
