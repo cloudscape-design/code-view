@@ -11,6 +11,7 @@
     "build": "npm-run-all build:pkg --parallel build:src:* --parallel build:pages:* build:themeable",
     "postbuild": "size-limit",
     "lint": "eslint --ignore-path .gitignore --ext ts,tsx,js . && stylelint --ignore-path .gitignore '{src,pages}/**/*.{css,scss}'",
+    "fix": "eslint --fix --ignore-path .gitignore --ext ts,tsx,js . && stylelint --ignore-path .gitignore '{src,pages}/**/*.{css,scss}'",
     "prepare": "husky install",
     "test:unit": "vitest run --config vite.unit.config.mjs",
     "test:visual": "run-p -r preview test:visual:vitest",
