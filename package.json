@@ -63,6 +63,7 @@
     "./test-utils/selectors": "./test-utils/selectors/index.js"
   },
   "dependencies": {
+    "@cloudscape-design/component-toolkit": "^1.0.0-beta",
     "ace-code": "^1.32.3",
     "clsx": "^1.2.1"
   },
