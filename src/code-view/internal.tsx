@@ -2,12 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useCurrentMode } from "@cloudscape-design/component-toolkit/internal";
 import Box from "@cloudscape-design/components/box";
-import { TextHighlightRules } from "ace-code/src/mode/text_highlight_rules";
 import clsx from "clsx";
 import { useRef } from "react";
 import { Children } from "react";
 import { InternalBaseComponentProps, getBaseProps } from "../internal/base-component/use-base-component";
-import { createHighlight } from "./highlight";
 import { CodeViewProps } from "./interfaces";
 import styles from "./styles.css.js";
 
@@ -15,7 +13,21 @@ const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" }
 
 type InternalCodeViewProps = CodeViewProps & InternalBaseComponentProps;
 
-const textHighlight = createHighlight(new TextHighlightRules());
+// Breaks down the input code for non-highlighted code-view into React
+// Elements similar to how a highlight function would do.
+const textHighlight = (code: string) => {
+  const lines = code.split("\n");
+  return (
+    <span>
+      {lines.map((line, lineIndex) => (
+        <span key={lineIndex}>
+          {line}
+          {"\n"}
+        </span>
+      ))}
+    </span>
+  );
+};
 
 export function InternalCodeView({
   content,
