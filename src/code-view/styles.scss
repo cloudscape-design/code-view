@@ -41,6 +41,11 @@ $color-background-code-view-dark: #282c34;
   padding-right: cs.$space-static-xs;
 }
 
+.unselectable {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .code-line {
   padding-left: cs.$space-static-xs;
   padding-right: cs.$space-static-xs;
