@@ -56,7 +56,7 @@ export function InternalCodeView({
             return (
               <tr key={index}>
                 {lineNumbers && (
-                  <td className={styles["line-number"]} aria-hidden={true}>
+                  <td className={clsx(styles["line-number"], styles.unselectable)} aria-hidden={true}>
                     <Box color="text-status-inactive" fontSize="body-m">
                       {index + 1}
                     </Box>
