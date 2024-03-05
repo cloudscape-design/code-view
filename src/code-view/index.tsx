@@ -8,7 +8,9 @@ import { InternalCodeView } from "./internal";
 export type { CodeViewProps };
 
 export default function CodeView(props: CodeViewProps) {
-  const baseComponentProps = useBaseComponent("CodeView");
+  const baseComponentProps = useBaseComponent("CodeView", {
+    props: { lineNumbers: props.lineNumbers },
+  });
   return <InternalCodeView {...props} {...baseComponentProps} />;
 }
 
