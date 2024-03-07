@@ -81,5 +81,5 @@ function generateIndexFileContent({ testUtilType, buildFinderInterface }) {
 
 function compileTypescript() {
   const config = path.resolve("src/test-utils/tsconfig.json");
-  execaSync("tsc", ["-p", config, "--sourceMap"], { stdio: "inherit" });
+  execaSync("tsc", ["-p", config, "--sourceMap", "--inlineSources"], { stdio: "inherit" });
 }
