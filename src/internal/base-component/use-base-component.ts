@@ -27,28 +27,18 @@ export default function useBaseComponent<T = any>(componentName: string, config?
   return { __internalRootRef: elementRef };
 }
 
-export interface BaseComponentProps {
-  /**
-   * Adds the specified classes to the root element of the component.
-   * @deprecated Custom CSS is not supported. For other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).
-   */
-  className?: string;
-  /**
-   * Adds the specified ID to the root element of the component.
-   * @deprecated Custom CSS is not supported. For other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).
-   */
-  id?: string;
-  // we also support data-* attributes, but they are always implicitly allowed by typescript
-  // http://www.typescriptlang.org/docs/handbook/jsx.html#attribute-type-checking
-  // "Note: If an attribute name is not a valid JS identifier (like a data-* attribute), it is not considered to be an error"
-}
+// we also support data-* attributes, but they are always implicitly allowed by typescript
+// http://www.typescriptlang.org/docs/handbook/jsx.html#attribute-type-checking
+// "Note: If an attribute name is not a valid JS identifier (like a data-* attribute), it is not considered to be an error"
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface BaseComponentProps {}
 
 export function getBaseProps(props: BaseComponentProps) {
-  const baseProps: Record<string, any> = {};
+  const baseProps: Record<string, string> = {};
   Object.keys(props).forEach((prop) => {
-    if (prop === "id" || prop.match(/^data-/)) {
-      baseProps[prop] = (props as Record<string, any>)[prop];
+    if (prop.startsWith("data-")) {
+      baseProps[prop] = (props as Record<string, string>)[prop];
     }
   });
-  return baseProps as BaseComponentProps;
+  return baseProps;
 }
