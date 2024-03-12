@@ -11,10 +11,24 @@ describe("CodeView", () => {
   afterEach(() => {
     cleanup();
   });
-  test("correctly renders component content", () => {
+  test("correctly renders simple content", () => {
     render(<CodeView content={"Hello World"}></CodeView>);
     const wrapper = createWrapper()!.findCodeView();
     expect(wrapper!.findContent()[0].getElement()).toHaveTextContent("Hello World");
+  });
+
+  test("correctly renders multi line content", () => {
+    const content = `# Hello World\n\nThis is a markdown example.`;
+
+    render(<CodeView content={content}></CodeView>);
+    const wrapper = createWrapper()!.findCodeView();
+    const contentElements = wrapper!.findContent();
+    expect(contentElements.length).toEqual(3);
+    const renderedContent = contentElements
+      .map((element) => element.getElement().textContent)
+      .join("")
+      .trim();
+    expect(renderedContent).toBe(content);
   });
 
   test("correctly renders copy button slot", () => {
