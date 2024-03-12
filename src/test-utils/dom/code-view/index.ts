@@ -6,8 +6,8 @@ import styles from "../../../code-view/styles.selectors.js";
 export default class CodeViewWrapper extends ComponentWrapper {
   static rootSelector: string = styles.root;
 
-  findContent() {
-    return this.findAllByClassName(styles["code-line"])!;
+  findContent(): ElementWrapper {
+    return this.find("tbody")!;
   }
 
   findActions(): ElementWrapper | null {
