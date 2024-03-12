@@ -76,13 +76,13 @@ export function InternalCodeView({
                 <tr key={index}>
                   {lineNumbers && (
                     <td className={clsx(styles["line-number"], styles.unselectable)} aria-hidden={true}>
-                      <Box color="text-status-inactive" fontSize="body-m">
+                      <Box variant="code" color="text-status-inactive" fontSize="body-m">
                         {index + 1}
                       </Box>
                     </td>
                   )}
                   <td className={styles["code-line"]}>
-                    <Box color="text-status-inactive" variant="code" fontSize="body-m">
+                    <Box variant="code" fontSize="body-m">
                       <span
                         className={clsx(
                           code.props.className,
