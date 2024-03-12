@@ -12,6 +12,8 @@ export default function CodeViewPage() {
       <SpaceBetween direction="vertical" size="l">
         <CodeView lineNumbers={true} content={`# Hello World`} />
         <CodeView lineNumbers={true} content={`# Hello World\n\nThis is Cloudscape.`} />
+        <CodeView lineNumbers={true} lineNumbersStart={5} content={`# Hello World\n\nThis is Cloudscape.`} />
+        <CodeView lineNumbers={true} lineNumbersStart={-1} content={`# Hello World\n\nThis is Cloudscape.`} />
       </SpaceBetween>
     </ScreenshotArea>
   );

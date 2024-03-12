@@ -38,6 +38,14 @@ Defaults to \`false\`.
       "optional": true,
       "type": "boolean",
     },
+    {
+      "description": "Controls the number the line numbers start counting from.
+Defaults to \`1\`.
+",
+      "name": "lineNumbersStart",
+      "optional": true,
+      "type": "number",
+    },
   ],
   "regions": [
     {
