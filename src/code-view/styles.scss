@@ -10,6 +10,9 @@ $color-background-code-view-dark: #282c34;
     background-color: $color-background-code-view-dark;
   }
   background-color: $color-background-code-view-light;
+}
+
+.scroll-container {
   overflow-x: auto;
 }
 
@@ -23,6 +26,14 @@ $color-background-code-view-dark: #282c34;
   table-layout: auto;
   width: 100%;
   border-spacing: 0;
+
+  &-with-actions {
+    min-height: calc(2 * cs.$space-scaled-xs + cs.$space-scaled-xxl);
+  }
+}
+
+.code-table-with-actions.code-table-with-line-wrapping {
+  padding-inline-end: cs.$space-static-xxl;
 }
 
 .line-number {
@@ -59,7 +70,7 @@ $color-background-code-view-dark: #282c34;
 
 .actions {
   position: absolute;
-  inset-block-start: cs.$space-static-xs;
-  inset-inline-end: cs.$space-static-xs;
+  inset-block-start: cs.$space-scaled-xs;
+  inset-inline-end: cs.$space-scaled-xs;
   padding-inline-start: cs.$space-container-horizontal;
 }
