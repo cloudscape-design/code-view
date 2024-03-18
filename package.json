@@ -53,7 +53,6 @@
     "./highlight/ruby": "./code-view/highlight/ruby.js",
     "./highlight/rust": "./code-view/highlight/rust.js",
     "./highlight/sh": "./code-view/highlight/sh.js",
-    "./highlight/swift": "./code-view/highlight/swift.js",
     "./highlight/typescript": "./code-view/highlight/typescript.js",
     "./highlight/xml": "./code-view/highlight/xml.js",
     "./highlight/yaml": "./code-view/highlight/yaml.js",
