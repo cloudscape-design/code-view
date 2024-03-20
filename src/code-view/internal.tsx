@@ -60,6 +60,7 @@ export function InternalCodeView({
     >
       <div className={styles["scroll-container"]}>
         <table
+          role="presentation"
           className={clsx(
             styles["code-table"],
             actions && styles["code-table-with-actions"],
