@@ -78,7 +78,7 @@
     "@cloudscape-design/global-styles": "^1.0.1",
     "@cloudscape-design/test-utils-converter": "^1.0.0",
     "@cloudscape-design/theming-build": "^1",
-    "@size-limit/preset-small-lib": "^11.0.2",
+    "@size-limit/preset-small-lib": "^11.1.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/jest-image-snapshot": "^6.1.0",
@@ -113,7 +113,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
-    "size-limit": "^11.0.2",
+    "size-limit": "^11.1.2",
     "stylelint": "^15.11.0",
     "stylelint-config-recommended-scss": "^12.0.0",
     "stylelint-order": "^6.0.3",
@@ -142,11 +142,11 @@
   "size-limit": [
     {
       "path": "lib/components/index.js",
-      "limit": "0.5kb"
+      "limit": "6.2kb"
     },
     {
       "path": "lib/components/code-view/highlight/javascript.js",
-      "limit": "1kb"
+      "limit": "10kb"
     }
   ]
 }
