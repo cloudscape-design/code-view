@@ -15,9 +15,9 @@ export default defineConfig({
     setupFiles: ["./src/__tests__/setup.ts"],
     coverage: {
       enabled: process.env.CI === "true",
-      provider: "istanbul",
-      include: ["src/**"],
-      exclude: ["**/debug-tools/**", "**/__tests__/**"],
+      provider: "v8",
+      include: ["src/**", "lib/components/**"],
+      exclude: ["**/__tests__/**", "**/*.d.ts", "**/api-docs/**", "**/test-utils/selectors/**"],
     },
   },
 });

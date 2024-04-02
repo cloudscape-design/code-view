@@ -3,11 +3,11 @@
 import { render } from "@testing-library/react";
 import { ReactElement } from "react";
 import { describe, expect, test } from "vitest";
+import * as components from "../../lib/components";
 import { defaultProps } from "./default-props";
-import { requireComponent } from "./utils";
 
-describe(`base props support for code-view`, async () => {
-  const Component = await requireComponent("code-view");
+describe(`base props support for code-view`, () => {
+  const Component = components.CodeView;
   const props = defaultProps["code-view" as keyof typeof defaultProps];
 
   function renderComponent(ui: ReactElement) {
@@ -19,12 +19,14 @@ describe(`base props support for code-view`, async () => {
     expect(container.firstElementChild).toHaveAttribute("data-testid", "example");
   });
 
-  test("should allow id", () => {
+  test("should not allow id", () => {
+    // @ts-expect-error id is not supported
     const { container } = renderComponent(<Component {...props} id="example" />);
-    expect(container.querySelector("#example")).not.toBeNull();
+    expect(container.querySelector("#example")).toBeNull();
   });
 
   test("should not allow className", () => {
+    // @ts-expect-error className is not supported
     const { container } = renderComponent(<Component {...props} className="example" />);
     expect(container.querySelector(".example")).toBeNull();
   });
