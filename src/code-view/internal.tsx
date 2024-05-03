@@ -40,6 +40,7 @@ export function InternalCodeView({
       {...baseProps}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledby}
+      dir="ltr"
       ref={__internalRootRef}
     >
       <div className={clsx(lineNumbers && styles["root-with-numbers"], actions && styles["root-with-actions"])}>
