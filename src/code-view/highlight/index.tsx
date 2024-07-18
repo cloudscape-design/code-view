@@ -1,8 +1,9 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
+import { Fragment } from "react";
 import type { Ace } from "ace-code";
 import { tokenize } from "ace-code/src/ext/simple_tokenizer";
-import { Fragment } from "react";
+
 import "ace-code/styles/theme/cloud_editor.css";
 import "ace-code/styles/theme/cloud_editor_dark.css";
 

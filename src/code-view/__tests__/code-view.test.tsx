@@ -1,11 +1,13 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import { cleanup, getByText, render } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
+import { cleanup, getByText, render } from "@testing-library/react";
+
 import CodeView from "../../../lib/components/code-view";
 import typescriptHighlightRules from "../../../lib/components/code-view/highlight/typescript";
-import styles from "../../../lib/components/code-view/styles.css.js";
 import createWrapper from "../../../lib/components/test-utils/dom";
+
+import styles from "../../../lib/components/code-view/styles.css.js";
 
 describe("CodeView", () => {
   afterEach(() => {

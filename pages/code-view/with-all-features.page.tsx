@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Button } from "@cloudscape-design/components";
+
 import { CodeView } from "../../lib/components";
 import javascriptHighlight from "../../lib/components/code-view/highlight/javascript";
 import { ScreenshotArea } from "../screenshot-area";
