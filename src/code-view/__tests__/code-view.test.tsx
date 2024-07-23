@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import { afterEach, describe, expect, test } from "vitest";
 import { cleanup, getByText, render } from "@testing-library/react";
+import { afterEach, describe, expect, test } from "vitest";
 
 import CodeView from "../../../lib/components/code-view";
 import typescriptHighlightRules from "../../../lib/components/code-view/highlight/typescript";
