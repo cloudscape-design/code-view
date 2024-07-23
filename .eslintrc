@@ -75,7 +75,7 @@
         "noUselessIndex": true
       }
     ],
-    "simple-import-sort/imports": "warn"
+    "simple-import-sort/imports": "error"
   },
   "settings": {
     "react": {
@@ -102,7 +102,7 @@
       "files": ["src/**", "pages/**", "test/**", "scripts/**"],
       "rules": {
         "simple-import-sort/imports": [
-          "warn",
+          "error",
           {
             "groups": [
               // External packages come first.
