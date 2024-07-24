@@ -1,11 +1,14 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
+import { useRef } from "react";
+import clsx from "clsx";
+
 import { useCurrentMode } from "@cloudscape-design/component-toolkit/internal";
 import Box from "@cloudscape-design/components/box";
-import clsx from "clsx";
-import { useRef } from "react";
-import { InternalBaseComponentProps, getBaseProps } from "../internal/base-component/use-base-component";
+
+import { getBaseProps, InternalBaseComponentProps } from "../internal/base-component/use-base-component";
 import { CodeViewProps } from "./interfaces";
+
 import styles from "./styles.css.js";
 
 const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" };

@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { SpaceBetween } from "@cloudscape-design/components";
+
 import { CodeView } from "../../lib/components";
-import cssHighlight from "../../lib/components/code-view/highlight/css";
 import htmlHighlight from "../../lib/components/code-view/highlight/html";
 import javaHighlight from "../../lib/components/code-view/highlight/java";
 import javascriptHighlight from "../../lib/components/code-view/highlight/javascript";
@@ -15,8 +15,9 @@ import shHighlight from "../../lib/components/code-view/highlight/sh";
 import typescriptHighlight from "../../lib/components/code-view/highlight/typescript";
 import xmlHighlight from "../../lib/components/code-view/highlight/xml";
 import yamlHighlight from "../../lib/components/code-view/highlight/yaml";
-
 import { ScreenshotArea } from "../screenshot-area";
+
+import cssHighlight from "../../lib/components/code-view/highlight/css";
 export default function CodeViewPage() {
   return (
     <ScreenshotArea>
