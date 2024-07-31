@@ -56,7 +56,7 @@ describe("CodeView", () => {
       <CodeView
         content={"<div>Hello</div>"}
         highlight={(code: string) => <div className="tokenized">{code}</div>}
-      ></CodeView>
+      ></CodeView>,
     );
     const wrapper = createWrapper().findCodeView()!;
     expect(wrapper!.findContent().getElement().innerHTML).toContain('class="tokenized"');

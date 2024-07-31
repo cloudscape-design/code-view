@@ -6,7 +6,13 @@
     "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global"] }],
     "selector-max-type": [0, { "ignore": ["compounded"] }],
     "selector-max-universal": [0],
-    "order/order": ["rules"]
+    "order/order": ["rules"],
+    "@cloudscape-design/license-headers": [
+      true,
+      {
+        "header": "\n Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.\n SPDX-License-Identifier: Apache-2.0\n"
+      }
+    ]
   },
-  "plugins": ["stylelint-use-logical", "stylelint-order"]
+  "plugins": ["stylelint-use-logical", "stylelint-order", "./build-tools/stylelint"]
 }

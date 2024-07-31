@@ -23,7 +23,7 @@ Object.keys(packageLock.packages).forEach((dependencyName) => {
     delete packageLock.packages[dependencyName];
   } else if (dependency.resolved && dependency.resolved.indexOf("codeartifact.us-west-2.amazonaws.com") !== -1) {
     throw Error(
-      `package-lock.json file contains a reference to CodeArtifact at ${dependencyName}. Use regular npm to update the packages.`
+      `package-lock.json file contains a reference to CodeArtifact at ${dependencyName}. Use regular npm to update the packages.`,
     );
   }
 });
