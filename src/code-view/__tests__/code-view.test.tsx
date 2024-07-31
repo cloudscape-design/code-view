@@ -31,6 +31,18 @@ describe("CodeView", () => {
     expect(wrapper!.findByClassName(styles["line-numbers"])!.getElement()).toHaveTextContent("123");
   });
 
+  test("correctly renders line numbers when lineNumbersStart is set", () => {
+    render(<CodeView content={`Hello\nWorld\n!`} lineNumbers={true} lineNumbersStart={4}></CodeView>);
+    const wrapper = createWrapper()!.findCodeView();
+    expect(wrapper!.findByClassName(styles["line-numbers"])!.getElement()).toHaveTextContent("456");
+  });
+
+  test("correctly renders line numbers when lineNumbersStart is set to a negative value", () => {
+    render(<CodeView content={`Hello\nWorld\n!`} lineNumbers={true} lineNumbersStart={-1}></CodeView>);
+    const wrapper = createWrapper()!.findCodeView();
+    expect(wrapper!.findByClassName(styles["line-numbers"])!.getElement()).toHaveTextContent("-101");
+  });
+
   test("correctly renders aria-label", () => {
     render(<CodeView content={`Hello\nWorld\n!`} ariaLabel="Code snippet"></CodeView>);
     const wrapper = createWrapper()!.findCodeView();

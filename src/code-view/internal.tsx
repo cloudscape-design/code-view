@@ -13,8 +13,8 @@ import styles from "./styles.css.js";
 
 const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" };
 
-function getLineNumbers(content: string) {
-  return content.split("\n").map((_, n) => n + 1);
+function getLineNumbers(content: string, lineNumbersStart = 1) {
+  return content.split("\n").map((_, n) => lineNumbersStart + n);
 }
 
 type InternalCodeViewProps = CodeViewProps & InternalBaseComponentProps;
@@ -23,6 +23,7 @@ export function InternalCodeView({
   content,
   actions,
   lineNumbers,
+  lineNumbersStart,
   highlight,
   ariaLabel,
   ariaLabelledby,
@@ -50,7 +51,7 @@ export function InternalCodeView({
         <Box color="text-status-inactive" fontSize="body-m">
           {lineNumbers && (
             <div className={styles["line-numbers"]} aria-hidden={true}>
-              {getLineNumbers(content).map((number) => (
+              {getLineNumbers(content, lineNumbersStart).map((number) => (
                 <span key={number}>{number}</span>
               ))}
             </div>
