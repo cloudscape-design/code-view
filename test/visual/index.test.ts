@@ -20,5 +20,5 @@ test.each(pages)("matches snapshot for %s", (route) =>
       const pngString = await page.fullPageScreenshot();
       expect(pngString).toMatchImageSnapshot();
     }
-  })()
+  })(),
 );

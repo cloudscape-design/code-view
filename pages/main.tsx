@@ -10,5 +10,5 @@ import "@cloudscape-design/global-styles/index.css";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>
     <App />
-  </StrictMode>
+  </StrictMode>,
 );

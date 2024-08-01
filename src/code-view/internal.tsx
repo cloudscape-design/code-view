@@ -62,7 +62,7 @@ export function InternalCodeView({
             darkMode ? ACE_CLASSES.dark : ACE_CLASSES.light,
             styles.code,
             lineNumbers && styles["code-with-line-numbers"],
-            actions && styles["code-with-actions"]
+            actions && styles["code-with-actions"],
           )}
         >
           <Box color="inherit" variant="code" fontSize="body-m">

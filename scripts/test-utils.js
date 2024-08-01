@@ -10,7 +10,7 @@ import { default as convertToSelectorUtil } from "@cloudscape-design/test-utils-
 import { pascalCase, writeSourceFile } from "./utils.js";
 
 const components = globbySync(["src/test-utils/dom/**/index.ts", "!src/test-utils/dom/index.ts"]).map((fileName) =>
-  fileName.replace("src/test-utils/dom/", "").replace("/index.ts", "")
+  fileName.replace("src/test-utils/dom/", "").replace("/index.ts", ""),
 );
 
 generateSelectorUtils();
@@ -73,7 +73,7 @@ function generateIndexFileContent({ testUtilType, buildFinderInterface }) {
           // casting to 'any' is needed to avoid this issue with generics
           // https://github.com/microsoft/TypeScript/issues/29132
           return (this as any).findComponent(selector ? appendSelector(selector, rootSelector) : rootSelector, ${pascalCase(
-            componentName
+            componentName,
           )}Wrapper);
       };`;
     }),
