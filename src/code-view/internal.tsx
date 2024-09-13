@@ -49,7 +49,10 @@ export function InternalCodeView({
       <div className={clsx(lineNumbers && styles["root-with-numbers"], actions && styles["root-with-actions"])}>
         <Box color="text-status-inactive" fontSize="body-m">
           {lineNumbers && (
-            <div className={styles["line-numbers"]} aria-hidden={true}>
+            <div
+              className={clsx(styles["line-numbers"], actions && styles["line-numbers-with-actions"])}
+              aria-hidden={true}
+            >
               {getLineNumbers(content).map((number) => (
                 <span key={number}>{number}</span>
               ))}

@@ -49,6 +49,9 @@ $color-background-code-view-dark: #282c34;
   :global(.awsui-polaris-dark-mode) & {
     background-color: $color-background-code-view-dark;
   }
+  &-with-actions {
+    min-block-size: cs.$space-scaled-xxl;
+  }
   border-start-start-radius: cs.$border-radius-tiles;
   border-end-start-radius: cs.$border-radius-tiles;
   background-color: $color-background-code-view-light;
