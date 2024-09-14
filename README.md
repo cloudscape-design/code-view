@@ -17,4 +17,4 @@ The [contribution guidelines](/CONTRIBUTING.md) contains information on how to c
 
 ## License
 
-This project is licensed under the [Apache 2.0 License](/LICENSE).
+This project is licensed under the [Apache 2.0 License](/LICENSE)
