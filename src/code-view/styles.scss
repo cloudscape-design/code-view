@@ -17,6 +17,17 @@ $color-background-code-view-dark: #282c34;
 }
 
 .code {
+  background-color: $color-background-code-view-light;
+  display: flex;
+  border-start-start-radius: cs.$border-radius-tiles;
+  border-start-end-radius: cs.$border-radius-tiles;
+  border-end-start-radius: cs.$border-radius-tiles;
+  border-end-end-radius: cs.$border-radius-tiles;
+  padding-block: cs.$space-static-xs;
+  padding-inline: cs.$space-static-xs;
+  margin-block: 0;
+  margin-inline: 0;
+  overflow: auto;
   :global(.awsui-dark-mode) &,
   :global(.awsui-polaris-dark-mode) & {
     background-color: $color-background-code-view-dark;
@@ -31,27 +42,9 @@ $color-background-code-view-dark: #282c34;
     padding-inline-end: calc(2 * cs.$space-static-xxxl);
     align-items: center;
   }
-  background-color: $color-background-code-view-light;
-  display: flex;
-  border-start-start-radius: cs.$border-radius-tiles;
-  border-start-end-radius: cs.$border-radius-tiles;
-  border-end-start-radius: cs.$border-radius-tiles;
-  border-end-end-radius: cs.$border-radius-tiles;
-  padding-block: cs.$space-static-xs;
-  padding-inline: cs.$space-static-xs;
-  margin-block: 0;
-  margin-inline: 0;
-  overflow: auto;
 }
 
 .line-numbers {
-  :global(.awsui-dark-mode) &,
-  :global(.awsui-polaris-dark-mode) & {
-    background-color: $color-background-code-view-dark;
-  }
-  &-with-actions {
-    min-block-size: cs.$space-scaled-xxl;
-  }
   border-start-start-radius: cs.$border-radius-tiles;
   border-end-start-radius: cs.$border-radius-tiles;
   background-color: $color-background-code-view-light;
@@ -64,6 +57,13 @@ $color-background-code-view-dark: #282c34;
   border-inline-end-style: solid;
   border-inline-end-color: cs.$color-border-divider-default;
   justify-content: center;
+  :global(.awsui-dark-mode) &,
+  :global(.awsui-polaris-dark-mode) & {
+    background-color: $color-background-code-view-dark;
+  }
+  &-with-actions {
+    min-block-size: cs.$space-scaled-xxl;
+  }
 }
 
 .actions {
