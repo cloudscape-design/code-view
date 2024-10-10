@@ -14,5 +14,5 @@
       }
     ]
   },
-  "plugins": ["stylelint-use-logical", "stylelint-order", "./build-tools/stylelint"]
+  "plugins": ["stylelint-use-logical", "stylelint-order", "@cloudscape-design/build-tools/stylelint"]
 }
