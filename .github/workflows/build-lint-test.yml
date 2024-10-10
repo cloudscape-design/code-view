@@ -18,14 +18,14 @@ permissions:
 
 jobs:
   build:
-    uses: cloudscape-design/actions/.github/workflows/build-lint-test.yml@chore/build-tools
+    uses: cloudscape-design/actions/.github/workflows/build-lint-test.yml@test/build-tools
     secrets: inherit
     with:
       artifact-path: dist
       artifact-name: dev-pages
   deploy:
     needs: build
-    uses: cloudscape-design/actions/.github/workflows/deploy.yml@chore/build-tools
+    uses: cloudscape-design/actions/.github/workflows/deploy.yml@test/build-tools
     secrets: inherit
     with:
       artifact-name: dev-pages
