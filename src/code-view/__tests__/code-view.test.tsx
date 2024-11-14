@@ -16,15 +16,16 @@ describe("CodeView", () => {
   test("correctly renders simple content", () => {
     render(<CodeView content={"Hello World"}></CodeView>);
     const wrapper = createWrapper()!.findCodeView();
-    expect(wrapper!.findContent().getElement()).toHaveTextContent("Hello World");
+    expect(wrapper!.findContent()[0].getElement()).toHaveTextContent("Hello World");
   });
 
   test("correctly renders multi line content", () => {
     render(<CodeView content={`# Hello World\n\nThis is a markdown example.`}></CodeView>);
     const wrapper = createWrapper()!.findCodeView()!;
     const content = wrapper.findContent();
-    expect(content.getElement()).toHaveTextContent("# Hello World This is a markdown example.");
-    expect(wrapper!.findContent()[0].getElement()).toHaveTextContent("Hello World");
+    expect(content[0].getElement()).toHaveTextContent("# Hello World");
+    expect(content[1].getElement()).toHaveTextContent("");
+    expect(content[2].getElement()).toHaveTextContent("This is a markdown example.");
   });
 
   test("correctly renders multi line content", () => {
