@@ -1,9 +1,9 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
+import { globbySync } from "globby";
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
-import { globbySync } from "globby";
 const cwd = process.cwd();
 
 const targetDir = path.join(cwd, "./lib/components-themeable/internal");
@@ -21,9 +21,9 @@ function copyStyles() {
       path.join(stylesTargetDir, file),
       content.replace(
         /@use "(\.\.\/)+node_modules\/@cloudscape-design\/design-tokens\/index.scss"/,
-        '@use "awsui:tokens"'
+        '@use "awsui:tokens"',
       ),
-      "utf-8"
+      "utf-8",
     );
   }
 }

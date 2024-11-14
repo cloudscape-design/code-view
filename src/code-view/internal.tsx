@@ -1,12 +1,15 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import { useCurrentMode } from "@cloudscape-design/component-toolkit/internal";
-import Box from "@cloudscape-design/components/box";
-import clsx from "clsx";
 import { useRef } from "react";
 import { Children } from "react";
-import { InternalBaseComponentProps, getBaseProps } from "../internal/base-component/use-base-component";
+import clsx from "clsx";
+
+import { useCurrentMode } from "@cloudscape-design/component-toolkit/internal";
+import Box from "@cloudscape-design/components/box";
+
+import { getBaseProps, InternalBaseComponentProps } from "../internal/base-component/use-base-component";
 import { CodeViewProps } from "./interfaces";
+
 import styles from "./styles.css.js";
 
 const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" };
@@ -56,51 +59,64 @@ export function InternalCodeView({
       {...baseProps}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledby}
+      dir="ltr"
       ref={__internalRootRef}
     >
       <div className={styles["scroll-container"]}>
-        <table
-          role="presentation"
-          className={clsx(
-            styles["code-table"],
-            actions && styles["code-table-with-actions"],
-            lineWrapping && styles["code-table-with-line-wrapping"]
-          )}
-        >
-          <colgroup>
-            <col style={{ width: 1 } /* shrink to fit content */} />
-            <col style={{ width: "auto" }} />
-          </colgroup>
-          <tbody>
-            {Children.map(code.props.children, (child, index) => {
-              return (
-                <tr key={index}>
-                  {lineNumbers && (
-                    <td className={clsx(styles["line-number"], styles.unselectable)} aria-hidden={true}>
-                      <Box variant="code" color="text-status-inactive" fontSize="body-m">
-                        {index + 1}
-                      </Box>
-                    </td>
-                  )}
-                  <td className={styles["code-line"]}>
-                    <Box variant="code" fontSize="body-m">
-                      <span
-                        className={clsx(
-                          code.props.className,
-                          lineWrapping ? styles["code-line-wrap"] : styles["code-line-nowrap"]
-                        )}
-                      >
-                        {child}
-                      </span>
-                    </Box>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <div className={clsx(lineNumbers && styles["root-with-numbers"], actions && styles["root-with-actions"])}>
+          <pre
+            ref={preRef}
+            className={clsx(
+              darkMode ? ACE_CLASSES.dark : ACE_CLASSES.light,
+              styles.code,
+              lineNumbers && styles["code-with-line-numbers"],
+              actions && styles["code-with-actions"],
+            )}
+          >
+            <table
+              role="presentation"
+              className={clsx(
+                styles["code-table"],
+                actions && styles["code-table-with-actions"],
+                lineWrapping && styles["code-table-with-line-wrapping"],
+              )}
+            >
+              <colgroup>
+                <col style={{ width: 1 } /* shrink to fit content */} />
+                <col style={{ width: "auto" }} />
+              </colgroup>
+              <tbody>
+                {Children.map(code.props.children, (child, index) => {
+                  return (
+                    <tr key={index}>
+                      {lineNumbers && (
+                        <td className={clsx(styles["line-number"], styles.unselectable)} aria-hidden={true}>
+                          <Box variant="code" color="text-status-inactive" fontSize="body-m">
+                            {index + 1}
+                          </Box>
+                        </td>
+                      )}
+                      <td className={styles["code-line"]}>
+                        <Box variant="code" fontSize="body-m">
+                          <span
+                            className={clsx(
+                              code.props.className,
+                              lineWrapping ? styles["code-line-wrap"] : styles["code-line-nowrap"],
+                            )}
+                          >
+                            {child}
+                          </span>
+                        </Box>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </pre>
+        </div>
+        {actions && <div className={styles.actions}>{actions}</div>}
       </div>
-      {actions && <div className={styles.actions}>{actions}</div>}
     </div>
   );
 }

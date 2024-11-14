@@ -1,8 +1,8 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
+import lodash from "lodash";
 import fs from "node:fs";
 import path from "node:path";
-import lodash from "lodash";
 
 export function pascalCase(text) {
   return capitalize(lodash.camelCase(text));
@@ -27,7 +27,7 @@ export function listPublicDirs(baseDir) {
         elem !== "internal" &&
         elem !== "index.tsx" &&
         elem !== "index.ts" &&
-        elem !== "test-utils"
+        elem !== "test-utils",
     );
 }
 

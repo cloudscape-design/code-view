@@ -1,8 +1,10 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import path from "path";
-import { ScreenshotPageObject } from "@cloudscape-design/browser-test-tools/page-objects";
 import { expect, test } from "vitest";
+
+import { ScreenshotPageObject } from "@cloudscape-design/browser-test-tools/page-objects";
+
 import { setupTest } from "../utils";
 
 const pagesMap = import.meta.glob("../../pages/**/*.page.tsx", { as: "raw" });
@@ -18,5 +20,5 @@ test.each(pages)("matches snapshot for %s", (route) =>
       const pngString = await page.fullPageScreenshot();
       expect(pngString).toMatchImageSnapshot();
     }
-  })()
+  })(),
 );
