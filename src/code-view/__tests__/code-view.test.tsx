@@ -26,13 +26,6 @@ describe("CodeView", () => {
     expect(content.getElement()).toHaveTextContent("# Hello World This is a markdown example.");
   });
 
-  test("correctly renders multi line content", () => {
-    render(<CodeView content={`# Hello World\n\nThis is a markdown example.`}></CodeView>);
-    const wrapper = createWrapper()!.findCodeView()!;
-    const content = wrapper.findContent();
-    expect(content.getElement()).toHaveTextContent("# Hello World This is a markdown example.");
-  });
-
   test("correctly renders copy button slot", () => {
     render(<CodeView content={"Hello World"} actions={<button>Copy</button>}></CodeView>);
     const wrapper = createWrapper()!.findCodeView();
