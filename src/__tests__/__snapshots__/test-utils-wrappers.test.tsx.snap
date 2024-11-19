@@ -1,0 +1,93 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Generate test utils ElementWrapper > 'dom' ElementWrapper matches the snapshot 1`] = `
+"import { ElementWrapper } from '@cloudscape-design/test-utils-core/dom';
+import '@cloudscape-design/components/test-utils/dom';
+import { appendSelector } from '@cloudscape-design/test-utils-core/utils';
+export { ElementWrapper };
+
+        import CodeViewWrapper from './code-view';
+        export { CodeViewWrapper };
+      
+declare module '@cloudscape-design/test-utils-core/dist/dom' {
+      interface ElementWrapper {
+        
+       /**
+        * Returns the wrapper of the first CodeView that matches the specified CSS selector.
+        * If no CSS selector is specified, returns the wrapper of the first CodeView.
+        * If no matching CodeView is found, returns \`null\`.
+        *
+        * @param {string} [selector] CSS Selector
+        * @returns {CodeViewWrapper | null}
+        */
+       findCodeView(selector?: string): CodeViewWrapper | null;
+
+       /**
+        * Returns an array of CodeView wrapper that matches the specified CSS selector.
+        * If no CSS selector is specified, returns all of the CodeViews inside the current wrapper.
+        * If no matching CodeView is found, returns an empty array.
+        *
+        * @param {string} [selector] CSS Selector
+        * @returns {Array<CodeViewWrapper>}
+        */
+       findAllCodeViews(selector?: string): Array<CodeViewWrapper>;
+      }
+  }
+
+      ElementWrapper.prototype.findCodeView = function(selector) {
+        const rootSelector = \`.\${CodeViewWrapper.rootSelector}\`;
+        // casting to 'any' is needed to avoid this issue with generics
+        // https://github.com/microsoft/TypeScript/issues/29132
+        return (this as any).findComponent(selector ? appendSelector(selector, rootSelector) : rootSelector, CodeViewWrapper);
+      };
+
+      ElementWrapper.prototype.findAllCodeViews = function(selector) {
+        return this.findAllComponents(CodeViewWrapper, selector);
+      };
+export default function wrapper(root: Element = document.body) { if (document && document.body && !document.body.contains(root)) { console.warn('[AwsUi] [test-utils] provided element is not part of the document body, interactions may work incorrectly')}; return new ElementWrapper(root); }"
+`;
+
+exports[`Generate test utils ElementWrapper > 'selectors' ElementWrapper matches the snapshot 1`] = `
+"import { ElementWrapper } from '@cloudscape-design/test-utils-core/selectors';
+import '@cloudscape-design/components/test-utils/selectors';
+import { appendSelector } from '@cloudscape-design/test-utils-core/utils';
+export { ElementWrapper };
+
+        import CodeViewWrapper from './code-view';
+        export { CodeViewWrapper };
+      
+declare module '@cloudscape-design/test-utils-core/dist/selectors' {
+      interface ElementWrapper {
+        
+       /**
+        * Returns a wrapper that matches the CodeViews with the specified CSS selector.
+        * If no CSS selector is specified, returns a wrapper that matches CodeViews.
+        *
+        * @param {string} [selector] CSS Selector
+        * @returns {CodeViewWrapper}
+        */
+       findCodeView(selector?: string): CodeViewWrapper;
+
+       /**
+        * Returns a multi-element wrapper that matches CodeViews with the specified CSS selector.
+        * If no CSS selector is specified, returns a multi-element wrapper that matches CodeViews.
+        *
+        * @param {string} [selector] CSS Selector
+        * @returns {MultiElementWrapper<CodeViewWrapper>}
+        */
+       findAllCodeViews(selector?: string): MultiElementWrapper<CodeViewWrapper>;
+      }
+  }
+
+      ElementWrapper.prototype.findCodeView = function(selector) {
+        const rootSelector = \`.\${CodeViewWrapper.rootSelector}\`;
+        // casting to 'any' is needed to avoid this issue with generics
+        // https://github.com/microsoft/TypeScript/issues/29132
+        return (this as any).findComponent(selector ? appendSelector(selector, rootSelector) : rootSelector, CodeViewWrapper);
+      };
+
+      ElementWrapper.prototype.findAllCodeViews = function(selector) {
+        return this.findAllComponents(CodeViewWrapper, selector);
+      };
+export default function wrapper(root: string = 'body') { return new ElementWrapper(root); }"
+`;
