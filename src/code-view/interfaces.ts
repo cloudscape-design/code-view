@@ -41,5 +41,5 @@ export interface CodeViewProps {
    * A function to perform custom syntax highlighting.
    *
    */
-  highlight?: (code: string) => React.ReactElement;
+  highlight?: (code: string) => React.ReactNode;
 }

@@ -1,7 +1,6 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import { useRef } from "react";
-import { Children } from "react";
+import { Children, createElement, Fragment, isValidElement, ReactElement, useRef } from "react";
 import clsx from "clsx";
 
 import { useCurrentMode } from "@cloudscape-design/component-toolkit/internal";
@@ -51,6 +50,7 @@ export function InternalCodeView({
 
   // Create tokenized elements of the content.
   const code = highlight ? highlight(content) : textHighlight(content);
+  const codeElement: ReactElement = isValidElement(code) ? code : createElement(Fragment, null, code);
 
   return (
     <div
@@ -76,7 +76,7 @@ export function InternalCodeView({
             <col style={{ width: "auto" }} />
           </colgroup>
           <tbody>
-            {Children.map(code.props.children, (child, index) => {
+            {Children.map(codeElement.props.children, (child, index) => {
               return (
                 <tr key={index}>
                   {lineNumbers && (
@@ -90,7 +90,7 @@ export function InternalCodeView({
                     <Box variant="code" fontSize="body-m">
                       <span
                         className={clsx(
-                          code.props.className,
+                          codeElement.props.className,
                           lineWrapping ? styles["code-line-wrap"] : styles["code-line-nowrap"],
                         )}
                       >

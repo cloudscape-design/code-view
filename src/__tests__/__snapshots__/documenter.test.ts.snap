@@ -28,7 +28,7 @@ exports[`definition for code-view matches the snapshot 1`] = `
       "description": "A function to perform custom syntax highlighting.",
       "name": "highlight",
       "optional": true,
-      "type": "(code: string) => ReactElement",
+      "type": "(code: string) => React.ReactNode",
     },
     {
       "description": "Controls the display of line numbers.

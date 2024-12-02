@@ -7,7 +7,7 @@ import { tokenize } from "ace-code/src/ext/simple_tokenizer";
 import "ace-code/styles/theme/cloud_editor.css";
 import "ace-code/styles/theme/cloud_editor_dark.css";
 
-type CreateHighlightType = (code: string) => React.ReactElement;
+type CreateHighlightType = (code: string) => React.ReactNode;
 
 export function createHighlight(rules: Ace.HighlightRules): CreateHighlightType {
   return (code: string) => {
