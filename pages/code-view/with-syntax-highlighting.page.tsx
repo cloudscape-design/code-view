@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
-import { SpaceBetween } from "@cloudscape-design/components";
+import { Box, SpaceBetween } from "@cloudscape-design/components";
 
 import { CodeView } from "../../lib/components";
 import htmlHighlight from "../../lib/components/code-view/highlight/html";
@@ -23,32 +23,32 @@ export default function CodeViewPage() {
     <ScreenshotArea>
       <h1>Code View</h1>
       <SpaceBetween direction="vertical" size="l">
-        JavaScript
+        <Box>JavaScript</Box>
         <CodeView content={`const hello = "world";\nconsole.log(hello);`} highlight={javascriptHighlight} />
-        TypeScript
+        <Box>TypeScript</Box>
         <CodeView content={`let hello: string = "world";\nconsole.log(hello);`} highlight={typescriptHighlight} />
-        XML
+        <Box>XML</Box>
         <CodeView content={`<greeting>Hello, world!</greeting>`} highlight={xmlHighlight} />
-        Markdown (MDX)
+        <Box>Markdown (MDX)</Box>
         <CodeView content={`# Hello World\n\nThis is a markdown example.`} highlight={markdownHighlight} />
-        Bash (Shell Script)
+        <Box>Bash (Shell Script)</Box>
         <CodeView content={`echo "Hello, world!"`} highlight={shHighlight} />
-        CSS
+        <Box>CSS</Box>
         <CodeView content={`body { background-color: lightblue; }`} highlight={cssHighlight} />
-        HTML
+        <Box>HTML</Box>
         <CodeView content={`<h1>Hello, World!</h1>`} highlight={htmlHighlight} />
-        Java
+        <Box>Java</Box>
         <CodeView
           content={`public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}`}
           highlight={javaHighlight}
         />
-        JSON
+        <Box>JSON</Box>
         <CodeView content={`{"greeting": "Hello, world!"}`} highlight={jsonHighlight} />
-        PHP
+        <Box>PHP</Box>
         <CodeView content={`<?php\necho 'Hello, world!';\n?>`} highlight={phpHighlight} />
-        Python
+        <Box>Python</Box>
         <CodeView content={`print("Hello, World!")`} highlight={pythonHighlight} />
-        YAML
+        <Box>YAML</Box>
         <CodeView content={`greeting: Hello, world!`} highlight={yamlHighlight} />
       </SpaceBetween>
     </ScreenshotArea>
