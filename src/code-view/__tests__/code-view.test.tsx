@@ -91,14 +91,14 @@ describe("CodeView", () => {
   });
 
   test("sets nowrap class to line if linesWrapping false", () => {
-    render(<CodeView lineWrapping={false} content={"Hello World"}></CodeView>);
+    render(<CodeView wrapLines={false} content={"Hello World"}></CodeView>);
     const wrapper = createWrapper().findCodeView()!;
     const element = wrapper!.findContent().getElement();
     expect(element.outerHTML).toContain("code-line-nowrap");
   });
 
   test("sets wrap class to line if linesWrapping true", () => {
-    render(<CodeView lineWrapping={true} content={"Hello World"}></CodeView>);
+    render(<CodeView wrapLines={true} content={"Hello World"}></CodeView>);
     const wrapper = createWrapper().findCodeView()!;
     const element = wrapper!.findContent().getElement();
     expect(element.outerHTML).toContain("code-line-wrap");

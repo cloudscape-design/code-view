@@ -29,7 +29,7 @@ export interface CodeViewProps {
    *
    * Defaults to `false`.
    */
-  lineWrapping?: boolean;
+  wrapLines?: boolean;
 
   /**
    * An optional slot to display a button to enable users to perform actions, such as copy or download the code snippet.

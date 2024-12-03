@@ -35,7 +35,7 @@ export function InternalCodeView({
   content,
   actions,
   lineNumbers,
-  lineWrapping,
+  wrapLines,
   highlight,
   ariaLabel,
   ariaLabelledby,
@@ -70,7 +70,7 @@ export function InternalCodeView({
           className={clsx(
             styles["code-table"],
             actions && styles["code-table-with-actions"],
-            lineWrapping && styles["code-table-with-line-wrapping"],
+            wrapLines && styles["code-table-with-line-wrapping"],
           )}
         >
           <colgroup>
@@ -93,7 +93,7 @@ export function InternalCodeView({
                       <span
                         className={clsx(
                           codeElement.props.className,
-                          lineWrapping ? styles["code-line-wrap"] : styles["code-line-nowrap"],
+                          wrapLines ? styles["code-line-wrap"] : styles["code-line-nowrap"],
                         )}
                       >
                         {child}
