@@ -25,7 +25,7 @@ export interface CodeViewProps {
   lineNumbers?: boolean;
 
   /**
-   * Controls lines wrap when overflowing on the right side.
+   * Controls whether line-wrapping is enabled when content would overflow the component.
    *
    * Defaults to `false`.
    */
