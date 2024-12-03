@@ -8,7 +8,7 @@ export default class CodeViewWrapper extends ComponentWrapper {
   static rootSelector: string = styles.root;
 
   findContent(): ElementWrapper {
-    return this.findByClassName(styles.code)!;
+    return this.find("tbody")!;
   }
 
   findActions(): ElementWrapper | null {

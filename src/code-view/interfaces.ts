@@ -25,6 +25,13 @@ export interface CodeViewProps {
   lineNumbers?: boolean;
 
   /**
+   * Controls lines wrap when overflowing on the right side.
+   *
+   * Defaults to `false`.
+   */
+  lineWrapping?: boolean;
+
+  /**
    * An optional slot to display a button to enable users to perform actions, such as copy or download the code snippet.
    *
    */

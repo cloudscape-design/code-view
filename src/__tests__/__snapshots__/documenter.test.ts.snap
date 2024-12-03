@@ -38,6 +38,14 @@ Defaults to \`false\`.
       "optional": true,
       "type": "boolean",
     },
+    {
+      "description": "Controls lines wrap when overflowing on the right side.
+Defaults to \`false\`.
+",
+      "name": "lineWrapping",
+      "optional": true,
+      "type": "boolean",
+    },
   ],
   "regions": [
     {
