@@ -39,7 +39,7 @@ Defaults to \`false\`.
       "type": "boolean",
     },
     {
-      "description": "Controls lines wrap when overflowing on the right side.
+      "description": "Controls whether line-wrapping is enabled when content would overflow the component.
 Defaults to \`false\`.
 ",
       "name": "lineWrapping",
