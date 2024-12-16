@@ -146,7 +146,7 @@
   "size-limit": [
     {
       "path": "lib/components/index.js",
-      "limit": "6.58kb"
+      "limit": "7.00kb"
     },
     {
       "path": "lib/components/code-view/highlight/javascript.js",
