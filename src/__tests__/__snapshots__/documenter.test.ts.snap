@@ -38,6 +38,14 @@ Defaults to \`false\`.
       "optional": true,
       "type": "boolean",
     },
+    {
+      "description": "Controls whether line-wrapping is enabled when content would overflow the component.
+Defaults to \`false\`.
+",
+      "name": "wrapLines",
+      "optional": true,
+      "type": "boolean",
+    },
   ],
   "regions": [
     {

@@ -1,6 +1,6 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import { useRef } from "react";
+import { Children, createElement, Fragment, ReactElement, useRef } from "react";
 import clsx from "clsx";
 
 import { useCurrentMode } from "@cloudscape-design/component-toolkit/internal";
@@ -13,32 +13,50 @@ import styles from "./styles.css.js";
 
 const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" };
 
-function getLineNumbers(content: string) {
-  return content.split("\n").map((_, n) => n + 1);
-}
-
 type InternalCodeViewProps = CodeViewProps & InternalBaseComponentProps;
+
+// Breaks down the input code for non-highlighted code-view into React
+// Elements similar to how a highlight function would do.
+const textHighlight = (code: string) => {
+  const lines = code.split("\n");
+  return (
+    <span>
+      {lines.map((line, lineIndex) => (
+        <span key={lineIndex}>
+          {line}
+          {"\n"}
+        </span>
+      ))}
+    </span>
+  );
+};
 
 export function InternalCodeView({
   content,
   actions,
   lineNumbers,
+  wrapLines,
   highlight,
   ariaLabel,
   ariaLabelledby,
   __internalRootRef = null,
   ...props
 }: InternalCodeViewProps) {
-  const code = highlight ? highlight(content) : <span>{content}</span>;
   const baseProps = getBaseProps(props);
   const preRef = useRef<HTMLPreElement>(null);
   const darkMode = useCurrentMode(preRef) === "dark";
 
   const regionProps = ariaLabel || ariaLabelledby ? { role: "region" } : {};
 
+  // Create tokenized React nodes of the content.
+  const code = highlight ? highlight(content) : textHighlight(content);
+  // Create elements from the nodes.
+  const codeElementWrapper: ReactElement = createElement(Fragment, null, code);
+  const codeElement = Children.only(codeElementWrapper.props.children);
+
   return (
     <div
-      className={styles.root}
+      className={clsx(darkMode ? ACE_CLASSES.dark : ACE_CLASSES.light, styles.root)}
       {...regionProps}
       {...baseProps}
       aria-label={ariaLabel}
@@ -46,34 +64,49 @@ export function InternalCodeView({
       dir="ltr"
       ref={__internalRootRef}
     >
-      <div className={clsx(lineNumbers && styles["root-with-numbers"], actions && styles["root-with-actions"])}>
-        <Box color="text-status-inactive" fontSize="body-m">
-          {lineNumbers && (
-            <div
-              className={clsx(styles["line-numbers"], actions && styles["line-numbers-with-actions"])}
-              aria-hidden={true}
-            >
-              {getLineNumbers(content).map((number) => (
-                <span key={number}>{number}</span>
-              ))}
-            </div>
-          )}
-        </Box>
-        <pre
-          ref={preRef}
+      <div className={styles["scroll-container"]}>
+        <table
+          role="presentation"
           className={clsx(
-            darkMode ? ACE_CLASSES.dark : ACE_CLASSES.light,
-            styles.code,
-            lineNumbers && styles["code-with-line-numbers"],
-            actions && styles["code-with-actions"],
+            styles["code-table"],
+            actions && styles["code-table-with-actions"],
+            wrapLines && styles["code-table-with-line-wrapping"],
           )}
         >
-          <Box color="inherit" variant="code" fontSize="body-m">
-            {code}
-          </Box>
-        </pre>
-        {actions && <div className={styles.actions}>{actions}</div>}
+          <colgroup>
+            <col style={{ width: 1 } /* shrink to fit content */} />
+            <col style={{ width: "auto" }} />
+          </colgroup>
+          <tbody>
+            {Children.map(codeElement.props.children, (child, index) => {
+              return (
+                <tr key={index}>
+                  {lineNumbers && (
+                    <td className={clsx(styles["line-number"], styles.unselectable)} aria-hidden={true}>
+                      <Box variant="code" color="text-status-inactive" fontSize="body-m">
+                        {index + 1}
+                      </Box>
+                    </td>
+                  )}
+                  <td className={styles["code-line"]}>
+                    <Box variant="code" fontSize="body-m">
+                      <span
+                        className={clsx(
+                          codeElement.props.className,
+                          wrapLines ? styles["code-line-wrap"] : styles["code-line-nowrap"],
+                        )}
+                      >
+                        {child}
+                      </span>
+                    </Box>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
+      {actions && <div className={styles.actions}>{actions}</div>}
     </div>
   );
 }

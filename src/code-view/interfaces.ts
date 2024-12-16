@@ -25,6 +25,13 @@ export interface CodeViewProps {
   lineNumbers?: boolean;
 
   /**
+   * Controls whether line-wrapping is enabled when content would overflow the component.
+   *
+   * Defaults to `false`.
+   */
+  wrapLines?: boolean;
+
+  /**
    * An optional slot to display a button to enable users to perform actions, such as copy or download the code snippet.
    *
    */

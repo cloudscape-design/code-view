@@ -13,10 +13,17 @@ describe("CodeView", () => {
   afterEach(() => {
     cleanup();
   });
-  test("correctly renders component content", () => {
+  test("correctly renders simple content", () => {
     render(<CodeView content={"Hello World"}></CodeView>);
     const wrapper = createWrapper()!.findCodeView();
-    expect(wrapper!.findContent().getElement().textContent).toBe("Hello World");
+    expect(wrapper!.findContent().getElement()).toHaveTextContent("Hello World");
+  });
+
+  test("correctly renders multi line content", () => {
+    render(<CodeView content={`# Hello World\n\nThis is a markdown example.`}></CodeView>);
+    const wrapper = createWrapper()!.findCodeView()!;
+    const content = wrapper.findContent();
+    expect(content.getElement()).toHaveTextContent("# Hello World This is a markdown example.");
   });
 
   test("correctly renders copy button slot", () => {
@@ -28,7 +35,9 @@ describe("CodeView", () => {
   test("correctly renders line numbers", () => {
     render(<CodeView content={`Hello\nWorld\n!`} lineNumbers={true}></CodeView>);
     const wrapper = createWrapper()!.findCodeView();
-    expect(wrapper!.findByClassName(styles["line-numbers"])!.getElement()).toHaveTextContent("123");
+    expect(wrapper!.findAllByClassName(styles["line-number"])[0]!.getElement()).toHaveTextContent("1");
+    expect(wrapper!.findAllByClassName(styles["line-number"])[1]!.getElement()).toHaveTextContent("2");
+    expect(wrapper!.findAllByClassName(styles["line-number"])[2]!.getElement()).toHaveTextContent("3");
   });
 
   test("correctly renders aria-label", () => {
@@ -59,7 +68,7 @@ describe("CodeView", () => {
       ></CodeView>,
     );
     const wrapper = createWrapper().findCodeView()!;
-    expect(wrapper!.findContent().getElement().innerHTML).toContain('class="tokenized"');
+    expect(wrapper!.findContent().getElement().innerHTML).toContain("tokenized");
   });
 
   test("correctly tokenizes content if highlight is set to language rules", () => {
@@ -72,5 +81,26 @@ describe("CodeView", () => {
     expect(getByText(element, "hello")).toHaveClass("ace_identifier");
     expect(getByText(element, "string")).toHaveClass("ace_type");
     expect(getByText(element, '"world"')).toHaveClass("ace_string");
+  });
+
+  test("sets nowrap class to line if linesWrapping undefined", () => {
+    render(<CodeView content={"Hello World"}></CodeView>);
+    const wrapper = createWrapper().findCodeView()!;
+    const element = wrapper!.findContent().getElement();
+    expect(element.outerHTML).toContain("code-line-nowrap");
+  });
+
+  test("sets nowrap class to line if linesWrapping false", () => {
+    render(<CodeView wrapLines={false} content={"Hello World"}></CodeView>);
+    const wrapper = createWrapper().findCodeView()!;
+    const element = wrapper!.findContent().getElement();
+    expect(element.outerHTML).toContain("code-line-nowrap");
+  });
+
+  test("sets wrap class to line if linesWrapping true", () => {
+    render(<CodeView wrapLines={true} content={"Hello World"}></CodeView>);
+    const wrapper = createWrapper().findCodeView()!;
+    const element = wrapper!.findContent().getElement();
+    expect(element.outerHTML).toContain("code-line-wrap");
   });
 });
