@@ -67,6 +67,7 @@ $color-background-code-view-dark: #282c34;
   padding-right: cs.$space-static-xs;
   &-wrap {
     white-space: pre-wrap;
+    word-break: break-word;
   }
   &-nowrap {
     white-space: pre;
