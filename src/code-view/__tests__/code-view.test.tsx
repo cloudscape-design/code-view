@@ -3,7 +3,7 @@
 import { cleanup, getByText, render } from "@testing-library/react";
 import { afterEach, describe, expect, test } from "vitest";
 
-import CodeView from "../../../lib/components/code-view";
+import CodeView, { CodeViewProps } from "../../../lib/components/code-view";
 import typescriptHighlightRules from "../../../lib/components/code-view/highlight/typescript";
 import createWrapper from "../../../lib/components/test-utils/dom";
 
@@ -105,7 +105,8 @@ describe("CodeView", () => {
   });
 
   test("handles undefined content", () => {
-    render(<CodeView content={undefined}></CodeView>);
+    const props = {} as CodeViewProps;
+    render(<CodeView {...props}></CodeView>);
     const wrapper = createWrapper().findCodeView()!;
     expect(wrapper!.findContent().getElement().textContent).toBe("\n");
   });
