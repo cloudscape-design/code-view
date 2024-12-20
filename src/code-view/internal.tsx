@@ -32,7 +32,7 @@ const textHighlight = (code: string) => {
 };
 
 export function InternalCodeView({
-  content,
+  content = "",
   actions,
   lineNumbers,
   wrapLines,

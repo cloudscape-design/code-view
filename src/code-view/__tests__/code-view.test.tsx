@@ -103,4 +103,10 @@ describe("CodeView", () => {
     const element = wrapper!.findContent().getElement();
     expect(element.outerHTML).toContain("code-line-wrap");
   });
+
+  test("handles undefined content", () => {
+    render(<CodeView content={undefined}></CodeView>);
+    const wrapper = createWrapper().findCodeView()!;
+    expect(wrapper!.findContent().getElement().textContent).toBe("\n");
+  });
 });
