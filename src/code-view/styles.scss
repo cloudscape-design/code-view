@@ -52,6 +52,12 @@ $color-background-code-view-dark: #282c34;
   border-inline-end-style: solid;
   padding-inline-start: cs.$space-static-xs;
   padding-inline-end: cs.$space-static-xs;
+
+  background-color: $color-background-code-view-light;
+  :global(.awsui-dark-mode) &,
+  :global(.awsui-polaris-dark-mode) & {
+    background-color: $color-background-code-view-dark;
+  }
 }
 
 .unselectable {
