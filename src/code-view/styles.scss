@@ -10,6 +10,11 @@ $color-background-code-view-dark: #282c34;
 
 .root {
   position: relative;
+  border-start-start-radius: cs.$border-radius-tiles;
+  border-start-end-radius: cs.$border-radius-tiles;
+  border-end-start-radius: cs.$border-radius-tiles;
+  border-end-end-radius: cs.$border-radius-tiles;
+  
   background-color: $color-background-code-view-light;
   :global(.awsui-dark-mode) &,
   :global(.awsui-polaris-dark-mode) & {
@@ -22,18 +27,15 @@ $color-background-code-view-dark: #282c34;
 }
 
 .code-table {
-  border-start-start-radius: cs.$border-radius-tiles;
-  border-start-end-radius: cs.$border-radius-tiles;
-  border-end-start-radius: cs.$border-radius-tiles;
-  border-end-end-radius: cs.$border-radius-tiles;
   padding-block-start: cs.$space-static-xs;
   padding-block-end: cs.$space-static-xs;
   table-layout: auto;
-  width: 100%;
+  inline-size: 100%;
   border-spacing: 0;
 
   &-with-actions {
-    min-height: calc(2 * cs.$space-scaled-xs + cs.$space-scaled-xxl);
+    min-block-size: calc(2 * cs.$space-scaled-xs + cs.$space-scaled-xxl);
+    padding-inline-end: calc(2 * var(--space-static-xxxl-qj5g91, 40px));
   }
 }
 
@@ -42,19 +44,14 @@ $color-background-code-view-dark: #282c34;
 }
 
 .line-number {
-  border-right-color: cs.$color-border-divider-default;
-  background-color: $color-background-code-view-light;
+  border-inline-end-color: cs.$color-border-divider-default;
   vertical-align: text-top;
   position: sticky;
-  left: 0;
-  border-right-width: 1px;
-  border-right-style: solid;
-  padding-left: cs.$space-static-xs;
-  padding-right: cs.$space-static-xs;
-  :global(.awsui-dark-mode) &,
-  :global(.awsui-polaris-dark-mode) & {
-    background-color: $color-background-code-view-dark;
-  }
+  inset-inline-start: 0;
+  border-inline-end-width: 1px;
+  border-inline-end-style: solid;
+  padding-inline-start: cs.$space-static-xs;
+  padding-inline-end: cs.$space-static-xs;
 }
 
 .unselectable {
@@ -63,8 +60,8 @@ $color-background-code-view-dark: #282c34;
 }
 
 .code-line {
-  padding-left: cs.$space-static-xs;
-  padding-right: cs.$space-static-xs;
+  padding-inline-start: cs.$space-static-xs;
+  padding-inline-end: cs.$space-static-xs;
   &-wrap {
     white-space: pre-wrap;
     word-break: break-word;
