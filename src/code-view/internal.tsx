@@ -54,8 +54,6 @@ export function InternalCodeView({
   const codeElementWrapper: ReactElement = createElement(Fragment, null, code);
   const codeElement = Children.only(codeElementWrapper.props.children);
 
-  console.log("ACE_CLASSES", ACE_CLASSES.dark, ACE_CLASSES.light);
-
   return (
     <div
       className={clsx(darkMode ? ACE_CLASSES.dark : ACE_CLASSES.light, styles.root)}
