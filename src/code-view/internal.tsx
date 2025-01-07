@@ -43,8 +43,8 @@ export function InternalCodeView({
   ...props
 }: InternalCodeViewProps) {
   const baseProps = getBaseProps(props);
-  const preRef = useRef<HTMLPreElement>(null);
-  const darkMode = useCurrentMode(preRef) === "dark";
+  const containerRef = useRef<HTMLDivElement>(null);
+  const darkMode = useCurrentMode(containerRef) === "dark";
 
   const regionProps = ariaLabel || ariaLabelledby ? { role: "region" } : {};
 
@@ -64,7 +64,7 @@ export function InternalCodeView({
       dir="ltr"
       ref={__internalRootRef}
     >
-      <div className={styles["scroll-container"]}>
+      <div className={styles["scroll-container"]} ref={containerRef}>
         <table
           role="presentation"
           className={clsx(
