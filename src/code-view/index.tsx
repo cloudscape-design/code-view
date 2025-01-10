@@ -9,7 +9,8 @@ export type { CodeViewProps };
 
 export default function CodeView(props: CodeViewProps) {
   const baseComponentProps = useBaseComponent("CodeView", {
-    props: { lineNumbers: props.lineNumbers },
+    props: { lineNumbers: props.lineNumbers, wrapLines: props.wrapLines },
+    metadata: { hasActions: !!props.actions },
   });
   return <InternalCodeView {...props} {...baseComponentProps} />;
 }
