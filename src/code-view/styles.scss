@@ -44,12 +44,13 @@ $color-background-code-view-dark: #282c34;
 }
 
 .line-number {
-  border-inline-end-color: cs.$color-border-divider-default;
   vertical-align: text-top;
+  white-space: nowrap;
   position: sticky;
   inset-inline-start: 0;
   border-inline-end-width: 1px;
   border-inline-end-style: solid;
+  border-inline-end-color: cs.$color-border-divider-default;
   padding-inline-start: cs.$space-static-xs;
   padding-inline-end: cs.$space-static-xs;
 
