@@ -15,7 +15,7 @@
       "jsx": true
     }
   },
-  "plugins": ["unicorn", "react-hooks", "no-unsanitized", "header", "import", "simple-import-sort"],
+  "plugins": ["unicorn", "react-hooks", "no-unsanitized", "header", "import", "simple-import-sort", "no-only-tests"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
@@ -75,7 +75,8 @@
         "noUselessIndex": true
       }
     ],
-    "simple-import-sort/imports": "error"
+    "simple-import-sort/imports": "error",
+    "no-only-tests/no-only-tests": "error"
   },
   "settings": {
     "react": {
