@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`definition for code-view matches the snapshot 1`] = `
+exports[`definition for 'code-view' matches the snapshot 1`] = `
 {
   "events": [],
   "functions": [],
@@ -26,22 +26,33 @@ exports[`definition for code-view matches the snapshot 1`] = `
     },
     {
       "description": "A function to perform custom syntax highlighting.",
+      "inlineType": {
+        "name": "(code: string) => React.ReactNode",
+        "parameters": [
+          {
+            "name": "code",
+            "type": "string",
+          },
+        ],
+        "returnType": "React.ReactNode",
+        "type": "function",
+      },
       "name": "highlight",
       "optional": true,
-      "type": "(code: string) => React.ReactNode",
+      "type": "((code: string) => React.ReactNode)",
     },
     {
       "description": "Controls the display of line numbers.
-Defaults to \`false\`.
-",
+
+Defaults to \`false\`.",
       "name": "lineNumbers",
       "optional": true,
       "type": "boolean",
     },
     {
       "description": "Controls whether line-wrapping is enabled when content would overflow the component.
-Defaults to \`false\`.
-",
+
+Defaults to \`false\`.",
       "name": "wrapLines",
       "optional": true,
       "type": "boolean",

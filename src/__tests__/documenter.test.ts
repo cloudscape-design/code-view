@@ -5,7 +5,6 @@ import { expect, test } from "vitest";
 // @ts-expect-error no types here
 import apiDocs from "../../lib/components/internal/api-docs/components";
 
-test.skip("definition for code-view matches the snapshot", () => {
-  const definition = apiDocs["code-view"];
+test.each(Object.entries(apiDocs))("definition for $0 matches the snapshot", (name, definition) => {
   expect(definition).toMatchSnapshot();
 });
