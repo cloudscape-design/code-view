@@ -2,6 +2,7 @@
 
 exports[`definition for 'code-view' matches the snapshot 1`] = `
 {
+  "dashCaseName": "code-view",
   "events": [],
   "functions": [],
   "name": "CodeView",
