@@ -14,7 +14,7 @@ $color-background-code-view-dark: #282c34;
   border-start-end-radius: cs.$border-radius-tiles;
   border-end-start-radius: cs.$border-radius-tiles;
   border-end-end-radius: cs.$border-radius-tiles;
-  
+
   background-color: $color-background-code-view-light;
   :global(.awsui-dark-mode) &,
   :global(.awsui-polaris-dark-mode) & {
@@ -41,6 +41,12 @@ $color-background-code-view-dark: #282c34;
 
 .code-table-with-actions.code-table-with-line-wrapping {
   padding-inline-end: cs.$space-static-xxl;
+}
+
+.table-header {
+  position: absolute;
+  inset-block-start: -9999px;
+  inset-inline-start: -9999px;
 }
 
 .line-number {

@@ -66,7 +66,7 @@ export function InternalCodeView({
     >
       <div className={styles["scroll-container"]} ref={containerRef}>
         <table
-          role="presentation"
+          role={lineNumbers ? "table" : "presentation"}
           className={clsx(
             styles["code-table"],
             actions && styles["code-table-with-actions"],
@@ -77,12 +77,20 @@ export function InternalCodeView({
             <col style={{ width: 1 } /* shrink to fit content */} />
             <col style={{ width: "auto" }} />
           </colgroup>
+          {lineNumbers && (
+            <thead className={styles["table-header"]}>
+              <tr>
+                <th>Row number</th>
+                <th>Content</th>
+              </tr>
+            </thead>
+          )}
           <tbody>
             {Children.map(codeElement.props.children, (child, index) => {
               return (
                 <tr key={index}>
                   {lineNumbers && (
-                    <td className={clsx(styles["line-number"], styles.unselectable)} aria-hidden={true}>
+                    <td className={clsx(styles["line-number"], styles.unselectable)}>
                       <Box variant="code" color="text-status-inactive" fontSize="body-m">
                         {index + 1}
                       </Box>
