@@ -43,7 +43,7 @@ $color-background-code-view-dark: #282c34;
   padding-inline-end: cs.$space-static-xxl;
 }
 
-.table-header {
+.screenreader-only {
   position: absolute;
   inset-block-start: -9999px;
   inset-inline-start: -9999px;
