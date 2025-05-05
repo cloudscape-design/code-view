@@ -89,7 +89,7 @@ export function InternalCodeView({
                     </td>
                   )}
                   <td className={styles["code-line"]}>
-                    <span className={styles["screenreader-only"]}>Line {index + 1} </span>
+                    <span className={styles["screenreader-only"]}>{index + 1}. </span>
                     <Box variant="code" fontSize="body-m">
                       <span
                         className={clsx(
