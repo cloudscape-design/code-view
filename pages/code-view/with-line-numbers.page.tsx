@@ -21,7 +21,7 @@ export default function CodeViewPage() {
         <div style={{ wordBreak: "break-word" }}>
           <CodeView
             lineNumbers={true}
-            content={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => `This is line number #${i + 1}.`).join("\n")}
+            content={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => `This is line number #${i}.`).join("\n")}
           />
         </div>
       </SpaceBetween>
