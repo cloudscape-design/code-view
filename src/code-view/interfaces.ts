@@ -39,7 +39,18 @@ export interface CodeViewProps {
 
   /**
    * A function to perform custom syntax highlighting.
-   *
    */
   highlight?: (code: string) => React.ReactNode;
+
+  /**
+   * An object containing all the necessary localized strings required by the component.
+   */
+  i18nStrings?: CodeViewProps.I18nStrings;
+}
+
+export namespace CodeViewProps {
+  export interface I18nStrings {
+    lineLabel?: string;
+    contentLabel?: string;
+  }
 }

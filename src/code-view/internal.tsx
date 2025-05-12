@@ -39,6 +39,7 @@ export function InternalCodeView({
   highlight,
   ariaLabel,
   ariaLabelledby,
+  i18nStrings,
   __internalRootRef = null,
   ...props
 }: InternalCodeViewProps) {
@@ -47,6 +48,7 @@ export function InternalCodeView({
   const darkMode = useCurrentMode(containerRef) === "dark";
 
   const regionProps = ariaLabel || ariaLabelledby ? { role: "region" } : {};
+  const accessibleLineNumbers = lineNumbers && i18nStrings?.lineLabel && i18nStrings?.contentLabel;
 
   // Create tokenized React nodes of the content.
   const code = highlight ? highlight(content) : textHighlight(content);
@@ -66,7 +68,7 @@ export function InternalCodeView({
     >
       <div className={styles["scroll-container"]} ref={containerRef}>
         <table
-          role="presentation"
+          role={!accessibleLineNumbers ? "presentation" : undefined}
           className={clsx(
             styles["code-table"],
             actions && styles["code-table-with-actions"],
@@ -77,19 +79,29 @@ export function InternalCodeView({
             <col style={{ width: 1 } /* shrink to fit content */} />
             <col style={{ width: "auto" }} />
           </colgroup>
+          {accessibleLineNumbers && (
+            <thead className={styles["screenreader-only"]}>
+              <tr>
+                {lineNumbers && <th>{i18nStrings.lineLabel}</th>}
+                <th>{i18nStrings.contentLabel}</th>
+              </tr>
+            </thead>
+          )}
           <tbody>
             {Children.map(codeElement.props.children, (child, index) => {
               return (
                 <tr key={index}>
                   {lineNumbers && (
-                    <td className={clsx(styles["line-number"], styles.unselectable)} aria-hidden={true}>
+                    <td
+                      className={clsx(styles["line-number"], styles.unselectable)}
+                      aria-hidden={!accessibleLineNumbers}
+                    >
                       <Box variant="code" color="text-status-inactive" fontSize="body-m">
                         {index + 1}
                       </Box>
                     </td>
                   )}
                   <td className={styles["code-line"]}>
-                    <span className={styles["screenreader-only"]}>{index + 1}. </span>
                     <Box variant="code" fontSize="body-m">
                       <span
                         className={clsx(
