@@ -43,7 +43,10 @@ export interface CodeViewProps {
   highlight?: (code: string) => React.ReactNode;
 
   /**
-   * An object containing all the necessary localized strings required by the component.
+   * An object containing all the necessary localized strings required by the component. The object should contain:
+   *
+   * * `lineNumberLabel` - Label for the column that displays line numbers (when line numbers are visible)
+   * * `codeLabel` - Label for the column that displays the code content (when line numbers are visible)
    */
   i18nStrings?: CodeViewProps.I18nStrings;
 }
