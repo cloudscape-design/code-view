@@ -7,8 +7,8 @@ import { CodeView, CodeViewProps } from "../../lib/components";
 import { ScreenshotArea } from "../screenshot-area";
 
 const i18nStrings: CodeViewProps.I18nStrings = {
-  lineLabel: `Line number`,
-  contentLabel: `Content`,
+  lineNumberLabel: `Line number`,
+  codeLabel: `Code`,
 };
 
 export default function CodeViewPage() {

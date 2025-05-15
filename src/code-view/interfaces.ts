@@ -50,7 +50,7 @@ export interface CodeViewProps {
 
 export namespace CodeViewProps {
   export interface I18nStrings {
-    lineLabel?: string;
-    contentLabel?: string;
+    lineNumberLabel?: string;
+    codeLabel?: string;
   }
 }

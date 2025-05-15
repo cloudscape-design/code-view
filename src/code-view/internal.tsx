@@ -48,7 +48,7 @@ export function InternalCodeView({
   const darkMode = useCurrentMode(containerRef) === "dark";
 
   const regionProps = ariaLabel || ariaLabelledby ? { role: "region" } : {};
-  const accessibleLineNumbers = lineNumbers && i18nStrings?.lineLabel && i18nStrings?.contentLabel;
+  const accessibleLineNumbers = lineNumbers && i18nStrings?.lineNumberLabel && i18nStrings?.codeLabel;
 
   // Create tokenized React nodes of the content.
   const code = highlight ? highlight(content) : textHighlight(content);
@@ -82,8 +82,8 @@ export function InternalCodeView({
           {accessibleLineNumbers && (
             <thead className={styles["screenreader-only"]}>
               <tr>
-                {lineNumbers && <th>{i18nStrings.lineLabel}</th>}
-                <th>{i18nStrings.contentLabel}</th>
+                {lineNumbers && <th>{i18nStrings.lineNumberLabel}</th>}
+                <th>{i18nStrings.codeLabel}</th>
               </tr>
             </thead>
           )}

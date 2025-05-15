@@ -48,12 +48,12 @@ exports[`definition for 'code-view' matches the snapshot 1`] = `
         "name": "CodeViewProps.I18nStrings",
         "properties": [
           {
-            "name": "contentLabel",
+            "name": "codeLabel",
             "optional": true,
             "type": "string",
           },
           {
-            "name": "lineLabel",
+            "name": "lineNumberLabel",
             "optional": true,
             "type": "string",
           },

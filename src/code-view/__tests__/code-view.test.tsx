@@ -30,7 +30,7 @@ describe("CodeView", () => {
     render(
       <CodeView
         lineNumbers={true}
-        i18nStrings={{ lineLabel: "Line number", contentLabel: "Content" }}
+        i18nStrings={{ lineNumberLabel: "Line number", codeLabel: "Code" }}
         content={`# Hello World\n\nThis is a markdown example.`}
       />,
     );
@@ -40,7 +40,7 @@ describe("CodeView", () => {
     const lineNumberColumn = wrapper.find("th:nth-child(1)")!.getElement();
     expect(lineNumberColumn).toHaveTextContent("Line number");
     const contentColumn = wrapper.find("th:nth-child(2)")!.getElement();
-    expect(contentColumn).toHaveTextContent("Content");
+    expect(contentColumn).toHaveTextContent("Code");
     const lineNumberCell = wrapper.find("td:nth-child(1)")!.getElement();
     expect(lineNumberCell).not.toHaveAttribute("aria-hidden", "true");
   });
