@@ -43,6 +43,31 @@ exports[`definition for 'code-view' matches the snapshot 1`] = `
       "type": "((code: string) => React.ReactNode)",
     },
     {
+      "description": "An object containing all the necessary localized strings required by the component. The object should contain:
+
+* \`lineNumberLabel\` - Label for the column that displays line numbers (when line numbers are visible)
+* \`codeLabel\` - Label for the column that displays the code content (when line numbers are visible)",
+      "inlineType": {
+        "name": "CodeViewProps.I18nStrings",
+        "properties": [
+          {
+            "name": "codeLabel",
+            "optional": true,
+            "type": "string",
+          },
+          {
+            "name": "lineNumberLabel",
+            "optional": true,
+            "type": "string",
+          },
+        ],
+        "type": "object",
+      },
+      "name": "i18nStrings",
+      "optional": true,
+      "type": "CodeViewProps.I18nStrings",
+    },
+    {
       "description": "Controls the display of line numbers.
 
 Defaults to \`false\`.",

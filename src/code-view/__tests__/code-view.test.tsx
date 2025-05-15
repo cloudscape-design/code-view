@@ -26,6 +26,25 @@ describe("CodeView", () => {
     expect(content.getElement()).toHaveTextContent("# Hello World This is a markdown example.");
   });
 
+  test("correctly renders table markup with line numbers", () => {
+    render(
+      <CodeView
+        lineNumbers={true}
+        i18nStrings={{ lineNumberLabel: "Line number", codeLabel: "Code" }}
+        content={`# Hello World\n\nThis is a markdown example.`}
+      />,
+    );
+    const wrapper = createWrapper()!.findCodeView()!;
+    const table = wrapper.find("table")!.getElement();
+    expect(table).not.toHaveAttribute("role");
+    const lineNumberColumn = wrapper.find("th:nth-child(1)")!.getElement();
+    expect(lineNumberColumn).toHaveTextContent("Line number");
+    const contentColumn = wrapper.find("th:nth-child(2)")!.getElement();
+    expect(contentColumn).toHaveTextContent("Code");
+    const lineNumberCell = wrapper.find("td:nth-child(1)")!.getElement();
+    expect(lineNumberCell).not.toHaveAttribute("aria-hidden", "true");
+  });
+
   test("correctly renders copy button slot", () => {
     render(<CodeView content={"Hello World"} actions={<button>Copy</button>}></CodeView>);
     const wrapper = createWrapper()!.findCodeView();
