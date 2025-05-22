@@ -2,9 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 import { expect, test } from "vitest";
 
-// @ts-expect-error no types here
 import apiDocs from "../../lib/components/internal/api-docs/components";
 
-test.each(Object.entries(apiDocs))("definition for $0 matches the snapshot", (name, definition) => {
+test.each(Object.entries(apiDocs))("definition for $0 matches the snapshot", (_name, definition) => {
   expect(definition).toMatchSnapshot();
 });
