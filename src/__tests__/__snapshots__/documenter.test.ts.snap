@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`definition for 'code-view' matches the snapshot 1`] = `
+exports[`definition for code-view matches the snapshot > code-view 1`] = `
 {
   "dashCaseName": "code-view",
   "events": [],
