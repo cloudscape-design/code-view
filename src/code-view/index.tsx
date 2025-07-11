@@ -1,5 +1,6 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
+"use client";
 import { applyDisplayName } from "../internal/base-component/apply-display-name";
 import useBaseComponent from "../internal/base-component/use-base-component";
 import type { CodeViewProps } from "./interfaces";
