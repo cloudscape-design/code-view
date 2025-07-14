@@ -7,7 +7,7 @@ import useBrowser from "@cloudscape-design/browser-test-tools/use-browser";
 // Default window size to ensure 4-columns layout is used.
 const windowSize = { width: 1600, height: 800 };
 
-export function setupTest<P extends BasePageObject & { init?(): Promise<void> }>(
+export function setupTest<P extends BasePageObject>(
   url: string,
   PageClass: new (browser: WebdriverIO.Browser) => P,
   test: (page: P) => Promise<void>,
@@ -16,9 +16,6 @@ export function setupTest<P extends BasePageObject & { init?(): Promise<void> }>
     await browser.url(url);
     const page = new PageClass(browser);
     await page.waitForVisible("main");
-
-    // Custom initialization.
-    page.init && (await page.init());
 
     await test(page);
   });

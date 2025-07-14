@@ -40,7 +40,7 @@ export default function useBaseComponent<T = any>(componentName: string, config?
 // we also support data-* attributes, but they are always implicitly allowed by typescript
 // http://www.typescriptlang.org/docs/handbook/jsx.html#attribute-type-checking
 // "Note: If an attribute name is not a valid JS identifier (like a data-* attribute), it is not considered to be an error"
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface BaseComponentProps {}
 
 export function getBaseProps(props: BaseComponentProps) {

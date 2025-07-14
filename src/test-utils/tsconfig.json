@@ -5,6 +5,7 @@
     "module": "CommonJS",
     "target": "ES2019",
     "lib": ["es2019", "dom"],
+    "types": [],
     "declaration": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "../../lib/components/test-utils",
