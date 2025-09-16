@@ -41,7 +41,10 @@ findAllCodeViews(selector?: string): Array<CodeViewWrapper>;
 
 
 ElementWrapper.prototype.findCodeView = function(selector) {
-  const rootSelector = \`.\${CodeViewWrapper.rootSelector}\`;
+  let rootSelector = \`.\${CodeViewWrapper.rootSelector}\`;
+  if("legacyRootSelector" in CodeViewWrapper && CodeViewWrapper.legacyRootSelector){
+    rootSelector = \`:is(.\${CodeViewWrapper.rootSelector}, .\${CodeViewWrapper.legacyRootSelector})\`;
+  }
   // casting to 'any' is needed to avoid this issue with generics
   // https://github.com/microsoft/TypeScript/issues/29132
   return (this as any).findComponent(selector ? appendSelector(selector, rootSelector) : rootSelector, CodeViewWrapper);
@@ -100,7 +103,10 @@ findAllCodeViews(selector?: string): MultiElementWrapper<CodeViewWrapper>;
 
 
 ElementWrapper.prototype.findCodeView = function(selector) {
-  const rootSelector = \`.\${CodeViewWrapper.rootSelector}\`;
+  let rootSelector = \`.\${CodeViewWrapper.rootSelector}\`;
+  if("legacyRootSelector" in CodeViewWrapper && CodeViewWrapper.legacyRootSelector){
+    rootSelector = \`:is(.\${CodeViewWrapper.rootSelector}, .\${CodeViewWrapper.legacyRootSelector})\`;
+  }
   // casting to 'any' is needed to avoid this issue with generics
   // https://github.com/microsoft/TypeScript/issues/29132
   return (this as any).findComponent(selector ? appendSelector(selector, rootSelector) : rootSelector, CodeViewWrapper);
