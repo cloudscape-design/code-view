@@ -39,10 +39,6 @@ $color-background-code-view-dark: #282c34;
   }
 }
 
-.code-table-with-actions.code-table-with-line-wrapping {
-  padding-inline-end: cs.$space-static-xxl;
-}
-
 .screenreader-only {
   position: absolute;
   inset-block-start: -9999px;
@@ -50,7 +46,6 @@ $color-background-code-view-dark: #282c34;
 }
 
 .line-number {
-  vertical-align: text-top;
   white-space: nowrap;
   position: sticky;
   inset-inline-start: 0;
@@ -81,6 +76,16 @@ $color-background-code-view-dark: #282c34;
   }
   &-nowrap {
     white-space: pre;
+  }
+}
+
+.code-table-with-line-wrapping {
+  .line-number,
+  .code-line {
+    vertical-align: text-top;
+  }
+  &.code-table-with-actions {
+    padding-inline-end: cs.$space-static-xxl;
   }
 }
 
