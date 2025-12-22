@@ -1,13 +1,13 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import { Suspense } from "react";
-import { useEffect, useState } from "react";
 
 import { SpaceBetween, Toggle } from "@cloudscape-design/components";
-import { applyDensity, applyMode, Density, Mode } from "@cloudscape-design/global-styles";
+import { Density, Mode } from "@cloudscape-design/global-styles";
 
 import { pagesMap } from "../pages";
 import PageLayout from "./page-layout";
+import useModes from "./use-modes";
 
 export interface PageProps {
   pageId: string;
@@ -15,16 +15,7 @@ export interface PageProps {
 
 export default function Page({ pageId }: PageProps) {
   const Component = pagesMap[pageId];
-  const [dark, setDark] = useState(false);
-  const [compact, setCompact] = useState(false);
-
-  useEffect(() => {
-    applyMode(dark ? Mode.Dark : Mode.Light, document.documentElement);
-  }, [dark]);
-
-  useEffect(() => {
-    applyDensity(compact ? Density.Compact : Density.Comfortable, document.documentElement);
-  }, [compact]);
+  const { mode, density, setParams } = useModes();
 
   return (
     <PageLayout>
@@ -32,10 +23,16 @@ export default function Page({ pageId }: PageProps) {
         <SpaceBetween direction="vertical" size="m">
           <a href="/index.html#">Back to all pages</a>
           <SpaceBetween direction="horizontal" size="m">
-            <Toggle checked={dark} onChange={(event) => setDark(event.detail.checked)}>
+            <Toggle
+              checked={mode === Mode.Dark}
+              onChange={(event) => setParams({ mode: event.detail.checked ? Mode.Dark : Mode.Light })}
+            >
               Dark mode
             </Toggle>
-            <Toggle checked={compact} onChange={(event) => setCompact(event.detail.checked)}>
+            <Toggle
+              checked={density === Density.Compact}
+              onChange={(event) => setParams({ density: event.detail.checked ? Density.Compact : Density.Comfortable })}
+            >
               Compact mode
             </Toggle>
           </SpaceBetween>
