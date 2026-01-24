@@ -1,6 +1,6 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import { Children, createElement, Fragment, ReactElement, useRef } from "react";
+import { Children, ReactElement, useRef } from "react";
 import clsx from "clsx";
 
 import { useCurrentMode } from "@cloudscape-design/component-toolkit/internal";
@@ -51,10 +51,8 @@ export function InternalCodeView({
   const accessibleLineNumbers = lineNumbers && i18nStrings?.lineNumberLabel && i18nStrings?.codeLabel;
 
   // Create tokenized React nodes of the content.
-  const code = highlight ? highlight(content) : textHighlight(content);
-  // Create elements from the nodes.
-  const codeElementWrapper: ReactElement = createElement(Fragment, null, code);
-  const codeElement = Children.only(codeElementWrapper.props.children);
+  // Both highlight() and textHighlight() return a <span> element containing line children.
+  const codeElement = (highlight ? highlight(content) : textHighlight(content)) as ReactElement;
 
   return (
     <div
