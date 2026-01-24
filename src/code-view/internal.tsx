@@ -1,6 +1,6 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import { Children, createElement, Fragment, ReactElement, useRef } from "react";
+import { Children, createElement, Fragment, ReactElement, useMemo, useRef } from "react";
 import clsx from "clsx";
 
 import { useCurrentMode } from "@cloudscape-design/component-toolkit/internal";
@@ -50,8 +50,8 @@ export function InternalCodeView({
   const regionProps = ariaLabel || ariaLabelledby ? { role: "region" } : {};
   const accessibleLineNumbers = lineNumbers && i18nStrings?.lineNumberLabel && i18nStrings?.codeLabel;
 
-  // Create tokenized React nodes of the content.
-  const code = highlight ? highlight(content) : textHighlight(content);
+  // Memoize tokenized React nodes to avoid re-running highlight on every render.
+  const code = useMemo(() => (highlight ? highlight(content) : textHighlight(content)), [content, highlight]);
   // Create elements from the nodes.
   const codeElementWrapper: ReactElement = createElement(Fragment, null, code);
   const codeElement = Children.only(codeElementWrapper.props.children);
