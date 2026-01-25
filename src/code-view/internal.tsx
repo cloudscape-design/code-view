@@ -13,6 +13,10 @@ import styles from "./styles.css.js";
 
 const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" };
 
+// Static props objects to avoid recreation on every render.
+const REGION_PROPS = { role: "region" } as const;
+const NO_REGION_PROPS = {} as const;
+
 type InternalCodeViewProps = CodeViewProps & InternalBaseComponentProps;
 
 // Breaks down the input code for non-highlighted code-view into React
@@ -47,7 +51,7 @@ export function InternalCodeView({
   const containerRef = useRef<HTMLDivElement>(null);
   const darkMode = useCurrentMode(containerRef) === "dark";
 
-  const regionProps = ariaLabel || ariaLabelledby ? { role: "region" } : {};
+  const regionProps = ariaLabel || ariaLabelledby ? REGION_PROPS : NO_REGION_PROPS;
   const accessibleLineNumbers = lineNumbers && i18nStrings?.lineNumberLabel && i18nStrings?.codeLabel;
 
   // Create tokenized React nodes of the content.
