@@ -18,7 +18,7 @@ export function createHighlight(rules: Ace.HighlightRules): CreateHighlightType 
           <Fragment key={lineIndex}>
             {lineTokens.map((token, tokenIndex) => {
               return token.className ? (
-                <span className={token?.className} key={tokenIndex}>
+                <span className={token.className} key={tokenIndex}>
                   {token.value}
                 </span>
               ) : (
