@@ -36,6 +36,15 @@ findCodeView(selector?: string): CodeViewWrapper | null;
  * @returns {Array<CodeViewWrapper>}
  */
 findAllCodeViews(selector?: string): Array<CodeViewWrapper>;
+
+/**
+ * Returns the wrapper of the closest parent CodeView for the current element,
+ * or the element itself if it is an instance of CodeView.
+ * If no CodeView is found, returns \`null\`.
+ *
+ * @returns {CodeViewWrapper | null}
+ */
+findClosestCodeView(): CodeViewWrapper | null;
    }
 }
 
@@ -54,6 +63,11 @@ ElementWrapper.prototype.findAllCodeViews = function(selector) {
   return this.findAllComponents(CodeViewWrapper, selector);
 };
 
+ElementWrapper.prototype.findClosestCodeView = function() {
+  // casting to 'any' is needed to avoid this issue with generics
+  // https://github.com/microsoft/TypeScript/issues/29132
+  return (this as any).findClosestComponent(CodeViewWrapper);
+};
 
 export default function wrapper(root: Element = document.body) {
   if (document && document.body && !document.body.contains(root)) {
