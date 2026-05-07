@@ -1,24 +1,31 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import path from "path";
-import { expect, test } from "vitest";
+import { describe, expect, test } from "vitest";
 
-import { ScreenshotPageObject } from "@cloudscape-design/browser-test-tools/page-objects";
+import useBrowser from "@cloudscape-design/browser-test-tools/use-browser";
 
-import { setupTest } from "../utils";
+import { TestDefinition, testDefinitions } from "./definitions";
+import { PageObject } from "./page-object";
 
-const pagesMap = import.meta.glob("../../pages/**/*.page.tsx", { as: "raw" });
-const pages = Object.keys(pagesMap)
-  .map((page) => page.replace(/\.page\.tsx$/, ""))
-  .map((page) => "/#/" + path.relative("../../pages/", page));
+const defaultWindowSize = { width: 1600, height: 800 };
 
-test.each(pages)("matches snapshot for %s", (route) =>
-  setupTest(route, ScreenshotPageObject, async (page) => {
-    const hasScreenshotArea = await page.isExisting(".screenshot-area");
-
-    if (hasScreenshotArea) {
-      const pngString = await page.fullPageScreenshot();
-      expect(pngString).toMatchImageSnapshot();
+function parseAndRun(definitions: TestDefinition[]) {
+  for (const definition of definitions) {
+    if ("tests" in definition) {
+      describe(definition.description, () => {
+        parseAndRun(definition.tests);
+      });
+    } else {
+      const windowSize = definition.windowSize ?? defaultWindowSize;
+      test(definition.description, () =>
+        useBrowser(windowSize, async (browser) => {
+          const page = new PageObject(browser, definition.path, definition.queryParams);
+          const screenshot = await definition.test(page);
+          expect(screenshot).toMatchImageSnapshot();
+        })(),
+      );
     }
-  })(),
-);
+  }
+}
+
+parseAndRun(testDefinitions);

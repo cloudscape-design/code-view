@@ -8,7 +8,7 @@
   "homepage": "https://cloudscape.design",
   "scripts": {
     "prebuild": "rm -rf lib dist .cache",
-    "build": "npm-run-all build:pkg --parallel build:src:* --parallel build:pages:* build:themeable",
+    "build": "npm-run-all build:pkg --parallel build:src:* --parallel build:pages:* build:themeable build:test-definitions",
     "postbuild": "size-limit",
     "lint": "npm-run-all --parallel lint:*",
     "lint:eslint": "eslint .",
@@ -36,6 +36,7 @@
     "build:pages:vite": "vite build",
     "build:pages:tsc": "tsc -p pages/tsconfig.json",
     "build:pages:bundle": "vite build -c vite.dev-pages.config.mjs",
+    "build:test-definitions": "vite build -c vite.test-definitions.config.mjs",
     "postinstall": "prepare-package-lock"
   },
   "exports": {
