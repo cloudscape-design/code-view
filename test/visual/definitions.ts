@@ -22,48 +22,42 @@ export const testDefinitions: TestDefinition[] = [
       {
         description: "simple",
         path: "code-view/simple",
-        test: async (page) => {
-          await page.openScenario();
+        test: (page) => {
           return page.fullPageScreenshot();
         },
       },
       {
         description: "with actions button",
         path: "code-view/with-actions-button",
-        test: async (page) => {
-          await page.openScenario();
+        test: (page) => {
           return page.fullPageScreenshot();
         },
       },
       {
         description: "with all features",
         path: "code-view/with-all-features",
-        test: async (page) => {
-          await page.openScenario();
+        test: (page) => {
           return page.fullPageScreenshot();
         },
       },
       {
         description: "with line numbers",
         path: "code-view/with-line-numbers",
-        test: async (page) => {
-          await page.openScenario();
+        test: (page) => {
           return page.fullPageScreenshot();
         },
       },
       {
         description: "with line wrapping",
         path: "code-view/with-line-wrapping",
-        test: async (page) => {
-          await page.openScenario();
+        test: (page) => {
           return page.fullPageScreenshot();
         },
       },
       {
         description: "with syntax highlighting",
         path: "code-view/with-syntax-highlighting",
-        test: async (page) => {
-          await page.openScenario();
+        test: (page) => {
           return page.fullPageScreenshot();
         },
       },
