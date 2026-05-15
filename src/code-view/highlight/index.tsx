@@ -25,7 +25,7 @@ export function createHighlight(rules: Ace.HighlightRules): CreateHighlightType 
                 token.value
               );
             })}
-            {"\n"}
+            {lineIndex < tokens.length - 1 ? "\n" : ""}
           </Fragment>
         ))}
       </span>
