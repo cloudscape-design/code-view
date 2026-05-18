@@ -28,7 +28,7 @@ const textHighlight = (code: string) => {
       {lines.map((line, lineIndex) => (
         <span key={lineIndex}>
           {line}
-          {"\n"}
+          {lineIndex < lines.length - 1 ? "\n" : ""}
         </span>
       ))}
     </span>

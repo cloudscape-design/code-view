@@ -14,16 +14,24 @@ describe("CodeView", () => {
     cleanup();
   });
   test("correctly renders simple content", () => {
-    render(<CodeView content={"Hello World"}></CodeView>);
-    const wrapper = createWrapper()!.findCodeView();
-    expect(wrapper!.findContent().getElement()).toHaveTextContent("Hello World");
+    const input = "Hello World";
+    render(<CodeView content={input}></CodeView>);
+    const wrapper = createWrapper()!.findCodeView()!;
+    expect(wrapper.findContent().getElement().textContent).toBe(input);
   });
 
   test("correctly renders multi line content", () => {
-    render(<CodeView content={`# Hello World\n\nThis is a markdown example.`}></CodeView>);
+    const input = `# Hello World\n\nThis is a markdown example.`;
+    render(<CodeView content={input}></CodeView>);
     const wrapper = createWrapper()!.findCodeView()!;
-    const content = wrapper.findContent();
-    expect(content.getElement()).toHaveTextContent("# Hello World This is a markdown example.");
+    expect(wrapper.findContent().getElement().textContent).toBe(input);
+  });
+
+  test("preserves a trailing newline when present in the input", () => {
+    const input = "a\nb\n";
+    render(<CodeView content={input}></CodeView>);
+    const wrapper = createWrapper()!.findCodeView()!;
+    expect(wrapper.findContent().getElement().textContent).toBe(input);
   });
 
   test("correctly renders table markup with line numbers", () => {
@@ -100,6 +108,13 @@ describe("CodeView", () => {
     expect(getByText(element, "hello")).toHaveClass("ace_identifier");
     expect(getByText(element, "string")).toHaveClass("ace_type");
     expect(getByText(element, '"world"')).toHaveClass("ace_string");
+  });
+
+  test("renders highlighted content without trailing newline", () => {
+    const input = 'const hello: string = "world";';
+    render(<CodeView content={input} highlight={typescriptHighlightRules}></CodeView>);
+    const wrapper = createWrapper()!.findCodeView()!;
+    expect(wrapper.findContent().getElement().textContent).toBe(input);
   });
 
   test("sets nowrap class to line if linesWrapping undefined", () => {
