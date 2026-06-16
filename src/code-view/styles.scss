@@ -10,13 +10,7 @@ $color-background-code-view-dark: #282c34;
 $color-background-code-view-one-theme-light: #f5f5f5;
 $color-background-code-view-one-theme-dark: #3b3b3b;
 
-.root {
-  position: relative;
-  border-start-start-radius: cs.$border-radius-tiles;
-  border-start-end-radius: cs.$border-radius-tiles;
-  border-end-start-radius: cs.$border-radius-tiles;
-  border-end-end-radius: cs.$border-radius-tiles;
-
+@mixin themed-background {
   background-color: $color-background-code-view-light;
   :global(.awsui-dark-mode) &,
   :global(.awsui-polaris-dark-mode) & {
@@ -29,6 +23,16 @@ $color-background-code-view-one-theme-dark: #3b3b3b;
   :global(.awsui-one-theme.awsui-polaris-dark-mode) & {
     background-color: $color-background-code-view-one-theme-dark;
   }
+}
+
+.root {
+  @include themed-background;
+
+  position: relative;
+  border-start-start-radius: cs.$border-radius-tiles;
+  border-start-end-radius: cs.$border-radius-tiles;
+  border-end-start-radius: cs.$border-radius-tiles;
+  border-end-end-radius: cs.$border-radius-tiles;
 }
 
 .scroll-container {
@@ -55,6 +59,8 @@ $color-background-code-view-one-theme-dark: #3b3b3b;
 }
 
 .line-number {
+  @include themed-background;
+
   white-space: nowrap;
   position: sticky;
   inset-inline-start: 0;
@@ -63,19 +69,6 @@ $color-background-code-view-one-theme-dark: #3b3b3b;
   border-inline-end-color: cs.$color-border-divider-default;
   padding-inline-start: cs.$space-static-xs;
   padding-inline-end: cs.$space-static-xs;
-
-  background-color: $color-background-code-view-light;
-  :global(.awsui-dark-mode) &,
-  :global(.awsui-polaris-dark-mode) & {
-    background-color: $color-background-code-view-dark;
-  }
-  :global(.awsui-one-theme) & {
-    background-color: $color-background-code-view-one-theme-light;
-  }
-  :global(.awsui-one-theme.awsui-dark-mode) &,
-  :global(.awsui-one-theme.awsui-polaris-dark-mode) & {
-    background-color: $color-background-code-view-one-theme-dark;
-  }
 }
 
 .unselectable {
