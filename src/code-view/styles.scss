@@ -7,6 +7,8 @@
 
 $color-background-code-view-light: #f8f8f8;
 $color-background-code-view-dark: #282c34;
+$color-background-code-view-one-theme-light: #f5f5f5;
+$color-background-code-view-one-theme-dark: #3b3b3b;
 
 .root {
   position: relative;
@@ -19,6 +21,13 @@ $color-background-code-view-dark: #282c34;
   :global(.awsui-dark-mode) &,
   :global(.awsui-polaris-dark-mode) & {
     background-color: $color-background-code-view-dark;
+  }
+  :global(.awsui-one-theme) & {
+    background-color: $color-background-code-view-one-theme-light;
+  }
+  :global(.awsui-one-theme.awsui-dark-mode) &,
+  :global(.awsui-one-theme.awsui-polaris-dark-mode) & {
+    background-color: $color-background-code-view-one-theme-dark;
   }
 }
 
@@ -60,6 +69,13 @@ $color-background-code-view-dark: #282c34;
   :global(.awsui-polaris-dark-mode) & {
     background-color: $color-background-code-view-dark;
   }
+  :global(.awsui-one-theme) & {
+    background-color: $color-background-code-view-one-theme-light;
+  }
+  :global(.awsui-one-theme.awsui-dark-mode) &,
+  :global(.awsui-one-theme.awsui-polaris-dark-mode) & {
+    background-color: $color-background-code-view-one-theme-dark;
+  }
 }
 
 .unselectable {
@@ -80,6 +96,7 @@ $color-background-code-view-dark: #282c34;
 }
 
 .code-table-with-line-wrapping {
+  /* stylelint-disable-next-line no-descending-specificity */
   .line-number,
   .code-line {
     vertical-align: text-top;
