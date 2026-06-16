@@ -89,7 +89,6 @@ $color-background-code-view-one-theme-dark: #3b3b3b;
 }
 
 .code-table-with-line-wrapping {
-  /* stylelint-disable-next-line no-descending-specificity */
   .line-number,
   .code-line {
     vertical-align: text-top;
