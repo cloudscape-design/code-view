@@ -18,7 +18,7 @@ export default defineConfig({
       enabled: process.env.CI === "true",
       provider: "v8",
       include: ["src/**", "lib/components/**"],
-      exclude: ["**/__tests__/**", "**/*.d.ts", "**/*.json", "**/api-docs/**", "**/test-utils/selectors/**"],
+      exclude: ["**/__tests__/**", "**/*.d.ts", "**/api-docs/**", "**/test-utils/selectors/**"],
     },
   },
 });
