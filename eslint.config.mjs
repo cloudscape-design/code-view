@@ -50,6 +50,7 @@ export default tsEslint.config(
       "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
       "@typescript-eslint/no-explicit-any": "off",
       "@cloudscape-design/build-tools/react-server-components-directive": "error",
+      "@cloudscape-design/build-tools/no-internal-in-public-interfaces": "error",
       "react/display-name": "off",
       "react/no-danger": "error",
       "react/no-unstable-nested-components": ["error", { allowAsProps: true }],
