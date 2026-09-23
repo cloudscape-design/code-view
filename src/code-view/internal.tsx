@@ -1,6 +1,6 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-import { Children, createElement, Fragment, ReactElement, useMemo, useRef } from "react";
+import { Children, ReactElement, useMemo, useRef } from "react";
 import clsx from "clsx";
 
 import { useCurrentMode } from "@cloudscape-design/component-toolkit/internal";
@@ -56,9 +56,7 @@ export function InternalCodeView({
 
   // Memoize tokenized React nodes to avoid re-running highlight on every render.
   const code = useMemo(() => (highlight ? highlight(content) : textHighlight(content)), [content, highlight]);
-  // Create elements from the nodes.
-  const codeElementWrapper: ReactElement = createElement(Fragment, null, code);
-  const codeElement = Children.only(codeElementWrapper.props.children);
+  const codeElement = Children.only(code) as ReactElement;
 
   return (
     <div
