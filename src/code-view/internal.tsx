@@ -16,6 +16,10 @@ const ACE_CLASSES = { light: "ace-cloud_editor", dark: "ace-cloud_editor_dark" }
 // Static props objects to avoid recreation on every render.
 const REGION_PROPS = { role: "region" } as const;
 const NO_REGION_PROPS = {} as const;
+const SHRINK_COL_STYLE = { width: 1 } as const;
+const AUTO_COL_STYLE = { width: "auto" } as const;
+
+const lineNumberClassName = clsx(styles["line-number"], styles.unselectable);
 
 type InternalCodeViewProps = CodeViewProps & InternalBaseComponentProps;
 
@@ -57,6 +61,10 @@ export function InternalCodeView({
   // Memoize tokenized React nodes to avoid re-running highlight on every render.
   const code = useMemo(() => (highlight ? highlight(content) : textHighlight(content)), [content, highlight]);
   const codeElement = Children.only(code) as ReactElement;
+  const codeLineClassName = clsx(
+    codeElement.props.className,
+    wrapLines ? styles["code-line-wrap"] : styles["code-line-nowrap"],
+  );
 
   return (
     <div
@@ -78,8 +86,8 @@ export function InternalCodeView({
           )}
         >
           <colgroup>
-            <col style={{ width: 1 } /* shrink to fit content */} />
-            <col style={{ width: "auto" }} />
+            <col style={SHRINK_COL_STYLE} />
+            <col style={AUTO_COL_STYLE} />
           </colgroup>
           {accessibleLineNumbers && (
             <thead className={styles["screenreader-only"]}>
@@ -94,10 +102,7 @@ export function InternalCodeView({
               return (
                 <tr key={index}>
                   {lineNumbers && (
-                    <td
-                      className={clsx(styles["line-number"], styles.unselectable)}
-                      aria-hidden={!accessibleLineNumbers}
-                    >
+                    <td className={lineNumberClassName} aria-hidden={!accessibleLineNumbers}>
                       <Box variant="code" color="text-status-inactive" fontSize="body-m">
                         {index + 1}
                       </Box>
@@ -105,14 +110,7 @@ export function InternalCodeView({
                   )}
                   <td className={styles["code-line"]}>
                     <Box variant="code" fontSize="body-m">
-                      <span
-                        className={clsx(
-                          codeElement.props.className,
-                          wrapLines ? styles["code-line-wrap"] : styles["code-line-nowrap"],
-                        )}
-                      >
-                        {child}
-                      </span>
+                      <span className={codeLineClassName}>{child}</span>
                     </Box>
                   </td>
                 </tr>
