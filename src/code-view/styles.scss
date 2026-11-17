@@ -9,6 +9,12 @@
   background-color: cs.$color-background-code-view;
 
   position: relative;
+  border-block-width: cs.$border-width-code-view;
+  border-inline-width: cs.$border-width-code-view;
+  border-block-style: solid;
+  border-inline-style: solid;
+  border-block-color: cs.$color-border-code-view;
+  border-inline-color: cs.$color-border-code-view;
   border-start-start-radius: cs.$border-radius-tiles;
   border-start-end-radius: cs.$border-radius-tiles;
   border-end-start-radius: cs.$border-radius-tiles;
